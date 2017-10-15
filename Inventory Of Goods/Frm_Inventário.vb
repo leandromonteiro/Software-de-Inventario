@@ -214,7 +214,7 @@ Public Class Frm_Inventário
         'If Nome_Imagem Is Nothing Then
         '    Exit Sub
         'End If
-        Nome_Imagem = I_E.DS.Tables("TB_Foto").Rows(0)(0)
+        'Nome_Imagem = I_E.DS.Tables("TB_Foto").Rows(0)(0)
         Imagem = I_E.DS.Tables("TB_Foto").Rows(0)(1)
         N_Fotos = 0
         PictureBox.ImageLocation = Imagem

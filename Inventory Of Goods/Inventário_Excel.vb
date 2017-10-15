@@ -2,7 +2,7 @@
 Imports Microsoft.Office.Interop
 
 Public Class Inventário_Excel
-    Dim connstr As String = "Data Source=C:\Users\Public\INVENTÁRIO.db;"
+    Dim connstr As String = "Data Source=C:\Users\Public\INVENTARIO.db;"
     Public DS As New DataSet
     Public Foto1 As String
     Public Foto2 As String
@@ -82,22 +82,22 @@ Public Class Inventário_Excel
 
     Public Sub Consulta_TUC(cmb As ComboBox)
         cmb.Items.Clear()
-        Try
-            Dim leitor As SQLite.SQLiteDataReader
+        'Try
+        Dim leitor As SQLite.SQLiteDataReader
             Dim connection As New SQLite.SQLiteConnection(connstr)
             Dim cmd As New SQLite.SQLiteCommand
             connection.Open()
             cmd.Connection = connection
-            cmd.CommandText = "select Descricao from [TUC$];"
-            leitor = cmd.ExecuteReader
+        cmd.CommandText = "select descricao from tuc;"
+        leitor = cmd.ExecuteReader
             Do While leitor.Read
                 cmb.Items.Add(leitor("Descricao"))
             Loop
             connection.Close()
 
-        Catch
-            MsgBox("Erro ao buscar dados no Excel", MsgBoxStyle.Critical)
-        End Try
+        'Catch
+        'MsgBox("Erro ao buscar dados no Excel", MsgBoxStyle.Critical)
+        'End Try
     End Sub
 
     Public Sub Consulta_TI_Geral(cmb As ComboBox)
@@ -108,11 +108,11 @@ Public Class Inventário_Excel
             Dim cmd As New SQLite.SQLiteCommand
             connection.Open()
             cmd.Connection = connection
-            cmd.CommandText = "select Desc_Geral from [TI$];"
+            cmd.CommandText = "select desc_geral from ti_geral;"
             leitor = cmd.ExecuteReader
             Do While leitor.Read
-                If Not IsDBNull(leitor("Desc_Geral")) Then
-                    cmb.Items.Add(leitor("Desc_Geral"))
+                If Not IsDBNull(leitor("desc_geral")) Then
+                    cmb.Items.Add(leitor("desc_geral"))
                 End If
             Loop
             connection.Close()
@@ -130,10 +130,10 @@ Public Class Inventário_Excel
             Dim cmd As New SQLite.SQLiteCommand
             connection.Open()
             cmd.Connection = connection
-            cmd.CommandText = "select Descricao from [TI$] where Cod_Geral_Todos=" & cod_geral & ";"
+            cmd.CommandText = "select descricao from ti where cod_geral_todos=" & cod_geral & ";"
             leitor = cmd.ExecuteReader
             Do While leitor.Read
-                cmb.Items.Add(leitor("Descricao"))
+                cmb.Items.Add(leitor("descricao"))
             Loop
             connection.Close()
 
@@ -152,7 +152,7 @@ Public Class Inventário_Excel
             Dim cmd As New SQLite.SQLiteCommand
             connection.Open()
             cmd.Connection = connection
-            cmd.CommandText = "select CM1,CM2,CM3 from [CM$];"
+            cmd.CommandText = "select CM1,CM2,CM3 from CM;"
             leitor = cmd.ExecuteReader
             Do While leitor.Read
                 If Not IsDBNull(leitor("CM1")) Then
@@ -178,7 +178,7 @@ Public Class Inventário_Excel
             Dim cmd As New SQLite.SQLiteCommand
             connection.Open()
             cmd.Connection = connection
-            cmd.CommandText = "select Descricao from [UAR$] where TUC=" & TUC & ";"
+            cmd.CommandText = "select Descricao from UAR where TUC=" & TUC & ";"
             leitor = cmd.ExecuteReader
             Do While leitor.Read
                 cmb.Items.Add(leitor("Descricao"))
@@ -198,7 +198,7 @@ Public Class Inventário_Excel
             Dim cmd As New SQLite.SQLiteCommand
             connection.Open()
             cmd.Connection = connection
-            cmd.CommandText = "select Desc_A1 from [ATRIBUTOS$] where TUC=" & TUC & ";"
+            cmd.CommandText = "select Desc_A1 from ATRIBUTOS where TUC=" & TUC & ";"
             leitor = cmd.ExecuteReader
             Do While leitor.Read
                 cmb.Items.Add(leitor("Desc_A1"))
@@ -220,8 +220,8 @@ Public Class Inventário_Excel
             Dim cmd As New SQLite.SQLiteCommand
             connection.Open()
             cmd.Connection = connection
-            cmd.CommandText = "select Descricao from [ATRIBUTOS$] where Cod_Tabela_Geral=(select Cod_Tabela from [ATRIBUTOS$] where Tabela=(select " & _
-            Desc_A & " from [ATRIBUTOS$] where TUC=" & TUC & " and A1='" & A1 & "'));"
+            cmd.CommandText = "select Descricao from ATRIBUTOS where Cod_Tabela_Geral=(select Cod_Tabela from ATRIBUTOS where Tabela=(select " &
+            Desc_A & " from ATRIBUTOS where TUC=" & TUC & " and A1='" & A1 & "'));"
             leitor = cmd.ExecuteReader
             Do While leitor.Read
                 N = 1
@@ -244,8 +244,8 @@ Public Class Inventário_Excel
             Dim cmd As New SQLite.SQLiteCommand
             connection.Open()
             cmd.Connection = connection
-            cmd.CommandText = "select " & _
-            Desc_A & " from [ATRIBUTOS$] where TUC=" & TUC & " and A1='" & A1 & "';"
+            cmd.CommandText = "select " &
+            Desc_A & " from ATRIBUTOS where TUC=" & TUC & " and A1='" & A1 & "';"
             leitor = cmd.ExecuteReader
             Do While leitor.Read
                 Lbl.Text = leitor(Desc_A)
@@ -264,7 +264,7 @@ Public Class Inventário_Excel
             Dim cmd As New SQLite.SQLiteCommand
             connection.Open()
             cmd.Connection = connection
-            cmd.CommandText = "select Cod_Atributos from [ATRIBUTOS$] where Descricao='" & cmb.Text & "';"
+            cmd.CommandText = "select Cod_Atributos from ATRIBUTOS where Descricao='" & cmb.Text & "';"
             leitor = cmd.ExecuteReader
             leitor.Read()
             Return leitor("Cod_Atributos")
@@ -283,7 +283,7 @@ Public Class Inventário_Excel
             Dim cmd As New SQLite.SQLiteCommand
             connection.Open()
             cmd.Connection = connection
-            cmd.CommandText = "select Cod_Geral from [TI$] where Desc_Geral='" & cmb.Text & "';"
+            cmd.CommandText = "select Cod_Geral from TI where Desc_Geral='" & cmb.Text & "';"
             leitor = cmd.ExecuteReader
             leitor.Read()
             Return leitor("Cod_Geral")
@@ -302,7 +302,7 @@ Public Class Inventário_Excel
             Dim cmd As New SQLite.SQLiteCommand
             connection.Open()
             cmd.Connection = connection
-            cmd.CommandText = "select Cod from [TI$] where Cod_Geral_Todos=" & cod_geral_todos & " and Descricao='" & cmb.Text & "';"
+            cmd.CommandText = "select Cod from TI where Cod_Geral_Todos=" & cod_geral_todos & " and Descricao='" & cmb.Text & "';"
             leitor = cmd.ExecuteReader
             leitor.Read()
             Return leitor("Cod")
@@ -321,7 +321,7 @@ Public Class Inventário_Excel
             Dim cmd As New SQLite.SQLiteCommand
             connection.Open()
             cmd.Connection = connection
-            cmd.CommandText = "select Cod from [UAR$] where TUC=" & TUC & " and Descricao='" & cmb.Text & "';"
+            cmd.CommandText = "select Cod from UAR where TUC=" & TUC & " and Descricao='" & cmb.Text & "';"
             leitor = cmd.ExecuteReader
             leitor.Read()
             Return leitor("Cod")
@@ -340,7 +340,7 @@ Public Class Inventário_Excel
             Dim cmd As New SQLite.SQLiteCommand
             connection.Open()
             cmd.Connection = connection
-            cmd.CommandText = "select A1 from [ATRIBUTOS$] where TUC=" & TUC & " and Desc_A1='" & cmb.Text & "';"
+            cmd.CommandText = "select A1 from ATRIBUTOS where TUC=" & TUC & " and Desc_A1='" & cmb.Text & "';"
             leitor = cmd.ExecuteReader
             leitor.Read()
             Return leitor("A1")
@@ -359,7 +359,7 @@ Public Class Inventário_Excel
             Dim cmd As New SQLite.SQLiteCommand
             connection.Open()
             cmd.Connection = connection
-            cmd.CommandText = "select TUC from [TUC$] where Descricao='" & cmb.Text & "';"
+            cmd.CommandText = "select TUC from TUC where Descricao='" & cmb.Text & "';"
             leitor = cmd.ExecuteReader
             leitor.Read()
             Return leitor("TUC")
@@ -378,7 +378,7 @@ Public Class Inventário_Excel
             Dim cmd As New SQLite.SQLiteCommand
             connection.Open()
             cmd.Connection = connection
-            cmd.CommandText = "select C1 from [CM$] where CM1='" & cmb.Text & "';"
+            cmd.CommandText = "select C1 from CM where CM1='" & cmb.Text & "';"
             leitor = cmd.ExecuteReader
             leitor.Read()
             Return leitor("C1")
@@ -397,7 +397,7 @@ Public Class Inventário_Excel
             Dim cmd As New SQLite.SQLiteCommand
             connection.Open()
             cmd.Connection = connection
-            cmd.CommandText = "select C2 from [CM$] where CM2='" & cmb.Text & "';"
+            cmd.CommandText = "select C2 from CM where CM2='" & cmb.Text & "';"
             leitor = cmd.ExecuteReader
             leitor.Read()
             Return leitor("C2")
@@ -416,7 +416,7 @@ Public Class Inventário_Excel
             Dim cmd As New SQLite.SQLiteCommand
             connection.Open()
             cmd.Connection = connection
-            cmd.CommandText = "select C3 from [CM$] where CM3='" & cmb.Text & "';"
+            cmd.CommandText = "select C3 from CM where CM3='" & cmb.Text & "';"
             leitor = cmd.ExecuteReader
             leitor.Read()
             Return leitor("C3")
@@ -428,48 +428,6 @@ Public Class Inventário_Excel
         End Try
     End Function
 
-    Public Sub Excluir_Fotos()
-        Dim xlApp As New Excel.Application
-        Dim xlWorkBook As Excel.Workbook
-        Dim xlWorkSheet As New Excel.Worksheet
-
-        xlWorkBook = xlApp.Workbooks.Open("C:\Users\Public\INVENTÁRIO_BD.xlsx")
-        xlWorkSheet = xlWorkBook.Sheets("ADM")
-        xlWorkSheet.Range("A2:B10000").Clear()
-        xlWorkBook.Save()
-        xlWorkBook.Close()
-    End Sub
-
-    Public Sub Inserir_Fotos(Caminho_Foto As String, Nome_Foto As String)
-        Try
-            Dim connection As New SQLite.SQLiteConnection(connstr)
-            Dim cmd As New SQLite.SQLiteCommand
-            connection.Open()
-            cmd.Connection = connection
-            cmd.CommandText = "insert into [ADM$] ([CAMINHO FOTOS],[FOTOS]) values('" & Caminho_Foto & "','" & Nome_Foto & "');"
-            cmd.ExecuteNonQuery()
-            connection.Close()
-
-        Catch
-            MsgBox("Erro ao buscar dados no Excel", MsgBoxStyle.Critical)
-        End Try
-    End Sub
-
-    Public Sub Buscar_Fotos()
-        Try
-            DS.Clear()
-            Dim DA As New SQLite.SQLiteDataAdapter
-            Dim connection As New SQLite.SQLiteConnection(connstr)
-            connection.Open()
-            DA.SelectCommand = New SQLite.SQLiteCommand("select [FOTOS],[CAMINHO FOTOS] from [ADM$];", connection)
-            DA.Fill(DS, "TB_Foto")
-            connection.Close()
-
-        Catch
-            MsgBox("Erro ao buscar dados no Excel", MsgBoxStyle.Critical)
-        End Try
-    End Sub
-
     Public Function Buscar_Ultimo_ID()
         Try
             Dim leitor As SQLite.SQLiteDataReader
@@ -477,7 +435,7 @@ Public Class Inventário_Excel
             Dim cmd As New SQLite.SQLiteCommand
             connection.Open()
             cmd.Connection = connection
-            cmd.CommandText = "select ID from [Inventario$] order by ID DESC;"
+            cmd.CommandText = "select ID from INVENTARIO order by ID DESC;"
             leitor = cmd.ExecuteReader
             leitor.Read()
             Return leitor("ID")
@@ -495,7 +453,7 @@ Public Class Inventário_Excel
             Dim cmd As New SQLite.SQLiteCommand
             connection.Open()
             cmd.Connection = connection
-            cmd.CommandText = "insert into [Inventario$] (ID) values('" & ID & "');"
+            cmd.CommandText = "insert into INVENTARIO (ID) values('" & ID & "');"
             cmd.ExecuteNonQuery()
             connection.Close()
 
@@ -511,24 +469,24 @@ Public Class Inventário_Excel
                                  cod_cm3 As String, cm3 As String, descricao As String, fabricante As String, modelo As String, serie As String,
                                  obs As String, qtd As Decimal, um As String, ano As String, mes As String, dia As String, status As String,
                                  estado_bem As String, altura As Decimal, largura As Decimal, comprimento As Decimal, area As Decimal, pe As Decimal,
-                                 obs_civil As String, consultor As String, lider As String, data_hora As String)
+                                 obs_civil As String, foto As String, consultor As String, lider As String, data_hora As String)
         Try
             Dim connection As New SQLite.SQLiteConnection(connstr)
             Dim cmd As New SQLite.SQLiteCommand
             connection.Open()
             cmd.Connection = connection
-            cmd.CommandText = "update [Inventario$] set [Sequencial]='" & seq & "',[Local]='" & local & "',[ODI]='" & odi & "',[Código TI]='" &
-                cod_ti & "',[TI]='" & ti & "',[Bay]='" & bay & "',[Código TUC]='" & cod_tuc & "',[Descrição TUC]='" & tuc & "',[Código Tipo de Bem]='" &
-                cod_tipo_bem & "',[Descrição Tipo de Bem]='" & tipo_bem & "',[Código UAR]='" & cod_uar & "',[Descrição UAR]='" & uar &
-                "',[Código A2]='" & cod_a2 & "',[Descrição A2]='" & a2 & "',[Código A3]='" & cod_a3 & "',[Descrição A3]='" & a3 & "',[Código A4]='" &
-                cod_a4 & "',[Descrição A4]='" & a4 & "',[Código A5]='" & cod_a5 & "',[Descrição A5]='" & a5 & "',[Código A6]='" & cod_a6 &
-                "',[Descrição A6]='" & a6 & "',[Código CM1]='" & cod_cm1 & "',[Descrição CM1]='" & cm1 & "',[Código CM2]='" & cod_cm2 &
-                "',[Descrição CM2]='" & cm2 & "',[Código CM3]='" & cod_cm3 & "',[Descrição CM3]='" & cm3 & "',[Descrição]='" & descricao &
-                "',[Fabricante]='" & fabricante & "',[Modelo]='" & modelo & "',[N° de Série]='" & serie & "',[Observação]='" & obs & "',[Quantidade]=" &
-                qtd & ",[Unidade de Medida]='" & um & "',[Ano de Fabricação]='" & ano & "',[Mês de Fabricação]='" & mes & "',[Dia de Fabricação]='" & dia &
-                "',[Status do Bem]='" & status & "',[Estado do Bem]='" & estado_bem & "',[Altura]=" & altura & ",[Largura]=" & largura & ",[Comprimento]=" &
-                comprimento & ",[Área]=" & area & ",[Pé Direito]=" & pe & ",[Observacao Civil]='" & obs_civil & "',[Consultor]='" & consultor & "',[Líder]='" &
-                lider & "',[Data/Hora]='" & data_hora & "' where [ID]=" & ID & ";"
+            cmd.CommandText = "update Inventario set Sequencial='" & seq & "',Local='" & local & "',ODI='" & odi & "',Código TI='" &
+                cod_ti & "',TI='" & ti & "',Bay='" & bay & "',Código TUC='" & cod_tuc & "',Descrição TUC='" & tuc & "',Código Tipo de Bem='" &
+                cod_tipo_bem & "',Descrição Tipo de Bem='" & tipo_bem & "',Código UAR='" & cod_uar & "',Descrição UAR='" & uar &
+                "',Código A2='" & cod_a2 & "',Descrição A2='" & a2 & "',Código A3='" & cod_a3 & "',Descrição A3='" & a3 & "',Código A4='" &
+                cod_a4 & "',Descrição A4='" & a4 & "',Código A5='" & cod_a5 & "',Descrição A5='" & a5 & "',Código A6='" & cod_a6 &
+                "',Descrição A6='" & a6 & "',Código CM1='" & cod_cm1 & "',Descrição CM1='" & cm1 & "',Código CM2='" & cod_cm2 &
+                "',Descrição CM2='" & cm2 & "',Código CM3='" & cod_cm3 & "',Descrição CM3='" & cm3 & "',Descrição='" & descricao &
+                "',Fabricante='" & fabricante & "',Modelo='" & modelo & "',N° de Série='" & serie & "',Observação='" & obs & "',Quantidade=" &
+                qtd & ",Unidade de Medida='" & um & "',Ano de Fabricação='" & ano & "',Mês de Fabricação='" & mes & "',Dia de Fabricação='" & dia &
+                "',Status do Bem='" & status & "',Estado do Bem='" & estado_bem & "',Altura=" & altura & ",Largura=" & largura & ",Comprimento=" &
+                comprimento & ",Área=" & area & ",Pé Direito=" & pe & ",Observacao Civil='" & obs_civil & "',foto='" & foto & "',Consultor='" & consultor & "',Líder='" &
+                lider & "',Data/Hora='" & data_hora & "' where ID=" & ID & ";"
 
             cmd.ExecuteNonQuery()
             connection.Close()
@@ -538,28 +496,13 @@ Public Class Inventário_Excel
         End Try
     End Sub
 
-    Public Sub Update_Fotos(ID As Integer, FOTO_Query As String, Foto As String)
-        Try
-            Dim connection As New SQLite.SQLiteConnection(connstr)
-            Dim cmd As New SQLite.SQLiteCommand
-            connection.Open()
-            cmd.Connection = connection
-            cmd.CommandText = "update [Inventario$] set [" & FOTO_Query & "]='" & Foto & "' where [ID]=" & ID & ";"
-            cmd.ExecuteNonQuery()
-            connection.Close()
-
-        Catch
-            MsgBox("Erro ao inserir fotos no Excel", MsgBoxStyle.Critical)
-        End Try
-    End Sub
-
     Public Sub Consulta_Excel(DGV As DataGridView)
         Try
             Dim connection As New SQLite.SQLiteConnection(connstr)
             Dim DA As New SQLite.SQLiteDataAdapter
             Dim DT As New DataTable
             connection.Open()
-            DA.SelectCommand = New SQLite.SQLiteCommand("select * from [Inventario$];", connection)
+            DA.SelectCommand = New SQLite.SQLiteCommand("select * from Inventario;", connection)
             DA.Fill(DT)
             connection.Close()
             DGV.DataSource = DT
@@ -628,16 +571,7 @@ Public Class Inventário_Excel
             Sh_T.Range("av1").Value = "Consultor"
             Sh_T.Range("aw1").Value = "Líder"
             Sh_T.Range("ax1").Value = "Data/Hora"
-            Sh_T.Range("ay1").Value = "Foto 1"
-            Sh_T.Range("az1").Value = "Foto 2"
-            Sh_T.Range("ba1").Value = "Foto 3"
-            Sh_T.Range("bb1").Value = "Foto 4"
-            Sh_T.Range("bc1").Value = "Foto 5"
-            Sh_T.Range("bd1").Value = "Foto 6"
-            Sh_T.Range("be1").Value = "Foto 7"
-            Sh_T.Range("bf1").Value = "Foto 8"
-            Sh_T.Range("bg1").Value = "Foto 9"
-            Sh_T.Range("bh1").Value = "Foto 10"
+            Sh_T.Range("ay1").Value = "Foto"
 
             Sh_T.Columns.AutoFit()
             Sh_T.Range("a1:bh1").Font.Bold = True
