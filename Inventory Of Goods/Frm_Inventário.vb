@@ -187,7 +187,7 @@ Public Class Frm_Inventário
     End Sub
 
     Public Sub Mostrar_Imagem()
-        I_E.Buscar_Fotos()
+        'I_E.Buscar_Fotos()
         If Fotos_Array.Count = 0 Then
             Exit Sub
         End If
@@ -210,14 +210,13 @@ Public Class Frm_Inventário
         I_E.Consulta_TUC(CmbTUC)
         I_E.Consulta_CM(CmbCm1, CmbCm2, CmbCm3)
         I_E.Consulta_TI_Geral(CmbTI_Geral)
-        I_E.Buscar_Fotos()
         'If Nome_Imagem Is Nothing Then
         '    Exit Sub
         'End If
         'Nome_Imagem = I_E.DS.Tables("TB_Foto").Rows(0)(0)
-        Imagem = I_E.DS.Tables("TB_Foto").Rows(0)(1)
+        'Imagem = I_E.DS.Tables("TB_Foto").Rows(0)(1)
         N_Fotos = 0
-        PictureBox.ImageLocation = Imagem
+        'PictureBox.ImageLocation = Imagem
     End Sub
 
     Private Sub CmbTUC_SelectedIndexChanged(sender As Object, e As EventArgs) Handles CmbTUC.SelectedIndexChanged
@@ -387,22 +386,13 @@ Public Class Frm_Inventário
             TxtPe.Text = 0
         End If
 
-        I_E.Update_Inventario(ID, Sequencial, TxtLocal.Text, TxtODI.Text, TI, CmbTI.Text, TxtBay.Text, TUC, CmbTUC.Text, A1, CmbA1.Text, _
-                              UAR, CmbUAR.Text, A2, CmbA2.Text, A3, CmbA3.Text, A4, CmbA4.Text, A5, CmbA5.Text, A6, CmbA6.Text, CM1, CmbCm1.Text, _
-                              CM2, CmbCm2.Text, CM3, CmbCm3.Text, TxtDesc.Text, TxtFabricante.Text, TxtModelo.Text, TxtSerie.Text, TxtObs.Text, _
-                              TxtQtd.Text, CmbUm.Text, CmbAno.Text, CmbMes.Text, CmbDia.Text, CmbStatus.Text, CmbEstado.Text, TxtAltura.Text, _
-                              TxtLargura.Text, TxtComprimento.Text, TxtArea.Text, TxtPe.Text, TxtObsCivil.Text, consultor, lider, Now())
-        'Update Imagens
+        I_E.Update_Inventario(ID, Sequencial, TxtLocal.Text, TxtODI.Text, TI, CmbTI.Text, TxtBay.Text, TUC, CmbTUC.Text, A1, CmbA1.Text,
+                              UAR, CmbUAR.Text, A2, CmbA2.Text, A3, CmbA3.Text, A4, CmbA4.Text, A5, CmbA5.Text, A6, CmbA6.Text, CM1, CmbCm1.Text,
+                              CM2, CmbCm2.Text, CM3, CmbCm3.Text, TxtDesc.Text, TxtFabricante.Text, TxtModelo.Text, TxtSerie.Text, TxtObs.Text,
+                              TxtQtd.Text, CmbUm.Text, CmbAno.Text, CmbMes.Text, CmbDia.Text, CmbStatus.Text, CmbEstado.Text, TxtAltura.Text,
+                              TxtLargura.Text, TxtComprimento.Text, TxtArea.Text, TxtPe.Text, TxtObsCivil.Text, "", consultor, lider, Now())
 
-        For i = 1 To 10
-            I_E.Update_Fotos(ID, "FOTO " & i, " ")
-        Next
-        If Fotos_Array.Count > 0 Then
-            For z = 1 To Fotos_Array.Count
-                I_E.Update_Fotos(ID, "FOTO " & z, Fotos_Array(z - 1))
-            Next
-        End If
-       
+
         BtnNovo.Enabled = True
         BtnCopiar.Enabled = True
     End Sub

@@ -22,8 +22,7 @@ Public Class Inventário_Excel
             Dim cmd As New SQLite.SQLiteCommand
             connection.Open()
             cmd.Connection = connection
-            cmd.CommandText = "select Desc_Geral from [TI$] where Cod_Geral=" &
-                "(select Cod_Geral_Todos from [TI$] where Cod=" & TI & ");"
+            cmd.CommandText = "select descricao from TI where cod_geral_todos='" & TI & "');"
             leitor = cmd.ExecuteReader
             leitor.Read()
             Return leitor("Desc_Geral")
@@ -130,7 +129,7 @@ Public Class Inventário_Excel
             Dim cmd As New SQLite.SQLiteCommand
             connection.Open()
             cmd.Connection = connection
-            cmd.CommandText = "select descricao from ti where cod_geral_todos=" & cod_geral & ";"
+            cmd.CommandText = "select descricao from ti where cod_geral_todos='" & cod_geral & "';"
             leitor = cmd.ExecuteReader
             Do While leitor.Read
                 cmb.Items.Add(leitor("descricao"))
@@ -155,11 +154,11 @@ Public Class Inventário_Excel
             cmd.CommandText = "select CM1,CM2,CM3 from CM;"
             leitor = cmd.ExecuteReader
             Do While leitor.Read
-                If Not IsDBNull(leitor("CM1")) Then
+                If Not leitor("CM1") = "" Then
                     cmb1.Items.Add(leitor("CM1"))
                 End If
                 cmb2.Items.Add(leitor("CM2"))
-                If Not IsDBNull(leitor("CM3")) Then
+                If Not leitor("CM3") = "" Then
                     cmb3.Items.Add(leitor("CM3"))
                 End If
             Loop
@@ -198,7 +197,7 @@ Public Class Inventário_Excel
             Dim cmd As New SQLite.SQLiteCommand
             connection.Open()
             cmd.Connection = connection
-            cmd.CommandText = "select Desc_A1 from ATRIBUTOS where TUC=" & TUC & ";"
+            cmd.CommandText = "select Desc_A1 from RELACIONAMENTO_ATRIBUTOS where TUC='" & TUC & "';"
             leitor = cmd.ExecuteReader
             Do While leitor.Read
                 cmb.Items.Add(leitor("Desc_A1"))
@@ -220,8 +219,8 @@ Public Class Inventário_Excel
             Dim cmd As New SQLite.SQLiteCommand
             connection.Open()
             cmd.Connection = connection
-            cmd.CommandText = "select Descricao from ATRIBUTOS where Cod_Tabela_Geral=(select Cod_Tabela from ATRIBUTOS where Tabela=(select " &
-            Desc_A & " from ATRIBUTOS where TUC=" & TUC & " and A1='" & A1 & "'));"
+            cmd.CommandText = "select Descricao from DESC_TABELA where Cod_Tabela_Geral=(select Cod_Tabela from TABELA where Tabela=(select " &
+            Desc_A & " from RELACIONAMENTO_ATRIBUTOS where TUC='" & TUC & "' and A1='" & A1 & "'));"
             leitor = cmd.ExecuteReader
             Do While leitor.Read
                 N = 1
@@ -245,7 +244,7 @@ Public Class Inventário_Excel
             connection.Open()
             cmd.Connection = connection
             cmd.CommandText = "select " &
-            Desc_A & " from ATRIBUTOS where TUC=" & TUC & " and A1='" & A1 & "';"
+            Desc_A & " from RELACIONAMENTO_ATRIBUTOS where TUC='" & TUC & "' and A1='" & A1 & "';"
             leitor = cmd.ExecuteReader
             Do While leitor.Read
                 Lbl.Text = leitor(Desc_A)
@@ -264,7 +263,7 @@ Public Class Inventário_Excel
             Dim cmd As New SQLite.SQLiteCommand
             connection.Open()
             cmd.Connection = connection
-            cmd.CommandText = "select Cod_Atributos from ATRIBUTOS where Descricao='" & cmb.Text & "';"
+            cmd.CommandText = "select Cod_Atributos from DESC_TABELA where Descricao='" & cmb.Text & "';"
             leitor = cmd.ExecuteReader
             leitor.Read()
             Return leitor("Cod_Atributos")
@@ -283,7 +282,7 @@ Public Class Inventário_Excel
             Dim cmd As New SQLite.SQLiteCommand
             connection.Open()
             cmd.Connection = connection
-            cmd.CommandText = "select Cod_Geral from TI where Desc_Geral='" & cmb.Text & "';"
+            cmd.CommandText = "select Cod_Geral from ti_geral where Desc_Geral='" & cmb.Text & "';"
             leitor = cmd.ExecuteReader
             leitor.Read()
             Return leitor("Cod_Geral")
@@ -302,7 +301,7 @@ Public Class Inventário_Excel
             Dim cmd As New SQLite.SQLiteCommand
             connection.Open()
             cmd.Connection = connection
-            cmd.CommandText = "select Cod from TI where Cod_Geral_Todos=" & cod_geral_todos & " and Descricao='" & cmb.Text & "';"
+            cmd.CommandText = "select Cod from TI where Cod_Geral_Todos='" & cod_geral_todos & "' and Descricao='" & cmb.Text & "';"
             leitor = cmd.ExecuteReader
             leitor.Read()
             Return leitor("Cod")
@@ -340,7 +339,7 @@ Public Class Inventário_Excel
             Dim cmd As New SQLite.SQLiteCommand
             connection.Open()
             cmd.Connection = connection
-            cmd.CommandText = "select A1 from ATRIBUTOS where TUC=" & TUC & " and Desc_A1='" & cmb.Text & "';"
+            cmd.CommandText = "select A1 from RELACIONAMENTO_ATRIBUTOS where TUC='" & TUC & "' and Desc_A1='" & cmb.Text & "';"
             leitor = cmd.ExecuteReader
             leitor.Read()
             Return leitor("A1")

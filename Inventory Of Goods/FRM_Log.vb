@@ -8,8 +8,6 @@ Public Class FRM_Log
     Public Novo_Registro As Boolean
     Private Sub Caminho_Excel()
         Dim Caminho As String
-        'Excluir fotos BD
-        I_E.Excluir_Fotos()
         'Procurar Pasta de Fotos
         Folderbd.ShowDialog()
         'Inserir nome das Fotos no BD
@@ -24,7 +22,7 @@ Public Class FRM_Log
         Dim fileName As String
         For Each fileName In fileEntries
             'Inserir caminho e no das fotos no Excel
-            I_E.Inserir_Fotos(fileName, Path.GetFileNameWithoutExtension(fileName))
+            'I_E.Inserir_Fotos(fileName, Path.GetFileNameWithoutExtension(fileName))
         Next fileName
 
     End Sub
