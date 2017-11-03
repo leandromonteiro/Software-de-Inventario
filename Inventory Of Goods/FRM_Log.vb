@@ -39,7 +39,6 @@ Public Class FRM_Log
         Novo_Registro = True
         Frm_Inventário.Show()
         Frm_Inventário.BtnCopiar.Enabled = False
-        Frm_Inventário.BtnNovo.Enabled = False
         Me.Hide()
     End Sub
 

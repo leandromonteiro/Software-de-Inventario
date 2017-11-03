@@ -1,5 +1,6 @@
 ﻿Public Class Frm_DGV
     Dim I_E As New Inventário_Excel
+    Public Alterado As Boolean
     Private Sub Frm_DGV_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
         Frm_Inventário.Show()
     End Sub
@@ -16,9 +17,9 @@
 
         'Limpar Array Fotos
         Try
-            Frm_Inventário.Fotos_Array.Clear()
-            Frm_Inventário.PictureBox_Consulta.ImageLocation = ""
-            Frm_Inventário.Add_Fotos_Array = 0
+            'Frm_Inventário.Fotos_Array.Clear()
+            'Frm_Inventário.PictureBox_Consulta.ImageLocation = ""
+            'Frm_Inventário.Add_Fotos_Array = 0
 
             Frm_Inventário.TxtSeq_Civil.Text = DGV_Consulta.Item(0, e.RowIndex).Value
             Frm_Inventário.TxtSeq_Desc.Text = DGV_Consulta.Item(0, e.RowIndex).Value
@@ -73,19 +74,20 @@
         Catch
         End Try
 
-        For i = 50 To 59
-            If Not IsDBNull(DGV_Consulta.Item(i, e.RowIndex).Value) Then
-                Frm_Inventário.Fotos_Array.Add(DGV_Consulta.Item(i, e.RowIndex).Value)
-            End If
-        Next
+        'For i = 50 To 59
+        '    If Not IsDBNull(DGV_Consulta.Item(i, e.RowIndex).Value) Then
+        '        Frm_Inventário.Fotos_Array.Add(DGV_Consulta.Item(i, e.RowIndex).Value)
+        '    End If
+        'Next
 
         'Ajuste A1
         Frm_Inventário.Ajuste_A1()
         'Mostrar Imagem
-        Frm_Inventário.Mostrar_Imagem()
+        'Frm_Inventário.Mostrar_Imagem()
 
         'Consulta TI_Geral
         Frm_Inventário.CmbTI_Geral.Text = I_E.Consulta_TI_Geral(Frm_Inventário.TI)
+        Alterado = True
         Me.Close()
     End Sub
 End Class

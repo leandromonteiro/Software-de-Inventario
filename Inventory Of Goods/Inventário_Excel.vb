@@ -2,7 +2,7 @@
 Imports Microsoft.Office.Interop
 
 Public Class Inventário_Excel
-    Dim connstr As String = "Data Source=C:\Users\Public\INVENTARIO.db;"
+    Dim connstr As String = "Data Source=C:\Users\Public\INVENTARIO.db;;Version=3;New=True;Compress=True;Pooling=True"
     Public DS As New DataSet
     Public Foto1 As String
     Public Foto2 As String
@@ -16,49 +16,53 @@ Public Class Inventário_Excel
     Public Foto10 As String
 
     Public Function Consulta_TI_Geral(TI As Integer)
-        Try
-            Dim leitor As SQLite.SQLiteDataReader
+        'Try
+        Dim leitor As SQLite.SQLiteDataReader
             Dim connection As New SQLite.SQLiteConnection(connstr)
             Dim cmd As New SQLite.SQLiteCommand
             connection.Open()
             cmd.Connection = connection
-            cmd.CommandText = "select descricao from TI where cod_geral_todos='" & TI & "');"
-            leitor = cmd.ExecuteReader
-            leitor.Read()
-            Return leitor("Desc_Geral")
-            connection.Close()
+        cmd.CommandText = "select desc_geral from ti_geral where cod_geral=(select cod_geral_todos from ti where cod='" & TI & "');"
+        leitor = cmd.ExecuteReader
+        leitor.Read()
+        Dim a As String
+        a = leitor("desc_geral")
+        cmd.Dispose()
+        connection.Close()
+        connection.Dispose()
+        Return a
 
-        Catch
-            MsgBox("Erro ao buscar dados no Excel", MsgBoxStyle.Critical)
-            Return Nothing
-        End Try
+        'Catch
+        'MsgBox("Erro ao buscar dados no Excel", MsgBoxStyle.Critical)
+        'Return Nothing
+        'End Try
     End Function
 
     Public Sub Consulta_Fotos(ID As Integer)
-        Try
-            Dim leitor As SQLite.SQLiteDataReader
-            Dim connection As New SQLite.SQLiteConnection(connstr)
-            Dim cmd As New SQLite.SQLiteCommand
-            connection.Open()
-            cmd.Connection = connection
-            cmd.CommandText = "select FOTO 1,FOTO 2,FOTO 3,FOTO 4,FOTO 5,FOTO 6,FOTO 7,FOTO 8,FOTO 9,FOTO 10 from [Inventario$] where ID=" & ID & ";"
-            leitor = cmd.ExecuteReader
-            leitor.Read()
-            Foto1 = leitor("FOTO 1")
-            Foto2 = leitor("FOTO 2")
-            Foto3 = leitor("FOTO 3")
-            Foto4 = leitor("FOTO 4")
-            Foto5 = leitor("FOTO 5")
-            Foto6 = leitor("FOTO 6")
-            Foto7 = leitor("FOTO 7")
-            Foto8 = leitor("FOTO 8")
-            Foto9 = leitor("FOTO 9")
-            Foto10 = leitor("FOTO 10")
-            connection.Close()
-
-        Catch
-            MsgBox("Erro ao buscar dados no Excel", MsgBoxStyle.Critical)
-        End Try
+        'Try
+        '    Dim leitor As SQLite.SQLiteDataReader
+        '    Dim connection As New SQLite.SQLiteConnection(connstr)
+        '    Dim cmd As New SQLite.SQLiteCommand
+        '    connection.Open()
+        '    cmd.Connection = connection
+        '    cmd.CommandText = "select FOTO 1,FOTO 2,FOTO 3,FOTO 4,FOTO 5,FOTO 6,FOTO 7,FOTO 8,FOTO 9,FOTO 10 from [Inventario$] where ID=" & ID & ";"
+        '    leitor = cmd.ExecuteReader
+        '    leitor.Read()
+        '    Foto1 = leitor("FOTO 1")
+        '    Foto2 = leitor("FOTO 2")
+        '    Foto3 = leitor("FOTO 3")
+        '    Foto4 = leitor("FOTO 4")
+        '    Foto5 = leitor("FOTO 5")
+        '    Foto6 = leitor("FOTO 6")
+        '    Foto7 = leitor("FOTO 7")
+        '    Foto8 = leitor("FOTO 8")
+        '    Foto9 = leitor("FOTO 9")
+        '    Foto10 = leitor("FOTO 10")
+        '    connection.Close()
+        '    connection.Dispose()
+        'Catch
+        '    MsgBox("Erro ao buscar dados no Excel", MsgBoxStyle.Critical)
+        'End Try
     End Sub
 
     'Public Sub Update_Fotos(FOTO1 As String, FOTO2 As String, FOTO3 As String, FOTO4 As String, FOTO5 As String, FOTO6 As String,
@@ -72,6 +76,7 @@ Public Class Inventário_Excel
     '        "',[FOTO 4]='" & FOTO4 & "',[FOTO 5]='" & FOTO5 & "',[FOTO 6]='" & FOTO6 & "',[FOTO 7]='" & FOTO7 & _
     '        "',[FOTO 8]='" & FOTO8 & "',[FOTO 9]='" & FOTO9 & "',[FOTO 10]='" & FOTO10 & "' where [ID]=" & ID & ";"
     '        cmd.ExecuteNonQuery()
+    'cmd.Dispose()
     '        connection.Close()
 
     '    Catch
@@ -89,11 +94,13 @@ Public Class Inventário_Excel
             cmd.Connection = connection
         cmd.CommandText = "select descricao from tuc;"
         leitor = cmd.ExecuteReader
-            Do While leitor.Read
-                cmb.Items.Add(leitor("Descricao"))
-            Loop
-            connection.Close()
 
+        Do While leitor.Read
+            cmb.Items.Add(leitor("Descricao"))
+        Loop
+        cmd.Dispose()
+        connection.Close()
+        connection.Dispose()
         'Catch
         'MsgBox("Erro ao buscar dados no Excel", MsgBoxStyle.Critical)
         'End Try
@@ -114,8 +121,9 @@ Public Class Inventário_Excel
                     cmb.Items.Add(leitor("desc_geral"))
                 End If
             Loop
+            cmd.Dispose()
             connection.Close()
-
+            connection.Dispose()
         Catch
             MsgBox("Erro ao buscar dados no Excel", MsgBoxStyle.Critical)
         End Try
@@ -134,8 +142,10 @@ Public Class Inventário_Excel
             Do While leitor.Read
                 cmb.Items.Add(leitor("descricao"))
             Loop
+            cmd.Dispose()
             connection.Close()
-
+            connection.Dispose()
+            GC.Collect()
         Catch
             MsgBox("Erro ao buscar dados no Excel", MsgBoxStyle.Critical)
         End Try
@@ -162,8 +172,10 @@ Public Class Inventário_Excel
                     cmb3.Items.Add(leitor("CM3"))
                 End If
             Loop
+            cmd.Dispose()
             connection.Close()
-
+            connection.Dispose()
+            GC.Collect()
         Catch
             MsgBox("Erro ao buscar dados no Excel", MsgBoxStyle.Critical)
         End Try
@@ -182,8 +194,10 @@ Public Class Inventário_Excel
             Do While leitor.Read
                 cmb.Items.Add(leitor("Descricao"))
             Loop
+            cmd.Dispose()
             connection.Close()
-
+            connection.Dispose()
+            GC.Collect()
         Catch
             MsgBox("Erro ao buscar dados no Excel", MsgBoxStyle.Critical)
         End Try
@@ -202,8 +216,10 @@ Public Class Inventário_Excel
             Do While leitor.Read
                 cmb.Items.Add(leitor("Desc_A1"))
             Loop
+            cmd.Dispose()
             connection.Close()
-
+            connection.Dispose()
+            GC.Collect()
         Catch
             MsgBox("Erro ao buscar dados no Excel", MsgBoxStyle.Critical)
         End Try
@@ -229,8 +245,10 @@ Public Class Inventário_Excel
             If N = 0 Then
                 cmb.Enabled = False
             End If
+            cmd.Dispose()
             connection.Close()
-
+            connection.Dispose()
+            GC.Collect()
         Catch
             MsgBox("Erro ao buscar dados no Excel", MsgBoxStyle.Critical)
         End Try
@@ -249,8 +267,10 @@ Public Class Inventário_Excel
             Do While leitor.Read
                 Lbl.Text = leitor(Desc_A)
             Loop
+            cmd.Dispose()
             connection.Close()
-
+            connection.Dispose()
+            GC.Collect()
         Catch
             MsgBox("Erro ao buscar dados no Excel", MsgBoxStyle.Critical)
         End Try
@@ -266,8 +286,12 @@ Public Class Inventário_Excel
             cmd.CommandText = "select Cod_Atributos from DESC_TABELA where Descricao='" & cmb.Text & "';"
             leitor = cmd.ExecuteReader
             leitor.Read()
-            Return leitor("Cod_Atributos")
+            Dim a As String
+            a = leitor("Cod_Atributos")
+            cmd.Dispose()
             connection.Close()
+            connection.Dispose()
+            Return a
 
         Catch
             MsgBox("Erro ao buscar dados no Excel", MsgBoxStyle.Critical)
@@ -285,8 +309,12 @@ Public Class Inventário_Excel
             cmd.CommandText = "select Cod_Geral from ti_geral where Desc_Geral='" & cmb.Text & "';"
             leitor = cmd.ExecuteReader
             leitor.Read()
-            Return leitor("Cod_Geral")
+            Dim a As String
+            a = leitor("Cod_Geral")
+            cmd.Dispose()
             connection.Close()
+            connection.Dispose()
+            Return a
 
         Catch
             MsgBox("Erro ao buscar dados no Excel", MsgBoxStyle.Critical)
@@ -304,9 +332,12 @@ Public Class Inventário_Excel
             cmd.CommandText = "select Cod from TI where Cod_Geral_Todos='" & cod_geral_todos & "' and Descricao='" & cmb.Text & "';"
             leitor = cmd.ExecuteReader
             leitor.Read()
-            Return leitor("Cod")
+            Dim a As String
+            a = leitor("Cod")
+            cmd.Dispose()
             connection.Close()
-
+            connection.Dispose()
+            Return a
         Catch
             MsgBox("Erro ao buscar dados no Excel", MsgBoxStyle.Critical)
             Return 0
@@ -323,9 +354,12 @@ Public Class Inventário_Excel
             cmd.CommandText = "select Cod from UAR where TUC=" & TUC & " and Descricao='" & cmb.Text & "';"
             leitor = cmd.ExecuteReader
             leitor.Read()
-            Return leitor("Cod")
+            Dim a As String
+            a = leitor("Cod")
+            cmd.Dispose()
             connection.Close()
-
+            connection.Dispose()
+            Return a
         Catch
             MsgBox("Erro ao buscar dados no Excel", MsgBoxStyle.Critical)
             Return 0
@@ -342,9 +376,12 @@ Public Class Inventário_Excel
             cmd.CommandText = "select A1 from RELACIONAMENTO_ATRIBUTOS where TUC='" & TUC & "' and Desc_A1='" & cmb.Text & "';"
             leitor = cmd.ExecuteReader
             leitor.Read()
-            Return leitor("A1")
+            Dim a As String
+            a = leitor("A1")
+            cmd.Dispose()
             connection.Close()
-
+            connection.Dispose()
+            Return a
         Catch
             MsgBox("Erro ao buscar dados no Excel", MsgBoxStyle.Critical)
             Return 0
@@ -361,9 +398,12 @@ Public Class Inventário_Excel
             cmd.CommandText = "select TUC from TUC where Descricao='" & cmb.Text & "';"
             leitor = cmd.ExecuteReader
             leitor.Read()
-            Return leitor("TUC")
-        connection.Close()
-
+            Dim a As String
+            a = leitor("TUC")
+            cmd.Dispose()
+            connection.Close()
+            connection.Dispose()
+            Return a
         Catch
             MsgBox("Erro ao buscar dados no Excel", MsgBoxStyle.Critical)
             Return 0
@@ -380,9 +420,12 @@ Public Class Inventário_Excel
             cmd.CommandText = "select C1 from CM where CM1='" & cmb.Text & "';"
             leitor = cmd.ExecuteReader
             leitor.Read()
-            Return leitor("C1")
+            Dim a As String
+            a = leitor("C1")
+            cmd.Dispose()
             connection.Close()
-
+            connection.Dispose()
+            Return a
         Catch
             MsgBox("Erro ao buscar dados no Excel", MsgBoxStyle.Critical)
             Return 0
@@ -399,9 +442,12 @@ Public Class Inventário_Excel
             cmd.CommandText = "select C2 from CM where CM2='" & cmb.Text & "';"
             leitor = cmd.ExecuteReader
             leitor.Read()
-            Return leitor("C2")
+            Dim a As String
+            a = leitor("C2")
+            cmd.Dispose()
             connection.Close()
-
+            connection.Dispose()
+            Return a
         Catch
             MsgBox("Erro ao buscar dados no Excel", MsgBoxStyle.Critical)
             Return 0
@@ -418,9 +464,12 @@ Public Class Inventário_Excel
             cmd.CommandText = "select C3 from CM where CM3='" & cmb.Text & "';"
             leitor = cmd.ExecuteReader
             leitor.Read()
-            Return leitor("C3")
+            Dim a As String
+            a = leitor("C3")
+            cmd.Dispose()
             connection.Close()
-
+            connection.Dispose()
+            Return a
         Catch
             MsgBox("Erro ao buscar dados no Excel", MsgBoxStyle.Critical)
             Return 0
@@ -437,28 +486,51 @@ Public Class Inventário_Excel
             cmd.CommandText = "select ID from INVENTARIO order by ID DESC;"
             leitor = cmd.ExecuteReader
             leitor.Read()
-            Return leitor("ID")
+            Dim a As String
+            a = leitor("ID")
+            cmd.Dispose()
             connection.Close()
-
+            connection.Dispose()
+            Return a
         Catch
             MsgBox("Erro ao buscar dados no Excel", MsgBoxStyle.Critical)
             Return 0
         End Try
     End Function
 
-    Public Sub Inserir_ID(ID As Integer)
-        Try
-            Dim connection As New SQLite.SQLiteConnection(connstr)
-            Dim cmd As New SQLite.SQLiteCommand
+    Public Sub Inserir_Dados(ID As Integer, Sequencial As String, Local As String, odi As String, cod_ti As Integer, ti As String, bay As String, cod_tuc As Integer, tuc As String,
+                             cod_tipo_bem As String, tipo_bem As String, cod_uar As String, uar As String, cod_a2 As String, desc_a2 As String, cod_a3 As String, desc_a3 As String,
+                             cod_a4 As String, desc_a4 As String, cod_a5 As String, desc_a5 As String, cod_a6 As String, desc_a6 As String, cod_cm1 As Integer, desc_cm1 As String,
+                             cod_cm2 As Integer, desc_cm2 As String, cod_cm3 As Integer, desc_cm3 As String, descricao As String, fabricante As String, modelo As String, serie As String,
+                             observacao As String, quantidade As Decimal, unidade As String, ano As Integer, mes As Integer, dia As Integer, status_bem As String, estado_bem As String,
+                             altura As Decimal, largura As Decimal, comprimento As Decimal, area As Decimal, pe As Decimal, esforco As Decimal, obs_civil As String, consultor As String,
+                             lider As String, Num_Manutencao As String)
+        'Try
+        Dim connection As New SQLite.SQLiteConnection(connstr)
+        Dim cmd As New SQLite.SQLiteCommand
+        If connection.State = ConnectionState.Closed Then
             connection.Open()
-            cmd.Connection = connection
-            cmd.CommandText = "insert into INVENTARIO (ID) values('" & ID & "');"
-            cmd.ExecuteNonQuery()
-            connection.Close()
-
-        Catch
-            MsgBox("Erro ao inserir dados no Excel", MsgBoxStyle.Critical)
-        End Try
+        End If
+        cmd.Dispose()
+        cmd.Connection = connection
+        cmd.CommandText = "insert into INVENTARIO (ID,Sequencial,Local,odi,cod_ti,ti,bay,cod_tuc,desc_tuc,cod_tipo_bem,desc_tipo_bem,cod_uar,desc_uar,cod_a2,desc_a2," &
+                              "cod_a3,desc_a3,cod_a4,desc_a4,cod_a5,desc_a5,cod_a6,desc_a6,cod_cm1,desc_cm1,cod_cm2,desc_cm2,cod_cm3,desc_cm3,descricao,fabricante,modelo,serie," &
+                              "observacao,quantidade,unidade_medida,ano,mes,dia,status_bem,estado_bem,altura,largura,comprimento,area,pe_direito,esforco,obs_civil,consultor," &
+                              "lider,data_hora,Numero_Manutencao) values(" & ID & ",'" & Sequencial & "','" & Local & "','" & odi & "'," & cod_ti & ",'" & ti & "','" & bay &
+                              "'," & cod_tuc & ",'" & tuc & "','" & cod_tipo_bem & "','" & tipo_bem & "', '" & cod_uar & "','" & uar & "','" & cod_a2 & "','" & desc_a2 & "','" &
+                              cod_a3 & "','" & desc_a3 & "','" & cod_a4 & "','" & desc_a4 & "','" & cod_a5 & "','" & desc_a5 & "','" & cod_a6 & "','" & desc_a6 & "'," & cod_cm1 &
+                              ",'" & desc_cm1 & "'," & cod_cm2 & ",'" & desc_cm2 & "'," & cod_cm3 & ",'" & desc_cm3 & "','" & descricao & "','" & fabricante & "','" & modelo & "','" &
+                              serie & "','" & observacao & "'," & quantidade & ", '" & unidade & "'," & ano & ", " & mes & "," & dia & ",'" & status_bem & "','" & estado_bem &
+                              "'," & altura & "," & largura & "," & comprimento & "," & area & "," & pe & "," & esforco & ",'" & obs_civil & "','" & consultor & "','" &
+                              lider & "','" & Now & "','" & Num_Manutencao & "');"
+        cmd.ExecuteNonQuery()
+        cmd.Dispose()
+        connection.Close()
+        connection.Dispose()
+        GC.Collect()
+        'Catch
+        'MsgBox("Erro ao inserir dados no Excel", MsgBoxStyle.Critical)
+        'End Try
     End Sub
 
     Public Sub Update_Inventario(ID As Integer, seq As String, local As String, odi As String, cod_ti As String, ti As String, bay As String,
@@ -468,31 +540,37 @@ Public Class Inventário_Excel
                                  cod_cm3 As String, cm3 As String, descricao As String, fabricante As String, modelo As String, serie As String,
                                  obs As String, qtd As Decimal, um As String, ano As String, mes As String, dia As String, status As String,
                                  estado_bem As String, altura As Decimal, largura As Decimal, comprimento As Decimal, area As Decimal, pe As Decimal,
-                                 obs_civil As String, foto As String, consultor As String, lider As String, data_hora As String)
-        Try
-            Dim connection As New SQLite.SQLiteConnection(connstr)
+                                 obs_civil As String, foto As String, consultor As String, lider As String, TAG As String, esforco As Decimal)
+        'Try
+        Using connection As New SQLite.SQLiteConnection(connstr)
+            SQLite.SQLiteConnection.ClearAllPools()
             Dim cmd As New SQLite.SQLiteCommand
-            connection.Open()
+            If connection.State = ConnectionState.Closed Then
+                connection.Open()
+            End If
             cmd.Connection = connection
-            cmd.CommandText = "update Inventario set Sequencial='" & seq & "',Local='" & local & "',ODI='" & odi & "',Código TI='" &
-                cod_ti & "',TI='" & ti & "',Bay='" & bay & "',Código TUC='" & cod_tuc & "',Descrição TUC='" & tuc & "',Código Tipo de Bem='" &
-                cod_tipo_bem & "',Descrição Tipo de Bem='" & tipo_bem & "',Código UAR='" & cod_uar & "',Descrição UAR='" & uar &
-                "',Código A2='" & cod_a2 & "',Descrição A2='" & a2 & "',Código A3='" & cod_a3 & "',Descrição A3='" & a3 & "',Código A4='" &
-                cod_a4 & "',Descrição A4='" & a4 & "',Código A5='" & cod_a5 & "',Descrição A5='" & a5 & "',Código A6='" & cod_a6 &
-                "',Descrição A6='" & a6 & "',Código CM1='" & cod_cm1 & "',Descrição CM1='" & cm1 & "',Código CM2='" & cod_cm2 &
-                "',Descrição CM2='" & cm2 & "',Código CM3='" & cod_cm3 & "',Descrição CM3='" & cm3 & "',Descrição='" & descricao &
-                "',Fabricante='" & fabricante & "',Modelo='" & modelo & "',N° de Série='" & serie & "',Observação='" & obs & "',Quantidade=" &
-                qtd & ",Unidade de Medida='" & um & "',Ano de Fabricação='" & ano & "',Mês de Fabricação='" & mes & "',Dia de Fabricação='" & dia &
-                "',Status do Bem='" & status & "',Estado do Bem='" & estado_bem & "',Altura=" & altura & ",Largura=" & largura & ",Comprimento=" &
-                comprimento & ",Área=" & area & ",Pé Direito=" & pe & ",Observacao Civil='" & obs_civil & "',foto='" & foto & "',Consultor='" & consultor & "',Líder='" &
-                lider & "',Data/Hora='" & data_hora & "' where ID=" & ID & ";"
+            cmd.CommandText = "update Inventario set Sequencial='" & seq & "',Local='" & local & "',ODI='" & odi & "',cod_ti=" &
+                    cod_ti & ",ti='" & ti & "',Bay='" & bay & "',cod_tuc='" & cod_tuc & "',desc_tuc='" & tuc & "',cod_tipo_bem='" &
+                    cod_tipo_bem & "',desc_tipo_bem='" & tipo_bem & "',cod_uar='" & cod_uar & "',desc_uar='" & uar &
+                    "',Cod_A2='" & cod_a2 & "',desc_A2='" & a2 & "',Cod_A3='" & cod_a3 & "',desc_A3='" & a3 & "',cod_A4='" &
+                    cod_a4 & "',Desc_A4='" & a4 & "',Cod_A5='" & cod_a5 & "',Desc_A5='" & a5 & "',Cod_A6='" & cod_a6 &
+                    "',Desc_A6='" & a6 & "',Cod_CM1='" & cod_cm1 & "',Desc_CM1='" & cm1 & "',Cod_CM2='" & cod_cm2 &
+                    "',Desc_CM2='" & cm2 & "',Cod_CM3='" & cod_cm3 & "',Desc_CM3='" & cm3 & "',Descricao='" & descricao &
+                    "',Fabricante='" & fabricante & "',Modelo='" & modelo & "',serie='" & serie & "',Observacao='" & obs & "',Quantidade=" &
+                    qtd & ",Unidade_Medida='" & um & "',Ano='" & ano & "',Mes='" & mes & "',Dia='" & dia &
+                    "',Status_Bem='" & status & "',Estado_Bem='" & estado_bem & "',Altura=" & altura & ",Largura=" & largura & ",Comprimento=" &
+                    comprimento & ",area=" & area & ",Pe_direito=" & pe & ",Obs_Civil='" & obs_civil & "',foto='" & foto & "',Consultor='" & consultor & "',Lider='" &
+                    lider & "',Data_Hora='" & Now & "',Numero_Manutencao='" & TAG & "',esforco=" & esforco & " where ID=" & ID & ";"
 
             cmd.ExecuteNonQuery()
+            cmd.Dispose()
             connection.Close()
-            MsgBox("Dados Salvos com Sucesso", MsgBoxStyle.Information)
-        Catch
-            MsgBox("Erro ao inserir dados no Excel", MsgBoxStyle.Critical)
-        End Try
+            connection.Dispose()
+        End Using
+        MsgBox("Dados Salvos com Sucesso", MsgBoxStyle.Information)
+        'Catch
+        'MsgBox("Erro ao inserir dados no Excel", MsgBoxStyle.Critical)
+        'End Try
     End Sub
 
     Public Sub Consulta_Excel(DGV As DataGridView)
@@ -504,6 +582,9 @@ Public Class Inventário_Excel
             DA.SelectCommand = New SQLite.SQLiteCommand("select * from Inventario;", connection)
             DA.Fill(DT)
             connection.Close()
+            connection.Dispose()
+            DA.Dispose()
+            GC.Collect()
             DGV.DataSource = DT
         Catch
             MsgBox("Erro na consulta", MsgBoxStyle.Critical)

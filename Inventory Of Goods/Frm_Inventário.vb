@@ -32,6 +32,8 @@ Public Class Frm_Inventário
 
     Dim Invalidos As Boolean
 
+    Dim F_DGV As New Frm_DGV
+
     Private Sub Validacao_Salvar()
         If TxtLocal.Text = "" Or TxtODI.Text = "" Or CmbTI.Text = "" Or CmbTI_Geral.Text = "" Then
             MsgBox("Dados Incompletos na aba local", MsgBoxStyle.Exclamation)
@@ -272,10 +274,12 @@ Public Class Frm_Inventário
         End If
     End Sub
 
+    Private Sub CmbTI_Geral_Click(sender As Object, e As EventArgs) Handles CmbTI_Geral.Click
+        CmbTI.Text = ""
+    End Sub
     Private Sub CmbTI_Geral_SelectedIndexChanged(sender As Object, e As EventArgs) Handles CmbTI_Geral.SelectedIndexChanged
         TI_Cod_Geral_Todos = I_E.Buscar_TI_Geral(CmbTI_Geral)
         I_E.Consulta_TI(CmbTI, TI_Cod_Geral_Todos)
-        CmbTI.Text = ""
     End Sub
 
     Private Sub CmbTI_SelectedIndexChanged(sender As Object, e As EventArgs) Handles CmbTI.SelectedIndexChanged
@@ -385,35 +389,44 @@ Public Class Frm_Inventário
         If TxtPe.Text = "" Then
             TxtPe.Text = 0
         End If
+        If TxtEsforco.Text = "" Then
+            TxtEsforco.Text = 0
+        End If
 
-        I_E.Update_Inventario(ID, Sequencial, TxtLocal.Text, TxtODI.Text, TI, CmbTI.Text, TxtBay.Text, TUC, CmbTUC.Text, A1, CmbA1.Text,
+        'Se o ID do cadastro já existir, faça o Update, senão Insert
+        If ID = I_E.Buscar_Ultimo_ID Then
+            I_E.Update_Inventario(ID, Sequencial, TxtLocal.Text, TxtODI.Text, TI, CmbTI.Text, TxtBay.Text, TUC, CmbTUC.Text, A1, CmbA1.Text,
                               UAR, CmbUAR.Text, A2, CmbA2.Text, A3, CmbA3.Text, A4, CmbA4.Text, A5, CmbA5.Text, A6, CmbA6.Text, CM1, CmbCm1.Text,
                               CM2, CmbCm2.Text, CM3, CmbCm3.Text, TxtDesc.Text, TxtFabricante.Text, TxtModelo.Text, TxtSerie.Text, TxtObs.Text,
                               TxtQtd.Text, CmbUm.Text, CmbAno.Text, CmbMes.Text, CmbDia.Text, CmbStatus.Text, CmbEstado.Text, TxtAltura.Text,
-                              TxtLargura.Text, TxtComprimento.Text, TxtArea.Text, TxtPe.Text, TxtObsCivil.Text, "", consultor, lider, Now())
-
-
-        BtnNovo.Enabled = True
+                              TxtLargura.Text, TxtComprimento.Text, TxtArea.Text, TxtPe.Text, TxtObsCivil.Text, "", consultor, lider, TxtTag.Text, TxtEsforco.Text)
+        Else
+            I_E.Inserir_Dados(ID, Sequencial, TxtLocal.Text, TxtODI.Text, TI, CmbTI.Text, TxtBay.Text, TUC, CmbTUC.Text, A1, CmbA1.Text,
+                              UAR, CmbUAR.Text, A2, CmbA2.Text, A3, CmbA3.Text, A4, CmbA4.Text, A5, CmbA5.Text, A6, CmbA6.Text, CM1, CmbCm1.Text,
+                              CM2, CmbCm2.Text, CM3, CmbCm3.Text, TxtDesc.Text, TxtFabricante.Text, TxtModelo.Text, TxtSerie.Text, TxtObs.Text,
+                              TxtQtd.Text, CmbUm.Text, CmbAno.Text, CmbMes.Text, CmbDia.Text, CmbStatus.Text, CmbEstado.Text, TxtAltura.Text,
+                              TxtLargura.Text, TxtComprimento.Text, TxtArea.Text, TxtPe.Text, TxtEsforco.Text, TxtObsCivil.Text, consultor, lider, TxtTag.Text)
+        End If
         BtnCopiar.Enabled = True
     End Sub
 
-    Private Sub BtnNovo_Click(sender As Object, e As EventArgs) Handles BtnNovo.Click
+    Private Sub BtnNovo_Click(sender As Object, e As EventArgs)
         'Consultar ID +1
-        ID = I_E.Buscar_Ultimo_ID()
-        ID += 1
-        TxtSeq_Civil.Text = ID
-        TxtSeq_Desc.Text = ID
-        TxtSeq_Local.Text = ID
-        'Inserir no BD
-        I_E.Inserir_ID(ID)
-        'Limpar Dados
-        Limpar_Tudo()
-        Fotos_Array.Clear()
-        PictureBox_Consulta.ImageLocation = ""
-        Add_Fotos_Array = 0
+        'ID = I_E.Buscar_Ultimo_ID()
+        'ID += 1
+        'TxtSeq_Civil.Text = ID
+        'TxtSeq_Desc.Text = ID
+        'TxtSeq_Local.Text = ID
+        ''Inserir no BD
+        'I_E.Inserir_ID(ID)
+        ''Limpar Dados
+        'Limpar_Tudo()
+        'Fotos_Array.Clear()
+        'PictureBox_Consulta.ImageLocation = ""
+        'Add_Fotos_Array = 0
 
-        BtnNovo.Enabled = False
-        BtnCopiar.Enabled = False
+        'BtnNovo.Enabled = False
+        'BtnCopiar.Enabled = False
     End Sub
 
     Private Sub BtnCopiar_Click(sender As Object, e As EventArgs) Handles BtnCopiar.Click
@@ -423,15 +436,12 @@ Public Class Frm_Inventário
         TxtSeq_Civil.Text = ID
         TxtSeq_Desc.Text = ID
         TxtSeq_Local.Text = ID
-        'Inserir no BD
-        I_E.Inserir_ID(ID)
         'Limpar Alguns dados
         Limpar_Parcial()
         Fotos_Array.Clear()
         PictureBox_Consulta.ImageLocation = ""
         Add_Fotos_Array = 0
 
-        BtnNovo.Enabled = False
         BtnCopiar.Enabled = False
 
         'Consultar A2 a A6
