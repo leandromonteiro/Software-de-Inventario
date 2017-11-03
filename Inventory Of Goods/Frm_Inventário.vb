@@ -208,6 +208,10 @@ Public Class Frm_Inventário
     End Sub
 
     Private Sub FrmInventario_Novo_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        ID = I_E.Buscar_Ultimo_ID() + 1
+        TxtSeq_Civil.Text = ID
+        TxtSeq_Desc.Text = ID
+        TxtSeq_Local.Text = ID
 
         I_E.Consulta_TUC(CmbTUC)
         I_E.Consulta_CM(CmbCm1, CmbCm2, CmbCm3)
@@ -408,6 +412,8 @@ Public Class Frm_Inventário
                               TxtLargura.Text, TxtComprimento.Text, TxtArea.Text, TxtPe.Text, TxtEsforco.Text, TxtObsCivil.Text, consultor, lider, TxtTag.Text)
         End If
         BtnCopiar.Enabled = True
+        'Limpar Dados
+
     End Sub
 
     Private Sub BtnNovo_Click(sender As Object, e As EventArgs)
@@ -585,4 +591,10 @@ Public Class Frm_Inventário
         Me.Hide()
     End Sub
 
+    Private Sub ExcluirDadosAnterioresToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ExcluirDadosAnterioresToolStripMenuItem.Click
+        Dim Result As DialogResult = MessageBox.Show("Deseja excluir os dados anteriores?", "Dados", MessageBoxButtons.YesNo)
+        If Result = vbYes Then
+            I_E.Excluir_Tudo()
+        End If
+    End Sub
 End Class
