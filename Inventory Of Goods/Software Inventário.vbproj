@@ -91,6 +91,7 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Class_Inventario.vb" />
     <Compile Include="Frm_DGV.Designer.vb">
       <DependentUpon>Frm_DGV.vb</DependentUpon>
     </Compile>

@@ -130,6 +130,8 @@ Partial Class Frm_Inventário
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.DadosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ExcluirDadosAnterioresToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.CaminhoFotosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.FBD = New System.Windows.Forms.FolderBrowserDialog()
         Me.TabControl1.SuspendLayout()
         Me.TpLocal.SuspendLayout()
         Me.TpDesc.SuspendLayout()
@@ -970,7 +972,7 @@ Partial Class Frm_Inventário
         Me.TpCivil.Location = New System.Drawing.Point(4, 25)
         Me.TpCivil.Margin = New System.Windows.Forms.Padding(4)
         Me.TpCivil.Name = "TpCivil"
-        Me.TpCivil.Size = New System.Drawing.Size(1201, 718)
+        Me.TpCivil.Size = New System.Drawing.Size(1201, 677)
         Me.TpCivil.TabIndex = 2
         Me.TpCivil.Text = "Civil"
         Me.TpCivil.UseVisualStyleBackColor = True
@@ -1350,7 +1352,7 @@ Partial Class Frm_Inventário
         '
         'DadosToolStripMenuItem
         '
-        Me.DadosToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ExcluirDadosAnterioresToolStripMenuItem})
+        Me.DadosToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ExcluirDadosAnterioresToolStripMenuItem, Me.CaminhoFotosToolStripMenuItem})
         Me.DadosToolStripMenuItem.Name = "DadosToolStripMenuItem"
         Me.DadosToolStripMenuItem.Size = New System.Drawing.Size(71, 24)
         Me.DadosToolStripMenuItem.Text = "Opções"
@@ -1360,6 +1362,12 @@ Partial Class Frm_Inventário
         Me.ExcluirDadosAnterioresToolStripMenuItem.Name = "ExcluirDadosAnterioresToolStripMenuItem"
         Me.ExcluirDadosAnterioresToolStripMenuItem.Size = New System.Drawing.Size(246, 26)
         Me.ExcluirDadosAnterioresToolStripMenuItem.Text = "Excluir Dados Anteriores"
+        '
+        'CaminhoFotosToolStripMenuItem
+        '
+        Me.CaminhoFotosToolStripMenuItem.Name = "CaminhoFotosToolStripMenuItem"
+        Me.CaminhoFotosToolStripMenuItem.Size = New System.Drawing.Size(246, 26)
+        Me.CaminhoFotosToolStripMenuItem.Text = "Caminho Fotos"
         '
         'Frm_Inventário
         '
@@ -1504,4 +1512,6 @@ Partial Class Frm_Inventário
     Friend WithEvents MenuStrip1 As MenuStrip
     Friend WithEvents DadosToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ExcluirDadosAnterioresToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents CaminhoFotosToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents FBD As FolderBrowserDialog
 End Class

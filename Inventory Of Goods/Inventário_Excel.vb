@@ -493,7 +493,6 @@ Public Class Inventário_Excel
             connection.Dispose()
             Return a
         Catch
-            MsgBox("Erro ao buscar dados", MsgBoxStyle.Critical)
             Return 0
         End Try
     End Function

@@ -1,6 +1,7 @@
 ﻿Imports System.IO
 Public Class Frm_Inventário
     Dim I_E As New Inventário_Excel
+    Dim C_I As New Class_Inventario
     Public TUC As Integer
     Public TI As Integer
     Public TI_Cod_Geral_Todos As Integer
@@ -23,12 +24,13 @@ Public Class Frm_Inventário
     Public consultor As String
     Public lider As String
 
-    Dim N_Fotos As Integer
-    Dim Imagem As String
-    Dim Nome_Imagem As String
 
-    Public Fotos_Array As New ArrayList
-    Public Add_Fotos_Array As Integer = 0
+    Public A_Fotos_Principal As New ArrayList
+    Public A_Fotos_Inventario As New ArrayList
+    Dim N_Foto_Principal As Integer
+    Dim N_Foto_Inventario As Integer
+
+    Public Caminho As String
 
     Dim Invalidos As Boolean
 
@@ -142,8 +144,10 @@ Public Class Frm_Inventário
         TxtLargura.Text = ""
         TxtComprimento.Text = ""
         TxtArea.Text = ""
+        TxtEsforco.Text = ""
         TxtPe.Text = ""
         TxtObsCivil.Text = ""
+        TxtTag.Text = ""
         CmbA2.Enabled = True
         CmbA3.Enabled = True
         CmbA4.Enabled = True
@@ -188,21 +192,6 @@ Public Class Frm_Inventário
         I_E.Buscar_Tabela(LblA6, TUC, A1, "Desc_A6")
     End Sub
 
-    Public Sub Mostrar_Imagem()
-        'I_E.Buscar_Fotos()
-        If Fotos_Array.Count = 0 Then
-            Exit Sub
-        End If
-        'Buscar caminho da imagem DS e colocar na Picture Box
-        For Each dr As DataRow In I_E.DS.Tables("TB_Foto").Rows
-            If dr(0).ToString = Fotos_Array(0) Then
-                PictureBox_Consulta.ImageLocation = dr(1).ToString
-                Add_Fotos_Array = 1
-                Exit For
-            End If
-        Next
-    End Sub
-
     Private Sub FrmInventario_Novo_FormClosed(sender As Object, e As FormClosedEventArgs) Handles Me.FormClosed
         FRM_Log.Close()
     End Sub
@@ -221,7 +210,7 @@ Public Class Frm_Inventário
         'End If
         'Nome_Imagem = I_E.DS.Tables("TB_Foto").Rows(0)(0)
         'Imagem = I_E.DS.Tables("TB_Foto").Rows(0)(1)
-        N_Fotos = 0
+        'N_Fotos = 0
         'PictureBox.ImageLocation = Imagem
     End Sub
 
@@ -329,25 +318,11 @@ Public Class Frm_Inventário
 
 
     Private Sub BtnAnterior_Click(sender As Object, e As EventArgs) Handles BtnAnterior.Click
-        If N_Fotos = 0 Then
-            Exit Sub
-        End If
-        N_Fotos -= 1
-        Nome_Imagem = I_E.DS.Tables("TB_Foto").Rows(N_Fotos)(0)
-        Imagem = I_E.DS.Tables("TB_Foto").Rows(N_Fotos)(1)
-        PictureBox.ImageLocation = Imagem
+        N_Foto_Principal = C_I.Anterior_Foto(A_Fotos_Principal, PictureBox, N_Foto_Principal, Caminho)
     End Sub
 
     Private Sub BtnProximo_Click(sender As Object, e As EventArgs) Handles BtnProximo.Click
-        N_Fotos += 1
-        If N_Fotos > I_E.DS.Tables("TB_Foto").Rows.Count - 1 Then
-            N_Fotos -= 1
-            Exit Sub
-        End If
-
-        Nome_Imagem = I_E.DS.Tables("TB_Foto").Rows(N_Fotos)(0)
-        Imagem = I_E.DS.Tables("TB_Foto").Rows(N_Fotos)(1)
-        PictureBox.ImageLocation = Imagem
+        N_Foto_Principal = C_I.Proxima_Foto(A_Fotos_Principal, PictureBox, N_Foto_Principal, Caminho)
     End Sub
 
     Private Sub BtnZoom_Click(sender As Object, e As EventArgs) Handles BtnZoom.Click
@@ -413,7 +388,11 @@ Public Class Frm_Inventário
         End If
         BtnCopiar.Enabled = True
         'Limpar Dados
-
+        Limpar_Tudo()
+        ID = I_E.Buscar_Ultimo_ID
+        TxtSeq_Civil.Text = ID + 1
+        TxtSeq_Desc.Text = ID + 1
+        TxtSeq_Local.Text = ID + 1
     End Sub
 
     Private Sub BtnNovo_Click(sender As Object, e As EventArgs)
@@ -444,9 +423,9 @@ Public Class Frm_Inventário
         TxtSeq_Local.Text = ID
         'Limpar Alguns dados
         Limpar_Parcial()
-        Fotos_Array.Clear()
+        A_Fotos_Inventario.Clear()
         PictureBox_Consulta.ImageLocation = ""
-        Add_Fotos_Array = 0
+        'Add_Fotos_Array = 0
 
         BtnCopiar.Enabled = False
 
@@ -503,87 +482,32 @@ Public Class Frm_Inventário
     End Sub
 
     Private Sub BtnAdd_Click(sender As Object, e As EventArgs) Handles BtnAdd.Click
-        If Fotos_Array.Count = 10 Then
-            MsgBox("O limite de imagens por cadastro são 10", MsgBoxStyle.Exclamation)
-            Exit Sub
-        End If
-        Fotos_Array.Add(Nome_Imagem)
-        'Buscar caminho da imagem DS e colocar na Picture Box
-        For Each dr As DataRow In I_E.DS.Tables("TB_Foto").Rows
-            If dr(0).ToString = Fotos_Array(Fotos_Array.Count - 1) Then
-                PictureBox_Consulta.ImageLocation = dr(1).ToString
-                Add_Fotos_Array = Fotos_Array.Count - 1
-                Exit For
-            End If
-        Next
+        A_Fotos_Inventario.Add(A_Fotos_Principal(N_Foto_Principal))
+        PictureBox_Consulta.ImageLocation = Caminho & "\" & A_Fotos_Inventario(A_Fotos_Inventario.Count - 1)
+        N_Foto_Inventario = A_Fotos_Inventario.Count - 1
         MsgBox("Fotos adicionadas com sucesso", MsgBoxStyle.Information)
     End Sub
     Private Sub BtnRemover_Fotos_Click(sender As Object, e As EventArgs) Handles BtnRemover_Fotos.Click
-        If Fotos_Array.Count = 0 Then
-            PictureBox_Consulta.ImageLocation = ""
-            Exit Sub
-        End If
-
-        Fotos_Array.RemoveAt(Add_Fotos_Array)
-
-        If Add_Fotos_Array > 0 Then
-            Add_Fotos_Array -= 1
-        End If
-
-        If Fotos_Array.Count = 0 Then
-            PictureBox_Consulta.ImageLocation = ""
-            Exit Sub
-        End If
-        'Buscar caminho da imagem DS e colocar na Picture Box
-        For Each dr As DataRow In I_E.DS.Tables("TB_Foto").Rows
-            If dr(0).ToString = Fotos_Array(Add_Fotos_Array) Then
-                PictureBox_Consulta.ImageLocation = dr(1).ToString
+        Try
+            A_Fotos_Inventario.RemoveAt(N_Foto_Inventario)
+            If A_Fotos_Inventario.Count >= 1 Then
+                PictureBox_Consulta.ImageLocation = Caminho & "\" & A_Fotos_Inventario(0)
+            Else
+                PictureBox_Consulta.ImageLocation = ""
+                N_Foto_Inventario = 0
+                Exit Sub
             End If
-        Next
+            N_Foto_Inventario -= 1
+        Catch
+        End Try
     End Sub
 
     Private Sub BtnAnterior_Consulta_Click(sender As Object, e As EventArgs) Handles BtnAnterior_Consulta.Click
-        If Add_Fotos_Array > Fotos_Array.Count - 1 Then
-            Exit Sub
-        End If
-        If Add_Fotos_Array = 0 Then
-            'Buscar caminho da imagem DS e colocar na Picture Box
-            For Each dr As DataRow In I_E.DS.Tables("TB_Foto").Rows
-                If dr(0).ToString = Fotos_Array(0) Then
-                    PictureBox_Consulta.ImageLocation = dr(1).ToString
-                End If
-            Next
-            Exit Sub
-        End If
-        Add_Fotos_Array -= 1
-        'Buscar caminho da imagem DS e colocar na Picture Box
-        For Each dr As DataRow In I_E.DS.Tables("TB_Foto").Rows
-            If dr(0).ToString = Fotos_Array(Add_Fotos_Array) Then
-                PictureBox_Consulta.ImageLocation = dr(1).ToString
-            End If
-        Next
+        N_Foto_Inventario = C_I.Anterior_Foto(A_Fotos_Inventario, PictureBox_Consulta, N_Foto_Inventario, Caminho)
     End Sub
 
     Private Sub BtnProximo_Consulta_Click(sender As Object, e As EventArgs) Handles BtnProximo_Consulta.Click
-        If Add_Fotos_Array > Fotos_Array.Count - 1 Then
-            Exit Sub
-        End If
-        If Add_Fotos_Array = Fotos_Array.Count - 1 Then
-            'Buscar caminho da imagem DS e colocar na Picture Box
-            For Each dr As DataRow In I_E.DS.Tables("TB_Foto").Rows
-                If dr(0).ToString = Fotos_Array(Add_Fotos_Array) Then
-                    PictureBox_Consulta.ImageLocation = dr(1).ToString
-                End If
-            Next
-            Exit Sub
-        End If
-        Add_Fotos_Array += 1
-        'Buscar caminho da imagem DS e colocar na Picture Box
-        For Each dr As DataRow In I_E.DS.Tables("TB_Foto").Rows
-            If dr(0).ToString = Fotos_Array(Add_Fotos_Array) Then
-                PictureBox_Consulta.ImageLocation = dr(1).ToString
-            End If
-        Next
+        N_Foto_Inventario = C_I.Proxima_Foto(A_Fotos_Inventario, PictureBox_Consulta, N_Foto_Inventario, Caminho)
     End Sub
 
     Private Sub BtnConsultar_Click(sender As Object, e As EventArgs) Handles BtnConsultar.Click
@@ -596,5 +520,17 @@ Public Class Frm_Inventário
         If Result = vbYes Then
             I_E.Excluir_Tudo()
         End If
+    End Sub
+
+    Private Sub CaminhoFotosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CaminhoFotosToolStripMenuItem.Click
+        FBD.ShowDialog()
+        Caminho = FBD.SelectedPath
+        Dim F_Arquivos = Directory.GetFiles(Caminho)
+        For Each A_F As String In F_Arquivos
+            A_Fotos_Principal.Add(Path.GetFileName(A_F))
+        Next A_F
+
+        'Mostrar Imagem no PictureBox
+        PictureBox.ImageLocation = Caminho & "\" & A_Fotos_Principal(0)
     End Sub
 End Class
