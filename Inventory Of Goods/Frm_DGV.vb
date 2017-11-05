@@ -1,6 +1,9 @@
 ﻿Public Class Frm_DGV
     Dim I_E As New Inventário_Excel
     Public Alterado As Boolean
+    Dim Linha_ID As String
+    Dim Texto_Foto As String
+
     Private Sub Frm_DGV_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
         Frm_Inventário.Show()
     End Sub
@@ -14,7 +17,6 @@
         If e.RowIndex = -1 Then
             Exit Sub
         End If
-
         'Limpar Array Fotos
         Try
             'Frm_Inventário.Fotos_Array.Clear()
@@ -71,23 +73,47 @@
             Frm_Inventário.TxtObsCivil.Text = IIf(IsDBNull(DGV_Consulta.Item(46, e.RowIndex).Value), "", DGV_Consulta.Item(46, e.RowIndex).Value)
             Frm_Inventário.TxtConsultor.Text = DGV_Consulta.Item(47, e.RowIndex).Value
             Frm_Inventário.TxtLider.Text = DGV_Consulta.Item(48, e.RowIndex).Value
+            Frm_Inventário.TxtTag.Text = DGV_Consulta.Item(50, e.RowIndex).Value
+            Frm_Inventário.TxtEsforco.Text = DGV_Consulta.Item(51, e.RowIndex).Value
+
+            Texto_Foto = DGV_Consulta.Item(52, e.RowIndex).Value
         Catch
         End Try
+        Frm_Inventário.A_Fotos_Inventario.Clear()
+        Frm_Inventário.Foto = ""
 
-        'For i = 50 To 59
-        '    If Not IsDBNull(DGV_Consulta.Item(i, e.RowIndex).Value) Then
-        '        Frm_Inventário.Fotos_Array.Add(DGV_Consulta.Item(i, e.RowIndex).Value)
-        '    End If
-        'Next
+        If Texto_Foto <> "" Then
+            Dim Palavras As String() = Texto_Foto.Split("|")
+            For Each Palavra In Palavras
+                Frm_Inventário.A_Fotos_Inventario.Add(Palavra)
+            Next
+            Frm_Inventário.PictureBox_Consulta.ImageLocation = Frm_Inventário.Caminho & "\" & Frm_Inventário.A_Fotos_Inventario(0)
+        End If
 
         'Ajuste A1
         Frm_Inventário.Ajuste_A1()
-        'Mostrar Imagem
-        'Frm_Inventário.Mostrar_Imagem()
 
         'Consulta TI_Geral
         Frm_Inventário.CmbTI_Geral.Text = I_E.Consulta_TI_Geral(Frm_Inventário.TI)
         Alterado = True
         Me.Close()
+    End Sub
+
+    Private Sub DGV_Consulta_CellMouseClick(sender As Object, e As DataGridViewCellMouseEventArgs) Handles DGV_Consulta.CellMouseClick
+        If e.Button = Windows.Forms.MouseButtons.Right AndAlso e.RowIndex >= 0 Then
+            DGV_Consulta.MultiSelect = False
+            DGV_Consulta.Rows(e.RowIndex).Selected = True
+            Linha_ID = DGV_Consulta.Item(0, e.RowIndex).Value
+            CMS_DGV.Show(DGV_Consulta, e.Location)
+            CMS_DGV.Show(Cursor.Position)
+            DGV_Consulta.MultiSelect = True
+        End If
+
+    End Sub
+
+    Private Sub ExcluirDadosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ExcluirDadosToolStripMenuItem.Click
+        I_E.Excluir(Linha_ID)
+        'Consultar Dados
+        I_E.Consulta_Excel(DGV_Consulta)
     End Sub
 End Class

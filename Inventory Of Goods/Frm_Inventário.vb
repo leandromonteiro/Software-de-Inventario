@@ -23,7 +23,7 @@ Public Class Frm_Inventário
 
     Public consultor As String
     Public lider As String
-
+    Public Foto As String
 
     Public A_Fotos_Principal As New ArrayList
     Public A_Fotos_Inventario As New ArrayList
@@ -165,6 +165,9 @@ Public Class Frm_Inventário
         LblA4.Text = "A4:"
         LblA5.Text = "A5:"
         LblA6.Text = "A6:"
+        A_Fotos_Inventario.Clear()
+        Foto = ""
+        PictureBox_Consulta.ImageLocation = ""
     End Sub
 
     Private Sub Limpar_Parcial()
@@ -176,6 +179,10 @@ Public Class Frm_Inventário
         CmbDia.Text = ""
         TxtObs.Text = ""
         TxtObsCivil.Text = ""
+        TxtTag.Text = ""
+        A_Fotos_Inventario.Clear()
+        PictureBox_Consulta.ImageLocation = ""
+        Foto = ""
     End Sub
 
     Public Sub Ajuste_A1()
@@ -351,8 +358,17 @@ Public Class Frm_Inventário
         Sequencial = TxtLocal.Text & " - " & TxtSeq_Local.Text
         consultor = TxtConsultor.Text
         lider = TxtLider.Text
-        ID = TxtSeq_Civil.Text
 
+        ID = TxtSeq_Civil.Text
+        If CmbAno.Text = "" Then
+            CmbAno.Text = 0
+        End If
+        If CmbMes.Text = "" Then
+            CmbMes.Text = 0
+        End If
+        If CmbDia.Text = "" Then
+            CmbDia.Text = 0
+        End If
         If TxtAltura.Text = "" Then
             TxtAltura.Text = 0
         End If
@@ -372,19 +388,28 @@ Public Class Frm_Inventário
             TxtEsforco.Text = 0
         End If
 
+        'Arrumar foto
+        If A_Fotos_Inventario.Count > 0 Then
+            For i = 0 To A_Fotos_Inventario.Count - 1
+                Foto = Foto & IIf(Foto = "", "", "|") & A_Fotos_Inventario(i)
+            Next
+        Else
+            Foto = ""
+        End If
+
         'Se o ID do cadastro já existir, faça o Update, senão Insert
-        If ID = I_E.Buscar_Ultimo_ID Then
+        If ID <= I_E.Buscar_Ultimo_ID Then
             I_E.Update_Inventario(ID, Sequencial, TxtLocal.Text, TxtODI.Text, TI, CmbTI.Text, TxtBay.Text, TUC, CmbTUC.Text, A1, CmbA1.Text,
                               UAR, CmbUAR.Text, A2, CmbA2.Text, A3, CmbA3.Text, A4, CmbA4.Text, A5, CmbA5.Text, A6, CmbA6.Text, CM1, CmbCm1.Text,
                               CM2, CmbCm2.Text, CM3, CmbCm3.Text, TxtDesc.Text, TxtFabricante.Text, TxtModelo.Text, TxtSerie.Text, TxtObs.Text,
                               TxtQtd.Text, CmbUm.Text, CmbAno.Text, CmbMes.Text, CmbDia.Text, CmbStatus.Text, CmbEstado.Text, TxtAltura.Text,
-                              TxtLargura.Text, TxtComprimento.Text, TxtArea.Text, TxtPe.Text, TxtObsCivil.Text, "", consultor, lider, TxtTag.Text, TxtEsforco.Text)
+                              TxtLargura.Text, TxtComprimento.Text, TxtArea.Text, TxtPe.Text, TxtObsCivil.Text, Foto, consultor, lider, TxtTag.Text, TxtEsforco.Text)
         Else
             I_E.Inserir_Dados(ID, Sequencial, TxtLocal.Text, TxtODI.Text, TI, CmbTI.Text, TxtBay.Text, TUC, CmbTUC.Text, A1, CmbA1.Text,
                               UAR, CmbUAR.Text, A2, CmbA2.Text, A3, CmbA3.Text, A4, CmbA4.Text, A5, CmbA5.Text, A6, CmbA6.Text, CM1, CmbCm1.Text,
                               CM2, CmbCm2.Text, CM3, CmbCm3.Text, TxtDesc.Text, TxtFabricante.Text, TxtModelo.Text, TxtSerie.Text, TxtObs.Text,
                               TxtQtd.Text, CmbUm.Text, CmbAno.Text, CmbMes.Text, CmbDia.Text, CmbStatus.Text, CmbEstado.Text, TxtAltura.Text,
-                              TxtLargura.Text, TxtComprimento.Text, TxtArea.Text, TxtPe.Text, TxtEsforco.Text, TxtObsCivil.Text, consultor, lider, TxtTag.Text)
+                              TxtLargura.Text, TxtComprimento.Text, TxtArea.Text, TxtPe.Text, TxtEsforco.Text, TxtObsCivil.Text, consultor, lider, TxtTag.Text, Foto)
         End If
         BtnCopiar.Enabled = True
         'Limpar Dados
@@ -423,8 +448,6 @@ Public Class Frm_Inventário
         TxtSeq_Local.Text = ID
         'Limpar Alguns dados
         Limpar_Parcial()
-        A_Fotos_Inventario.Clear()
-        PictureBox_Consulta.ImageLocation = ""
         'Add_Fotos_Array = 0
 
         BtnCopiar.Enabled = False
@@ -485,19 +508,23 @@ Public Class Frm_Inventário
         A_Fotos_Inventario.Add(A_Fotos_Principal(N_Foto_Principal))
         PictureBox_Consulta.ImageLocation = Caminho & "\" & A_Fotos_Inventario(A_Fotos_Inventario.Count - 1)
         N_Foto_Inventario = A_Fotos_Inventario.Count - 1
-        MsgBox("Fotos adicionadas com sucesso", MsgBoxStyle.Information)
+        'MsgBox("Fotos adicionadas com sucesso", MsgBoxStyle.Information)
     End Sub
     Private Sub BtnRemover_Fotos_Click(sender As Object, e As EventArgs) Handles BtnRemover_Fotos.Click
         Try
             A_Fotos_Inventario.RemoveAt(N_Foto_Inventario)
             If A_Fotos_Inventario.Count >= 1 Then
-                PictureBox_Consulta.ImageLocation = Caminho & "\" & A_Fotos_Inventario(0)
+                N_Foto_Inventario -= 1
+                If N_Foto_Inventario < 0 Then
+                    N_Foto_Inventario = 0
+                End If
+                PictureBox_Consulta.ImageLocation = Caminho & "\" & A_Fotos_Inventario(N_Foto_Inventario)
             Else
                 PictureBox_Consulta.ImageLocation = ""
                 N_Foto_Inventario = 0
                 Exit Sub
             End If
-            N_Foto_Inventario -= 1
+
         Catch
         End Try
     End Sub
@@ -525,6 +552,9 @@ Public Class Frm_Inventário
     Private Sub CaminhoFotosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CaminhoFotosToolStripMenuItem.Click
         FBD.ShowDialog()
         Caminho = FBD.SelectedPath
+        If Caminho = "" Then
+            Exit Sub
+        End If
         Dim F_Arquivos = Directory.GetFiles(Caminho)
         For Each A_F As String In F_Arquivos
             A_Fotos_Principal.Add(Path.GetFileName(A_F))

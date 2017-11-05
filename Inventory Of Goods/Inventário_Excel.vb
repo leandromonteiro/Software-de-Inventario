@@ -503,7 +503,7 @@ Public Class Inventário_Excel
                              cod_cm2 As Integer, desc_cm2 As String, cod_cm3 As Integer, desc_cm3 As String, descricao As String, fabricante As String, modelo As String, serie As String,
                              observacao As String, quantidade As Decimal, unidade As String, ano As Integer, mes As Integer, dia As Integer, status_bem As String, estado_bem As String,
                              altura As Decimal, largura As Decimal, comprimento As Decimal, area As Decimal, pe As Decimal, esforco As Decimal, obs_civil As String, consultor As String,
-                             lider As String, Num_Manutencao As String)
+                             lider As String, Num_Manutencao As String, Foto As String)
         Try
             Using connection As New SQLite.SQLiteConnection(connstr)
                 SQLite.SQLiteConnection.ClearAllPools()
@@ -515,13 +515,13 @@ Public Class Inventário_Excel
                 cmd.CommandText = "insert into INVENTARIO (ID,Sequencial,Local,odi,cod_ti,ti,bay,cod_tuc,desc_tuc,cod_tipo_bem,desc_tipo_bem,cod_uar,desc_uar,cod_a2,desc_a2," &
                                   "cod_a3,desc_a3,cod_a4,desc_a4,cod_a5,desc_a5,cod_a6,desc_a6,cod_cm1,desc_cm1,cod_cm2,desc_cm2,cod_cm3,desc_cm3,descricao,fabricante,modelo,serie," &
                                   "observacao,quantidade,unidade_medida,ano,mes,dia,status_bem,estado_bem,altura,largura,comprimento,area,pe_direito,esforco,obs_civil,consultor," &
-                                  "lider,data_hora,Numero_Manutencao) values(" & ID & ",'" & Sequencial & "','" & Local & "','" & odi & "'," & cod_ti & ",'" & ti & "','" & bay &
+                                  "lider,data_hora,Numero_Manutencao,foto) values(" & ID & ",'" & Sequencial & "','" & Local & "','" & odi & "'," & cod_ti & ",'" & ti & "','" & bay &
                                   "'," & cod_tuc & ",'" & tuc & "','" & cod_tipo_bem & "','" & tipo_bem & "', '" & cod_uar & "','" & uar & "','" & cod_a2 & "','" & desc_a2 & "','" &
                                   cod_a3 & "','" & desc_a3 & "','" & cod_a4 & "','" & desc_a4 & "','" & cod_a5 & "','" & desc_a5 & "','" & cod_a6 & "','" & desc_a6 & "'," & cod_cm1 &
                                   ",'" & desc_cm1 & "'," & cod_cm2 & ",'" & desc_cm2 & "'," & cod_cm3 & ",'" & desc_cm3 & "','" & descricao & "','" & fabricante & "','" & modelo & "','" &
                                   serie & "','" & observacao & "'," & quantidade & ", '" & unidade & "'," & ano & ", " & mes & "," & dia & ",'" & status_bem & "','" & estado_bem &
                                   "'," & altura & "," & largura & "," & comprimento & "," & area & "," & pe & "," & esforco & ",'" & obs_civil & "','" & consultor & "','" &
-                                  lider & "','" & Now & "','" & Num_Manutencao & "');"
+                                  lider & "','" & Now & "','" & Num_Manutencao & "','" & Foto & "');"
                 cmd.ExecuteNonQuery()
                 cmd.Dispose()
                 connection.Close()
@@ -567,9 +567,9 @@ Public Class Inventário_Excel
                 connection.Close()
                 connection.Dispose()
             End Using
-            MsgBox("Dados Salvos com Sucesso", MsgBoxStyle.Information)
+            'MsgBox("Dados Salvos com Sucesso", MsgBoxStyle.Information)
         Catch
-            MsgBox("Erro ao inserir dados", MsgBoxStyle.Critical)
+            MsgBox("Erro ao atualizar dados", MsgBoxStyle.Critical)
         End Try
     End Sub
     Public Sub Excluir_Tudo()
