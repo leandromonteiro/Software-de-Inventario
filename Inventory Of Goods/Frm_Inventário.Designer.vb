@@ -38,7 +38,6 @@ Partial Class Frm_Inventário
         Me.TxtTag = New System.Windows.Forms.TextBox()
         Me.LblTag = New System.Windows.Forms.Label()
         Me.Label12 = New System.Windows.Forms.Label()
-        Me.BtnZoom = New System.Windows.Forms.Button()
         Me.PictureBox = New System.Windows.Forms.PictureBox()
         Me.BtnAdd = New System.Windows.Forms.Button()
         Me.BtnProximo = New System.Windows.Forms.Button()
@@ -137,6 +136,8 @@ Partial Class Frm_Inventário
         Me.ExtrairToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ExcelToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.FBD = New System.Windows.Forms.FolderBrowserDialog()
+        Me.Btn_Voltar10 = New System.Windows.Forms.Button()
+        Me.Btn_Avancar10 = New System.Windows.Forms.Button()
         Me.TabControl1.SuspendLayout()
         Me.TpLocal.SuspendLayout()
         Me.TpDesc.SuspendLayout()
@@ -289,10 +290,11 @@ Partial Class Frm_Inventário
         '
         'TpDesc
         '
+        Me.TpDesc.Controls.Add(Me.Btn_Avancar10)
+        Me.TpDesc.Controls.Add(Me.Btn_Voltar10)
         Me.TpDesc.Controls.Add(Me.TxtTag)
         Me.TpDesc.Controls.Add(Me.LblTag)
         Me.TpDesc.Controls.Add(Me.Label12)
-        Me.TpDesc.Controls.Add(Me.BtnZoom)
         Me.TpDesc.Controls.Add(Me.PictureBox)
         Me.TpDesc.Controls.Add(Me.BtnAdd)
         Me.TpDesc.Controls.Add(Me.BtnProximo)
@@ -373,20 +375,6 @@ Partial Class Frm_Inventário
         Me.Label12.TabIndex = 43
         Me.Label12.Text = "Todas as Fotos do Inventário"
         '
-        'BtnZoom
-        '
-        Me.BtnZoom.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.BtnZoom.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.BtnZoom.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnZoom.Location = New System.Drawing.Point(1012, 638)
-        Me.BtnZoom.Margin = New System.Windows.Forms.Padding(4)
-        Me.BtnZoom.Name = "BtnZoom"
-        Me.BtnZoom.Size = New System.Drawing.Size(93, 28)
-        Me.BtnZoom.TabIndex = 30
-        Me.BtnZoom.TabStop = False
-        Me.BtnZoom.Text = "Visualizar"
-        Me.BtnZoom.UseVisualStyleBackColor = True
-        '
         'PictureBox
         '
         Me.PictureBox.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
@@ -419,7 +407,7 @@ Partial Class Frm_Inventário
         Me.BtnProximo.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.BtnProximo.Cursor = System.Windows.Forms.Cursors.Hand
         Me.BtnProximo.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnProximo.Location = New System.Drawing.Point(941, 638)
+        Me.BtnProximo.Location = New System.Drawing.Point(1013, 638)
         Me.BtnProximo.Margin = New System.Windows.Forms.Padding(4)
         Me.BtnProximo.Name = "BtnProximo"
         Me.BtnProximo.Size = New System.Drawing.Size(63, 28)
@@ -443,7 +431,7 @@ Partial Class Frm_Inventário
         Me.BtnAnterior.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.BtnAnterior.Cursor = System.Windows.Forms.Cursors.Hand
         Me.BtnAnterior.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnAnterior.Location = New System.Drawing.Point(871, 638)
+        Me.BtnAnterior.Location = New System.Drawing.Point(942, 638)
         Me.BtnAnterior.Margin = New System.Windows.Forms.Padding(4)
         Me.BtnAnterior.Name = "BtnAnterior"
         Me.BtnAnterior.Size = New System.Drawing.Size(63, 28)
@@ -1426,6 +1414,34 @@ Partial Class Frm_Inventário
         Me.ExcelToolStripMenuItem.Size = New System.Drawing.Size(118, 26)
         Me.ExcelToolStripMenuItem.Text = "Excel"
         '
+        'Btn_Voltar10
+        '
+        Me.Btn_Voltar10.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.Btn_Voltar10.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.Btn_Voltar10.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Btn_Voltar10.Location = New System.Drawing.Point(871, 638)
+        Me.Btn_Voltar10.Margin = New System.Windows.Forms.Padding(4)
+        Me.Btn_Voltar10.Name = "Btn_Voltar10"
+        Me.Btn_Voltar10.Size = New System.Drawing.Size(63, 28)
+        Me.Btn_Voltar10.TabIndex = 46
+        Me.Btn_Voltar10.TabStop = False
+        Me.Btn_Voltar10.Text = "<<"
+        Me.Btn_Voltar10.UseVisualStyleBackColor = True
+        '
+        'Btn_Avancar10
+        '
+        Me.Btn_Avancar10.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.Btn_Avancar10.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.Btn_Avancar10.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Btn_Avancar10.Location = New System.Drawing.Point(1084, 638)
+        Me.Btn_Avancar10.Margin = New System.Windows.Forms.Padding(4)
+        Me.Btn_Avancar10.Name = "Btn_Avancar10"
+        Me.Btn_Avancar10.Size = New System.Drawing.Size(63, 28)
+        Me.Btn_Avancar10.TabIndex = 47
+        Me.Btn_Avancar10.TabStop = False
+        Me.Btn_Avancar10.Text = ">>"
+        Me.Btn_Avancar10.UseVisualStyleBackColor = True
+        '
         'Frm_Inventário
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -1545,7 +1561,6 @@ Partial Class Frm_Inventário
     Friend WithEvents GbFotos As System.Windows.Forms.GroupBox
     Friend WithEvents TcFotos As System.Windows.Forms.TabControl
     Friend WithEvents PictureBox As System.Windows.Forms.PictureBox
-    Friend WithEvents BtnZoom As System.Windows.Forms.Button
     Friend WithEvents BtnAdd As System.Windows.Forms.Button
     Friend WithEvents BtnProximo As System.Windows.Forms.Button
     Friend WithEvents BtnAnterior As System.Windows.Forms.Button
@@ -1578,4 +1593,6 @@ Partial Class Frm_Inventário
     Friend WithEvents BtnGirar As Button
     Friend WithEvents TB As TrackBar
     Friend WithEvents Panel_Picture_Consulta As Panel
+    Friend WithEvents Btn_Avancar10 As Button
+    Friend WithEvents Btn_Voltar10 As Button
 End Class

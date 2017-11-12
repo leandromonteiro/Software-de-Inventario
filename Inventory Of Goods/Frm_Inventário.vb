@@ -341,12 +341,20 @@ Public Class Frm_Inventário
         N_Foto_Principal = C_I.Proxima_Foto(A_Fotos_Principal, PictureBox, N_Foto_Principal, Caminho)
     End Sub
 
-    Private Sub BtnZoom_Click(sender As Object, e As EventArgs) Handles BtnZoom.Click
-        Dim p As New Process()
-        p.StartInfo.FileName = "rundll32.exe"
-        p.StartInfo.Arguments = Path.Combine(Environment.SystemDirectory, "shimgvw.dll" & ",ImageView_Fullscreen " & PictureBox.ImageLocation)
-        p.Start()
+    Private Sub Btn_Voltar10_Click(sender As Object, e As EventArgs) Handles Btn_Voltar10.Click
+        N_Foto_Principal = C_I.Anterior_Foto(A_Fotos_Principal, PictureBox, N_Foto_Principal - 9, Caminho)
     End Sub
+
+    Private Sub Btn_Avancar10_Click(sender As Object, e As EventArgs) Handles Btn_Avancar10.Click
+        N_Foto_Principal = C_I.Proxima_Foto(A_Fotos_Principal, PictureBox, N_Foto_Principal + 9, Caminho)
+    End Sub
+
+    'Private Sub BtnZoom_Click(sender As Object, e As EventArgs) Handles BtnZoom.Click
+    '    Dim p As New Process()
+    '    p.StartInfo.FileName = "rundll32.exe"
+    '    p.StartInfo.Arguments = Path.Combine(Environment.SystemDirectory, "shimgvw.dll" & ",ImageView_Fullscreen " & PictureBox.ImageLocation)
+    '    p.Start()
+    'End Sub
 
     Private Sub BtnSalvar_Click(sender As Object, e As EventArgs) Handles BtnSalvar.Click
         'Validação de Dados
@@ -582,10 +590,12 @@ Public Class Frm_Inventário
     End Sub
 
     Private Sub BtnAdd_Click(sender As Object, e As EventArgs) Handles BtnAdd.Click
-        A_Fotos_Inventario.Add(A_Fotos_Principal(N_Foto_Principal))
-        PictureBox_Consulta.ImageLocation = Caminho & "\" & A_Fotos_Inventario(A_Fotos_Inventario.Count - 1)
-        N_Foto_Inventario = A_Fotos_Inventario.Count - 1
-        'MsgBox("Fotos adicionadas com sucesso", MsgBoxStyle.Information)
+        Try
+            A_Fotos_Inventario.Add(A_Fotos_Principal(N_Foto_Principal))
+            PictureBox_Consulta.ImageLocation = Caminho & "\" & A_Fotos_Inventario(A_Fotos_Inventario.Count - 1)
+            N_Foto_Inventario = A_Fotos_Inventario.Count - 1
+        Catch
+        End Try
     End Sub
     Private Sub BtnRemover_Fotos_Click(sender As Object, e As EventArgs) Handles BtnRemover_Fotos.Click
         Try
@@ -632,9 +642,13 @@ Public Class Frm_Inventário
         If Caminho = "" Then
             Exit Sub
         End If
-        Dim F_Arquivos = Directory.GetFiles(Caminho)
-        For Each A_F As String In F_Arquivos
-            A_Fotos_Principal.Add(Path.GetFileName(A_F))
+        'Dim F_Arquivos = Directory.GetFiles(Caminho)
+        Dim di As New DirectoryInfo(Caminho)
+        Dim F_Arquivos = di.GetFiles()
+        F_Arquivos = F_Arquivos.OrderBy(Function(x) x.CreationTime).ToArray()
+
+        For Each A_F As FileInfo In F_Arquivos
+            A_Fotos_Principal.Add(Path.GetFileName(A_F.ToString))
         Next A_F
 
         'Mostrar Imagem no PictureBox
@@ -646,8 +660,11 @@ Public Class Frm_Inventário
     End Sub
 
     Private Sub BtnGirar_Click(sender As Object, e As EventArgs) Handles BtnGirar.Click
-        PictureBox_Consulta.Image.RotateFlip(RotateFlipType.Rotate90FlipNone)
-        PictureBox_Consulta.Refresh()
+        Try
+            PictureBox_Consulta.Image.RotateFlip(RotateFlipType.Rotate90FlipNone)
+            PictureBox_Consulta.Refresh()
+        Catch
+        End Try
     End Sub
 
     Private Sub TB_ValueChanged(sender As Object, e As EventArgs) Handles TB.ValueChanged
@@ -660,4 +677,6 @@ Public Class Frm_Inventário
         End If
         V_Atual_TB = TB.Value
     End Sub
+
+
 End Class
