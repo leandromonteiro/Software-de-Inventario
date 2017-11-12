@@ -42,74 +42,92 @@ Public Class Frm_Inventário
         If TxtLocal.Text = "" Or TxtODI.Text = "" Or CmbTI.Text = "" Or CmbTI_Geral.Text = "" Then
             MsgBox("Dados Incompletos na aba local", MsgBoxStyle.Exclamation)
             Invalidos = True
+            Exit Sub
         End If
         If CmbTUC.Text = "" Then
             MsgBox("Preencha TUC", MsgBoxStyle.Exclamation)
             Invalidos = True
+            Exit Sub
         End If
         If CmbA1.Text = "" Then
             MsgBox("Preencha Tipo de Bem", MsgBoxStyle.Exclamation)
             Invalidos = True
+            Exit Sub
         End If
         If CmbUAR.Text = "" Then
             MsgBox("Preencha UAR", MsgBoxStyle.Exclamation)
             Invalidos = True
+            Exit Sub
         End If
         If CmbA2.Text = "" And CmbA2.Enabled = True Then
             MsgBox("Preencha A2", MsgBoxStyle.Exclamation)
             Invalidos = True
+            Exit Sub
         End If
         If CmbA3.Text = "" And CmbA3.Enabled = True Then
             MsgBox("Preencha A3", MsgBoxStyle.Exclamation)
             Invalidos = True
+            Exit Sub
         End If
         If CmbA4.Text = "" And CmbA4.Enabled = True Then
             MsgBox("Preencha A4", MsgBoxStyle.Exclamation)
             Invalidos = True
+            Exit Sub
         End If
         If CmbA5.Text = "" And CmbA5.Enabled = True Then
             MsgBox("Preencha A5", MsgBoxStyle.Exclamation)
             Invalidos = True
+            Exit Sub
         End If
         If CmbA6.Text = "" And CmbA6.Enabled = True Then
             MsgBox("Preencha A6", MsgBoxStyle.Exclamation)
             Invalidos = True
+            Exit Sub
         End If
         If CmbCm1.Text = "" Then
             MsgBox("Preencha cm1", MsgBoxStyle.Exclamation)
             Invalidos = True
+            Exit Sub
         End If
         If CmbCm2.Text = "" Then
             MsgBox("Preencha cm2", MsgBoxStyle.Exclamation)
             Invalidos = True
+            Exit Sub
         End If
         If CmbCm3.Text = "" Then
             MsgBox("Preencha cm3", MsgBoxStyle.Exclamation)
             Invalidos = True
+            Exit Sub
         End If
         If TxtDesc.Text = "" Then
             MsgBox("Preencha descrição", MsgBoxStyle.Exclamation)
             Invalidos = True
+            Exit Sub
         End If
         If TxtQtd.Text = "" Then
             MsgBox("Preencha quantidade", MsgBoxStyle.Exclamation)
             Invalidos = True
+            Exit Sub
         End If
         If CmbUm.Text = "" Then
             MsgBox("Preencha unidade de medida", MsgBoxStyle.Exclamation)
             Invalidos = True
+            Exit Sub
         End If
         If CmbStatus.Text = "" Then
             MsgBox("Preencha status do bem", MsgBoxStyle.Exclamation)
             Invalidos = True
+            Exit Sub
         End If
         If CmbEstado.Text = "" Then
             MsgBox("Preencha estado do bem", MsgBoxStyle.Exclamation)
             Invalidos = True
+            Exit Sub
         End If
         If TxtConsultor.Text = "" Then
             MsgBox("Preencha o e-mail do consultor", MsgBoxStyle.Exclamation)
             Invalidos = True
+            Exit Sub
         End If
         If TxtLider.Text = "" Then
             MsgBox("Preencha o e-mail do líder", MsgBoxStyle.Exclamation)
@@ -363,6 +381,9 @@ Public Class Frm_Inventário
             Invalidos = False
             Exit Sub
         End If
+
+        BtnS_Multi.Enabled = True
+        BtnCopiar.Enabled = True
 
         'Update BD
         Sequencial = TxtLocal.Text & " - " & TxtSeq_Local.Text
@@ -633,6 +654,10 @@ Public Class Frm_Inventário
         Dim Result As DialogResult = MessageBox.Show("Deseja excluir os dados anteriores?", "Dados", MessageBoxButtons.YesNo)
         If Result = vbYes Then
             I_E.Excluir_Tudo()
+            ID = 1
+            TxtSeq_Civil.Text = ID
+            TxtSeq_Desc.Text = ID
+            TxtSeq_Local.Text = ID
         End If
     End Sub
 

@@ -96,6 +96,9 @@
 
         'Consulta TI_Geral
         Frm_Inventário.CmbTI_Geral.Text = I_E.Consulta_TI_Geral(Frm_Inventário.TI)
+
+        Frm_Inventário.BtnS_Multi.Enabled = False
+        Frm_Inventário.BtnCopiar.Enabled = False
         Alterado = True
         Me.Close()
     End Sub
