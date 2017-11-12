@@ -30,6 +30,8 @@ Public Class Frm_Inventário
     Dim N_Foto_Principal As Integer
     Dim N_Foto_Inventario As Integer
 
+    Dim V_Atual_TB As Integer = 0
+
     Public Caminho As String
 
     Dim Invalidos As Boolean
@@ -118,6 +120,12 @@ Public Class Frm_Inventário
     Private Sub Limpar_Tudo()
         TxtBay.Text = ""
         CmbTUC.Text = ""
+        A1 = ""
+        A2 = ""
+        A3 = ""
+        A4 = ""
+        A5 = ""
+        A6 = ""
         CmbA1.Text = ""
         CmbA2.Text = ""
         CmbA3.Text = ""
@@ -204,6 +212,7 @@ Public Class Frm_Inventário
     End Sub
 
     Private Sub FrmInventario_Novo_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Panel_Picture_Consulta.Controls.Add(PictureBox_Consulta)
         ID = I_E.Buscar_Ultimo_ID() + 1
         TxtSeq_Civil.Text = ID
         TxtSeq_Desc.Text = ID
@@ -339,13 +348,6 @@ Public Class Frm_Inventário
         p.Start()
     End Sub
 
-    Private Sub BtnVisualizar_Consulta_Click(sender As Object, e As EventArgs) Handles BtnVisualizar_Consulta.Click
-        Dim p As New Process()
-        p.StartInfo.FileName = "rundll32.exe"
-        p.StartInfo.Arguments = Path.Combine(Environment.SystemDirectory, "shimgvw.dll" & ",ImageView_Fullscreen " & PictureBox_Consulta.ImageLocation)
-        p.Start()
-    End Sub
-
     Private Sub BtnSalvar_Click(sender As Object, e As EventArgs) Handles BtnSalvar.Click
         'Validação de Dados
         Validacao_Salvar()
@@ -418,42 +420,117 @@ Public Class Frm_Inventário
         TxtSeq_Civil.Text = ID + 1
         TxtSeq_Desc.Text = ID + 1
         TxtSeq_Local.Text = ID + 1
+
+        CmbStatus.Text = "EM USO"
+        CmbEstado.Text = "BOM"
     End Sub
 
-    Private Sub BtnNovo_Click(sender As Object, e As EventArgs)
-        'Consultar ID +1
-        'ID = I_E.Buscar_Ultimo_ID()
-        'ID += 1
-        'TxtSeq_Civil.Text = ID
-        'TxtSeq_Desc.Text = ID
-        'TxtSeq_Local.Text = ID
-        ''Inserir no BD
-        'I_E.Inserir_ID(ID)
-        ''Limpar Dados
-        'Limpar_Tudo()
-        'Fotos_Array.Clear()
-        'PictureBox_Consulta.ImageLocation = ""
-        'Add_Fotos_Array = 0
+    Private Sub BtnS_Multi_Click(sender As Object, e As EventArgs) Handles BtnS_Multi.Click
+        'Validação de Dados
+        Validacao_Salvar()
+        If Invalidos = True Then
+            Invalidos = False
+            Exit Sub
+        End If
 
-        'BtnNovo.Enabled = False
-        'BtnCopiar.Enabled = False
+        Dim N_cadastros As String
+        N_cadastros = InputBox("Número de Cadastros. Limite 10!", "Cadastros")
+        If N_cadastros = "" Then
+            Exit Sub
+        End If
+
+        If IsNumeric(N_cadastros) Then
+            If N_cadastros > 10 Then
+                MsgBox("Insira valores menores ou iguais a 10!")
+                Exit Sub
+            End If
+            If N_cadastros <= 0 Then
+                MsgBox("Insira valores maiores que 0!")
+                Exit Sub
+            End If
+        Else
+            MsgBox("Insira dados numéricos!")
+            Exit Sub
+        End If
+
+        'Update BD
+        consultor = TxtConsultor.Text
+        lider = TxtLider.Text
+
+        ID = TxtSeq_Civil.Text
+        If CmbAno.Text = "" Then
+            CmbAno.Text = 0
+        End If
+        If CmbMes.Text = "" Then
+            CmbMes.Text = 0
+        End If
+        If CmbDia.Text = "" Then
+            CmbDia.Text = 0
+        End If
+        If TxtAltura.Text = "" Then
+            TxtAltura.Text = 0
+        End If
+        If TxtLargura.Text = "" Then
+            TxtLargura.Text = 0
+        End If
+        If TxtComprimento.Text = "" Then
+            TxtComprimento.Text = 0
+        End If
+        If TxtArea.Text = "" Then
+            TxtArea.Text = 0
+        End If
+        If TxtPe.Text = "" Then
+            TxtPe.Text = 0
+        End If
+        If TxtEsforco.Text = "" Then
+            TxtEsforco.Text = 0
+        End If
+
+        'Arrumar foto
+        If A_Fotos_Inventario.Count > 0 Then
+            For i = 0 To A_Fotos_Inventario.Count - 1
+                Foto = Foto & IIf(Foto = "", "", "|") & A_Fotos_Inventario(i)
+            Next
+        Else
+            Foto = ""
+        End If
+        For i = ID To (ID + N_cadastros - 1)
+            Sequencial = TxtLocal.Text & " - " & i
+            I_E.Inserir_Dados(i, Sequencial, TxtLocal.Text, TxtODI.Text, TI, CmbTI.Text, TxtBay.Text, TUC, CmbTUC.Text, A1, CmbA1.Text,
+                                  UAR, CmbUAR.Text, A2, CmbA2.Text, A3, CmbA3.Text, A4, CmbA4.Text, A5, CmbA5.Text, A6, CmbA6.Text, CM1, CmbCm1.Text,
+                                  CM2, CmbCm2.Text, CM3, CmbCm3.Text, TxtDesc.Text, TxtFabricante.Text, TxtModelo.Text, TxtSerie.Text, TxtObs.Text,
+                                  TxtQtd.Text, CmbUm.Text, CmbAno.Text, CmbMes.Text, CmbDia.Text, CmbStatus.Text, CmbEstado.Text, TxtAltura.Text,
+                                  TxtLargura.Text, TxtComprimento.Text, TxtArea.Text, TxtPe.Text, TxtEsforco.Text, TxtObsCivil.Text, consultor, lider, TxtTag.Text, Foto)
+
+        Next i
+        BtnCopiar.Enabled = True
+        'Limpar Dados
+        Limpar_Tudo()
+        ID = I_E.Buscar_Ultimo_ID
+        TxtSeq_Civil.Text = ID + 1
+        TxtSeq_Desc.Text = ID + 1
+        TxtSeq_Local.Text = ID + 1
+
+        CmbStatus.Text = "EM USO"
+        CmbEstado.Text = "BOM"
     End Sub
 
     Private Sub BtnCopiar_Click(sender As Object, e As EventArgs) Handles BtnCopiar.Click
+        'Limpar
+        Limpar_Tudo()
         'Consultar ID +1
         ID = I_E.Buscar_Ultimo_ID()
+        I_E.Consulta_Descricao_Civil(ID, TxtBay, TUC, CmbTUC, A1, CmbA1, UAR, CmbUAR, A2, CmbA2, A3, CmbA3, A4, CmbA4, A5,
+                                     CmbA5, A6, CmbA6, CM1, CmbCm1, CM2, CmbCm2, CM3, CmbCm3, TxtDesc, TxtFabricante, TxtModelo, TxtObs,
+                                     TxtQtd, CmbUm, CmbAno, CmbMes, CmbDia, CmbStatus, CmbEstado, TxtAltura, TxtLargura, TxtComprimento,
+                                     TxtArea, TxtPe, TxtObsCivil, TxtEsforco)
+        'Consultar A2 a A6
+        Ajuste_A1()
+        I_E.Consulta_UAR(CmbUAR, TUC)
         ID += 1
         TxtSeq_Civil.Text = ID
         TxtSeq_Desc.Text = ID
         TxtSeq_Local.Text = ID
-        'Limpar Alguns dados
-        Limpar_Parcial()
-        'Add_Fotos_Array = 0
-
-        BtnCopiar.Enabled = False
-
-        'Consultar A2 a A6
-        Ajuste_A1()
     End Sub
 
     Private Sub TxtQtd_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TxtQtd.KeyPress
@@ -562,5 +639,25 @@ Public Class Frm_Inventário
 
         'Mostrar Imagem no PictureBox
         PictureBox.ImageLocation = Caminho & "\" & A_Fotos_Principal(0)
+    End Sub
+
+    Private Sub ExcelToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ExcelToolStripMenuItem.Click
+        I_E.Modelo_Excel()
+    End Sub
+
+    Private Sub BtnGirar_Click(sender As Object, e As EventArgs) Handles BtnGirar.Click
+        PictureBox_Consulta.Image.RotateFlip(RotateFlipType.Rotate90FlipNone)
+        PictureBox_Consulta.Refresh()
+    End Sub
+
+    Private Sub TB_ValueChanged(sender As Object, e As EventArgs) Handles TB.ValueChanged
+        If V_Atual_TB < TB.Value Then
+            PictureBox_Consulta.Width += TB.Value * (20%)
+            PictureBox_Consulta.Height += TB.Value * (20%)
+        Else
+            PictureBox_Consulta.Width -= (TB.Value + 1) * (20%)
+            PictureBox_Consulta.Height -= (TB.Value + 1) * (20%)
+        End If
+        V_Atual_TB = TB.Value
     End Sub
 End Class

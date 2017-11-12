@@ -29,7 +29,7 @@ Public Class FRM_Log
     Private Sub BtnNovo_Click(sender As Object, e As EventArgs) Handles BtnNovo.Click
         Caminho_Excel()
         'Criando Excel
-        I_E.Modelo_Excel(Me, SFD)
+        'I_E.Modelo_Excel(Me, SFD)
         Caminho_Arquivo = SFD.FileName
         If Caminho_Arquivo = "" Then
             MsgBox("Nenhum arquivo foi selecionado, a aplicação será encerrada", MsgBoxStyle.Critical)

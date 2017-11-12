@@ -10,7 +10,8 @@
 
     Private Sub Frm_DGV_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'Consultar Dados
-        I_E.Consulta_Excel(DGV_Consulta)
+        I_E.Consulta_Grid(DGV_Consulta)
+        LblLinhas.Text = "Total de Registros: " & DGV_Consulta.Rows.Count
     End Sub
 
     Private Sub DGV_Consulta_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles DGV_Consulta.CellDoubleClick
@@ -114,6 +115,7 @@
     Private Sub ExcluirDadosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ExcluirDadosToolStripMenuItem.Click
         I_E.Excluir(Linha_ID)
         'Consultar Dados
-        I_E.Consulta_Excel(DGV_Consulta)
+        I_E.Consulta_Grid(DGV_Consulta)
+        LblLinhas.Text = "Total de Registros: " & DGV_Consulta.Rows.Count
     End Sub
 End Class

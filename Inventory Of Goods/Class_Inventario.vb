@@ -1,4 +1,6 @@
-﻿Public Class Class_Inventario
+﻿Imports System.Drawing.Drawing2D
+
+Public Class Class_Inventario
     Public Function Anterior_Foto(ByRef A_Foto As ArrayList, ByRef PB As PictureBox, ByVal N As Integer, Caminho As String)
         Try
             N = N - 1
@@ -24,4 +26,5 @@
             Return N
         End Try
     End Function
+
 End Class

@@ -115,10 +115,12 @@ Partial Class Frm_Inventário
         Me.TcFotos = New System.Windows.Forms.TabControl()
         Me.TpConsulta = New System.Windows.Forms.TabPage()
         Me.BtnRemover_Fotos = New System.Windows.Forms.Button()
-        Me.BtnVisualizar_Consulta = New System.Windows.Forms.Button()
-        Me.BtnProximo_Consulta = New System.Windows.Forms.Button()
+        Me.TB = New System.Windows.Forms.TrackBar()
         Me.BtnAnterior_Consulta = New System.Windows.Forms.Button()
+        Me.BtnProximo_Consulta = New System.Windows.Forms.Button()
+        Me.BtnGirar = New System.Windows.Forms.Button()
         Me.PictureBox_Consulta = New System.Windows.Forms.PictureBox()
+        Me.Panel_Picture_Consulta = New System.Windows.Forms.Panel()
         Me.BtnCopiar = New System.Windows.Forms.Button()
         Me.BtnSalvar = New System.Windows.Forms.Button()
         Me.BtnConsultar = New System.Windows.Forms.Button()
@@ -127,10 +129,13 @@ Partial Class Frm_Inventário
         Me.TxtLider = New System.Windows.Forms.TextBox()
         Me.Label11 = New System.Windows.Forms.Label()
         Me.Panel_I = New System.Windows.Forms.Panel()
+        Me.BtnS_Multi = New System.Windows.Forms.Button()
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.DadosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ExcluirDadosAnterioresToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.CaminhoFotosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ExtrairToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ExcelToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.FBD = New System.Windows.Forms.FolderBrowserDialog()
         Me.TabControl1.SuspendLayout()
         Me.TpLocal.SuspendLayout()
@@ -141,6 +146,7 @@ Partial Class Frm_Inventário
         Me.GbFotos.SuspendLayout()
         Me.TcFotos.SuspendLayout()
         Me.TpConsulta.SuspendLayout()
+        CType(Me.TB, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox_Consulta, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel_I.SuspendLayout()
         Me.MenuStrip1.SuspendLayout()
@@ -529,6 +535,7 @@ Partial Class Frm_Inventário
         Me.CmbStatus.Name = "CmbStatus"
         Me.CmbStatus.Size = New System.Drawing.Size(253, 24)
         Me.CmbStatus.TabIndex = 26
+        Me.CmbStatus.Text = "EM USO"
         '
         'CmbEstado
         '
@@ -539,6 +546,7 @@ Partial Class Frm_Inventário
         Me.CmbEstado.Name = "CmbEstado"
         Me.CmbEstado.Size = New System.Drawing.Size(253, 24)
         Me.CmbEstado.TabIndex = 27
+        Me.CmbEstado.Text = "BOM"
         '
         'CmbDia
         '
@@ -1161,10 +1169,12 @@ Partial Class Frm_Inventário
         'TpConsulta
         '
         Me.TpConsulta.Controls.Add(Me.BtnRemover_Fotos)
-        Me.TpConsulta.Controls.Add(Me.BtnVisualizar_Consulta)
-        Me.TpConsulta.Controls.Add(Me.BtnProximo_Consulta)
+        Me.TpConsulta.Controls.Add(Me.TB)
         Me.TpConsulta.Controls.Add(Me.BtnAnterior_Consulta)
+        Me.TpConsulta.Controls.Add(Me.BtnProximo_Consulta)
+        Me.TpConsulta.Controls.Add(Me.BtnGirar)
         Me.TpConsulta.Controls.Add(Me.PictureBox_Consulta)
+        Me.TpConsulta.Controls.Add(Me.Panel_Picture_Consulta)
         Me.TpConsulta.Location = New System.Drawing.Point(4, 26)
         Me.TpConsulta.Margin = New System.Windows.Forms.Padding(4)
         Me.TpConsulta.Name = "TpConsulta"
@@ -1187,31 +1197,17 @@ Partial Class Frm_Inventário
         Me.BtnRemover_Fotos.Text = "Remover"
         Me.BtnRemover_Fotos.UseVisualStyleBackColor = True
         '
-        'BtnVisualizar_Consulta
+        'TB
         '
-        Me.BtnVisualizar_Consulta.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.BtnVisualizar_Consulta.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.BtnVisualizar_Consulta.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnVisualizar_Consulta.Location = New System.Drawing.Point(256, 646)
-        Me.BtnVisualizar_Consulta.Margin = New System.Windows.Forms.Padding(4)
-        Me.BtnVisualizar_Consulta.Name = "BtnVisualizar_Consulta"
-        Me.BtnVisualizar_Consulta.Size = New System.Drawing.Size(93, 28)
-        Me.BtnVisualizar_Consulta.TabIndex = 7
-        Me.BtnVisualizar_Consulta.Text = "Visualizar"
-        Me.BtnVisualizar_Consulta.UseVisualStyleBackColor = True
-        '
-        'BtnProximo_Consulta
-        '
-        Me.BtnProximo_Consulta.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.BtnProximo_Consulta.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.BtnProximo_Consulta.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnProximo_Consulta.Location = New System.Drawing.Point(185, 646)
-        Me.BtnProximo_Consulta.Margin = New System.Windows.Forms.Padding(4)
-        Me.BtnProximo_Consulta.Name = "BtnProximo_Consulta"
-        Me.BtnProximo_Consulta.Size = New System.Drawing.Size(63, 28)
-        Me.BtnProximo_Consulta.TabIndex = 6
-        Me.BtnProximo_Consulta.Text = ">"
-        Me.BtnProximo_Consulta.UseVisualStyleBackColor = True
+        Me.TB.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.TB.LargeChange = 1
+        Me.TB.Location = New System.Drawing.Point(11, 583)
+        Me.TB.Maximum = 20
+        Me.TB.Name = "TB"
+        Me.TB.Size = New System.Drawing.Size(758, 56)
+        Me.TB.TabIndex = 10
         '
         'BtnAnterior_Consulta
         '
@@ -1226,18 +1222,53 @@ Partial Class Frm_Inventário
         Me.BtnAnterior_Consulta.Text = "<"
         Me.BtnAnterior_Consulta.UseVisualStyleBackColor = True
         '
+        'BtnProximo_Consulta
+        '
+        Me.BtnProximo_Consulta.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.BtnProximo_Consulta.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.BtnProximo_Consulta.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnProximo_Consulta.Location = New System.Drawing.Point(185, 646)
+        Me.BtnProximo_Consulta.Margin = New System.Windows.Forms.Padding(4)
+        Me.BtnProximo_Consulta.Name = "BtnProximo_Consulta"
+        Me.BtnProximo_Consulta.Size = New System.Drawing.Size(63, 28)
+        Me.BtnProximo_Consulta.TabIndex = 6
+        Me.BtnProximo_Consulta.Text = ">"
+        Me.BtnProximo_Consulta.UseVisualStyleBackColor = True
+        '
+        'BtnGirar
+        '
+        Me.BtnGirar.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.BtnGirar.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.BtnGirar.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnGirar.Location = New System.Drawing.Point(256, 646)
+        Me.BtnGirar.Margin = New System.Windows.Forms.Padding(4)
+        Me.BtnGirar.Name = "BtnGirar"
+        Me.BtnGirar.Size = New System.Drawing.Size(93, 28)
+        Me.BtnGirar.TabIndex = 8
+        Me.BtnGirar.Text = "Girar"
+        Me.BtnGirar.UseVisualStyleBackColor = True
+        '
         'PictureBox_Consulta
         '
-        Me.PictureBox_Consulta.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.PictureBox_Consulta.Location = New System.Drawing.Point(8, 7)
+        Me.PictureBox_Consulta.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.PictureBox_Consulta.Location = New System.Drawing.Point(12, 11)
         Me.PictureBox_Consulta.Margin = New System.Windows.Forms.Padding(4)
         Me.PictureBox_Consulta.Name = "PictureBox_Consulta"
-        Me.PictureBox_Consulta.Size = New System.Drawing.Size(758, 631)
+        Me.PictureBox_Consulta.Size = New System.Drawing.Size(745, 552)
         Me.PictureBox_Consulta.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PictureBox_Consulta.TabIndex = 1
         Me.PictureBox_Consulta.TabStop = False
+        '
+        'Panel_Picture_Consulta
+        '
+        Me.Panel_Picture_Consulta.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Panel_Picture_Consulta.AutoScroll = True
+        Me.Panel_Picture_Consulta.Location = New System.Drawing.Point(8, 7)
+        Me.Panel_Picture_Consulta.Name = "Panel_Picture_Consulta"
+        Me.Panel_Picture_Consulta.Size = New System.Drawing.Size(761, 569)
+        Me.Panel_Picture_Consulta.TabIndex = 10
         '
         'BtnCopiar
         '
@@ -1325,6 +1356,7 @@ Partial Class Frm_Inventário
         Me.Panel_I.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Panel_I.AutoScroll = True
+        Me.Panel_I.Controls.Add(Me.BtnS_Multi)
         Me.Panel_I.Controls.Add(Me.TabControl1)
         Me.Panel_I.Controls.Add(Me.BtnSalvar)
         Me.Panel_I.Controls.Add(Me.BtnCopiar)
@@ -1340,6 +1372,18 @@ Partial Class Frm_Inventário
         Me.Panel_I.Size = New System.Drawing.Size(1344, 845)
         Me.Panel_I.TabIndex = 13
         '
+        'BtnS_Multi
+        '
+        Me.BtnS_Multi.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.BtnS_Multi.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.BtnS_Multi.Location = New System.Drawing.Point(827, 792)
+        Me.BtnS_Multi.Margin = New System.Windows.Forms.Padding(4)
+        Me.BtnS_Multi.Name = "BtnS_Multi"
+        Me.BtnS_Multi.Size = New System.Drawing.Size(111, 46)
+        Me.BtnS_Multi.TabIndex = 13
+        Me.BtnS_Multi.Text = "Salvar Múltiplos"
+        Me.BtnS_Multi.UseVisualStyleBackColor = True
+        '
         'MenuStrip1
         '
         Me.MenuStrip1.ImageScalingSize = New System.Drawing.Size(20, 20)
@@ -1352,7 +1396,7 @@ Partial Class Frm_Inventário
         '
         'DadosToolStripMenuItem
         '
-        Me.DadosToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ExcluirDadosAnterioresToolStripMenuItem, Me.CaminhoFotosToolStripMenuItem})
+        Me.DadosToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ExcluirDadosAnterioresToolStripMenuItem, Me.CaminhoFotosToolStripMenuItem, Me.ExtrairToolStripMenuItem})
         Me.DadosToolStripMenuItem.Name = "DadosToolStripMenuItem"
         Me.DadosToolStripMenuItem.Size = New System.Drawing.Size(71, 24)
         Me.DadosToolStripMenuItem.Text = "Opções"
@@ -1368,6 +1412,19 @@ Partial Class Frm_Inventário
         Me.CaminhoFotosToolStripMenuItem.Name = "CaminhoFotosToolStripMenuItem"
         Me.CaminhoFotosToolStripMenuItem.Size = New System.Drawing.Size(246, 26)
         Me.CaminhoFotosToolStripMenuItem.Text = "Caminho Fotos"
+        '
+        'ExtrairToolStripMenuItem
+        '
+        Me.ExtrairToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ExcelToolStripMenuItem})
+        Me.ExtrairToolStripMenuItem.Name = "ExtrairToolStripMenuItem"
+        Me.ExtrairToolStripMenuItem.Size = New System.Drawing.Size(246, 26)
+        Me.ExtrairToolStripMenuItem.Text = "Extrair"
+        '
+        'ExcelToolStripMenuItem
+        '
+        Me.ExcelToolStripMenuItem.Name = "ExcelToolStripMenuItem"
+        Me.ExcelToolStripMenuItem.Size = New System.Drawing.Size(118, 26)
+        Me.ExcelToolStripMenuItem.Text = "Excel"
         '
         'Frm_Inventário
         '
@@ -1395,6 +1452,8 @@ Partial Class Frm_Inventário
         Me.GbFotos.ResumeLayout(False)
         Me.TcFotos.ResumeLayout(False)
         Me.TpConsulta.ResumeLayout(False)
+        Me.TpConsulta.PerformLayout()
+        CType(Me.TB, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox_Consulta, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel_I.ResumeLayout(False)
         Me.Panel_I.PerformLayout()
@@ -1491,7 +1550,6 @@ Partial Class Frm_Inventário
     Friend WithEvents BtnProximo As System.Windows.Forms.Button
     Friend WithEvents BtnAnterior As System.Windows.Forms.Button
     Friend WithEvents TpConsulta As System.Windows.Forms.TabPage
-    Friend WithEvents BtnVisualizar_Consulta As System.Windows.Forms.Button
     Friend WithEvents BtnProximo_Consulta As System.Windows.Forms.Button
     Friend WithEvents BtnAnterior_Consulta As System.Windows.Forms.Button
     Friend WithEvents PictureBox_Consulta As System.Windows.Forms.PictureBox
@@ -1514,4 +1572,10 @@ Partial Class Frm_Inventário
     Friend WithEvents ExcluirDadosAnterioresToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents CaminhoFotosToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents FBD As FolderBrowserDialog
+    Friend WithEvents ExtrairToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ExcelToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents BtnS_Multi As Button
+    Friend WithEvents BtnGirar As Button
+    Friend WithEvents TB As TrackBar
+    Friend WithEvents Panel_Picture_Consulta As Panel
 End Class

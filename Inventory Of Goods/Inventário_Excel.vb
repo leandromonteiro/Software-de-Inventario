@@ -4,85 +4,101 @@ Imports Microsoft.Office.Interop
 Public Class Inventário_Excel
     Dim connstr As String = "Data Source=C:\Users\Public\INVENTARIO.db;;Version=3;New=True;Compress=True;Pooling=True"
     Public DS As New DataSet
-    Public Foto1 As String
-    Public Foto2 As String
-    Public Foto3 As String
-    Public Foto4 As String
-    Public Foto5 As String
-    Public Foto6 As String
-    Public Foto7 As String
-    Public Foto8 As String
-    Public Foto9 As String
-    Public Foto10 As String
 
     Public Function Consulta_TI_Geral(TI As Integer)
-        'Try
-        Dim leitor As SQLite.SQLiteDataReader
+        Try
+            Dim leitor As SQLite.SQLiteDataReader
             Dim connection As New SQLite.SQLiteConnection(connstr)
             Dim cmd As New SQLite.SQLiteCommand
             connection.Open()
             cmd.Connection = connection
-        cmd.CommandText = "select desc_geral from ti_geral where cod_geral=(select cod_geral_todos from ti where cod='" & TI & "');"
-        leitor = cmd.ExecuteReader
-        leitor.Read()
-        Dim a As String
-        a = leitor("desc_geral")
-        cmd.Dispose()
-        connection.Close()
-        connection.Dispose()
-        Return a
+            cmd.CommandText = "select desc_geral from ti_geral where cod_geral=(select cod_geral_todos from ti where cod='" & TI & "');"
+            leitor = cmd.ExecuteReader
+            leitor.Read()
+            Dim a As String
+            a = leitor("desc_geral")
+            cmd.Dispose()
+            connection.Close()
+            connection.Dispose()
+            Return a
 
-        'Catch
-        'MsgBox("Erro ao buscar dados ", MsgBoxStyle.Critical)
-        'Return Nothing
-        'End Try
+        Catch
+            MsgBox("Erro ao buscar dados ", MsgBoxStyle.Critical)
+            Return Nothing
+        End Try
     End Function
 
-    Public Sub Consulta_Fotos(ID As Integer)
-        'Try
-        '    Dim leitor As SQLite.SQLiteDataReader
-        '    Dim connection As New SQLite.SQLiteConnection(connstr)
-        '    Dim cmd As New SQLite.SQLiteCommand
-        '    connection.Open()
-        '    cmd.Connection = connection
-        '    cmd.CommandText = "select FOTO 1,FOTO 2,FOTO 3,FOTO 4,FOTO 5,FOTO 6,FOTO 7,FOTO 8,FOTO 9,FOTO 10 from [Inventario$] where ID=" & ID & ";"
-        '    leitor = cmd.ExecuteReader
-        '    leitor.Read()
-        '    Foto1 = leitor("FOTO 1")
-        '    Foto2 = leitor("FOTO 2")
-        '    Foto3 = leitor("FOTO 3")
-        '    Foto4 = leitor("FOTO 4")
-        '    Foto5 = leitor("FOTO 5")
-        '    Foto6 = leitor("FOTO 6")
-        '    Foto7 = leitor("FOTO 7")
-        '    Foto8 = leitor("FOTO 8")
-        '    Foto9 = leitor("FOTO 9")
-        '    Foto10 = leitor("FOTO 10")
-        '    connection.Close()
-        '    connection.Dispose()
-        'Catch
-        '    MsgBox("Erro ao buscar dados ", MsgBoxStyle.Critical)
-        'End Try
+    Public Sub Consulta_Descricao_Civil(ID As Integer, TxtBay As TextBox, cod_tuc As Integer, Cmbtuc As ComboBox, cod_tipo_bem As String, cmba1 As ComboBox,
+                                        cod_uar As Integer, Cmbuar As ComboBox, cod_a2 As String, Cmba2 As ComboBox, cod_a3 As String,
+                                        Cmba3 As ComboBox, cod_a4 As String, Cmba4 As ComboBox, cod_a5 As String, Cmba5 As ComboBox,
+                                        cod_a6 As String, Cmba6 As ComboBox, cod_cm1 As String, Cmbcm1 As ComboBox,
+                                        cod_cm2 As String, Cmbcm2 As ComboBox, cod_cm3 As String, Cmbcm3 As ComboBox, txtdesc As TextBox, txtfabric As TextBox,
+                                        txtmodelo As TextBox, txtobs As TextBox, txtqtd As TextBox, cmbun As ComboBox, cmbano As ComboBox, cmbmes As ComboBox,
+                                        cmbdia As ComboBox, cmbstatus As ComboBox, cmbestado As ComboBox, txtaltura As TextBox, txtlarg As TextBox, txtcomp As TextBox,
+                                        txtarea As TextBox, txtpe As TextBox, txtobs_civil As TextBox, txtesforco As TextBox)
+        Try
+            Dim leitor As SQLite.SQLiteDataReader
+            Dim connection As New SQLite.SQLiteConnection(connstr)
+            Dim cmd As New SQLite.SQLiteCommand
+            connection.Open()
+            cmd.Connection = connection
+            cmd.CommandText = "select bay,cod_tuc,desc_tuc,cod_tipo_bem,desc_tipo_bem,cod_uar,desc_uar,cod_a2,desc_a2," &
+                    "cod_a3,desc_a3,cod_a4,desc_a4,cod_a5,desc_a5,cod_a6,desc_a6,cod_cm1,desc_cm1,cod_cm2," &
+                    "desc_cm2,cod_cm3,desc_cm3,descricao,fabricante,modelo,observacao,quantidade,unidade_medida," &
+                    "ano,mes,dia,status_bem,estado_bem,altura,largura,comprimento,area,pe_direito,obs_civil,esforco " &
+                    "from INVENTARIO where ID=" & ID & ";"
+            leitor = cmd.ExecuteReader
+            leitor.Read()
+            TxtBay.Text = leitor("bay")
+            cod_tuc = leitor("cod_tuc")
+            Cmbtuc.Text = leitor("desc_tuc")
+            cod_tipo_bem = leitor("cod_tipo_bem")
+            cmba1.Text = leitor("desc_tipo_bem")
+            cod_uar = leitor("cod_uar")
+            Cmbuar.Text = leitor("desc_uar")
+            cod_a2 = leitor("cod_a2")
+            Cmba2.Text = leitor("desc_a2")
+            cod_a3 = leitor("cod_a3")
+            Cmba3.Text = leitor("desc_a3")
+            cod_a4 = leitor("cod_a4")
+            Cmba4.Text = leitor("desc_a4")
+            cod_a5 = leitor("cod_a5")
+            Cmba5.Text = leitor("desc_a5")
+            cod_a6 = leitor("cod_a6")
+            Cmba6.Text = leitor("desc_a6")
+            cod_cm1 = leitor("cod_cm1")
+            Cmbcm1.Text = leitor("desc_cm1")
+            cod_cm2 = leitor("cod_cm2")
+            Cmbcm2.Text = leitor("desc_cm2")
+            cod_cm3 = leitor("cod_cm3")
+            Cmbcm3.Text = leitor("desc_cm3")
+            txtdesc.Text = leitor("descricao")
+            txtfabric.Text = leitor("fabricante")
+            txtmodelo.Text = leitor("modelo")
+            txtobs.Text = leitor("observacao")
+            txtqtd.Text = leitor("quantidade")
+            cmbun.Text = leitor("unidade_medida")
+            cmbano.Text = leitor("ano")
+            cmbmes.Text = leitor("mes")
+            cmbdia.Text = leitor("dia")
+            cmbstatus.Text = leitor("status_bem")
+            cmbestado.Text = leitor("estado_bem")
+            txtaltura.Text = leitor("altura")
+            txtlarg.Text = leitor("largura")
+            txtcomp.Text = leitor("comprimento")
+            txtarea.Text = leitor("area")
+            txtpe.Text = leitor("pe_direito")
+            txtobs_civil.Text = leitor("obs_civil")
+            txtesforco.Text = leitor("esforco")
+
+            cmd.Dispose()
+            connection.Close()
+            connection.Dispose()
+
+        Catch
+            MsgBox("Erro ao consultar descricao_civil ", MsgBoxStyle.Critical)
+        End Try
     End Sub
-
-    'Public Sub Update_Fotos(FOTO1 As String, FOTO2 As String, FOTO3 As String, FOTO4 As String, FOTO5 As String, FOTO6 As String,
-    '                        FOTO7 As String, FOTO8 As String, FOTO9 As String, FOTO10 As String, ID As Integer)
-    '    Try
-    '        Dim connection As New OleDb.OleDbConnection(connstr_consulta)
-    '        Dim cmd As New OleDb.OleDbCommand
-    '        connection.Open()
-    '        cmd.Connection = connection
-    '        cmd.CommandText = "update [Inventario$] set [FOTO 1]='" & FOTO1 & "',[FOTO 2]='" & FOTO2 & "',[FOTO 3]='" & FOTO3 & _
-    '        "',[FOTO 4]='" & FOTO4 & "',[FOTO 5]='" & FOTO5 & "',[FOTO 6]='" & FOTO6 & "',[FOTO 7]='" & FOTO7 & _
-    '        "',[FOTO 8]='" & FOTO8 & "',[FOTO 9]='" & FOTO9 & "',[FOTO 10]='" & FOTO10 & "' where [ID]=" & ID & ";"
-    '        cmd.ExecuteNonQuery()
-    'cmd.Dispose()
-    '        connection.Close()
-
-    '    Catch
-    '        MsgBox("Erro ao inserir foto ", MsgBoxStyle.Critical)
-    '    End Try
-    'End Sub
 
     Public Sub Consulta_TUC(cmb As ComboBox)
         cmb.Items.Clear()
@@ -614,7 +630,23 @@ Public Class Inventário_Excel
         End Try
     End Sub
 
-    Public Sub Consulta_Excel(DGV As DataGridView)
+    Public Sub Consulta_Excel()
+        Try
+            Dim connection As New SQLite.SQLiteConnection(connstr)
+            Dim DA As New SQLite.SQLiteDataAdapter
+            connection.Open()
+            DA.SelectCommand = New SQLite.SQLiteCommand("select * from Inventario;", connection)
+            DA.Fill(DS)
+            connection.Close()
+            connection.Dispose()
+            DA.Dispose()
+            GC.Collect()
+        Catch
+            MsgBox("Erro na consulta", MsgBoxStyle.Critical)
+        End Try
+    End Sub
+
+    Public Sub Consulta_Grid(DGV As DataGridView)
         Try
             Dim connection As New SQLite.SQLiteConnection(connstr)
             Dim DA As New SQLite.SQLiteDataAdapter
@@ -622,21 +654,22 @@ Public Class Inventário_Excel
             connection.Open()
             DA.SelectCommand = New SQLite.SQLiteCommand("select * from Inventario;", connection)
             DA.Fill(DT)
+            DGV.DataSource = DT
             connection.Close()
             connection.Dispose()
             DA.Dispose()
             GC.Collect()
-            DGV.DataSource = DT
         Catch
             MsgBox("Erro na consulta", MsgBoxStyle.Critical)
         End Try
     End Sub
-    Public Sub Modelo_Excel(FRM As Form, SFD As SaveFileDialog)
+    Public Sub Modelo_Excel()
         Dim xlApp As Excel.Application
         Dim xlWorkBook As Excel.Workbook
         Dim Sh_T As Excel.Worksheet
         Dim misValue As Object = System.Reflection.Missing.Value
-        Dim salvar As String
+        Consulta_Excel()
+
         Try
             xlApp = New Excel.Application
             xlWorkBook = xlApp.Workbooks.Add(misValue)
@@ -675,42 +708,43 @@ Public Class Inventário_Excel
             Sh_T.Range("ae1").Value = "Fabricante"
             Sh_T.Range("af1").Value = "Modelo"
             Sh_T.Range("ag1").Value = "N° de Série"
-            Sh_T.Range("ah1").Value = "Observação"
-            Sh_T.Range("ai1").Value = "Quantidade"
-            Sh_T.Range("aj1").Value = "Unidade de Medida"
-            Sh_T.Range("ak1").Value = "Ano de Fabricação"
-            Sh_T.Range("al1").Value = "Mês de Fabricação"
-            Sh_T.Range("am1").Value = "Dia de Fabricação"
-            Sh_T.Range("an1").Value = "Status do Bem"
-            Sh_T.Range("ao1").Value = "Estado do Bem"
-            Sh_T.Range("ap1").Value = "Altura"
-            Sh_T.Range("aq1").Value = "Largura"
-            Sh_T.Range("ar1").Value = "Comprimento"
-            Sh_T.Range("as1").Value = "Área"
-            Sh_T.Range("at1").Value = "Pé Direito"
-            Sh_T.Range("au1").Value = "Observacao Civil"
-            Sh_T.Range("av1").Value = "Consultor"
-            Sh_T.Range("aw1").Value = "Líder"
-            Sh_T.Range("ax1").Value = "Data/Hora"
-            Sh_T.Range("ay1").Value = "Foto"
+            Sh_T.Range("ah1").Value = "N° de Manutenção"
+            Sh_T.Range("ai1").Value = "Observação"
+            Sh_T.Range("aj1").Value = "Quantidade"
+            Sh_T.Range("ak1").Value = "Unidade de Medida"
+            Sh_T.Range("al1").Value = "Ano de Fabricação"
+            Sh_T.Range("am1").Value = "Mês de Fabricação"
+            Sh_T.Range("an1").Value = "Dia de Fabricação"
+            Sh_T.Range("ao1").Value = "Status do Bem"
+            Sh_T.Range("ap1").Value = "Estado do Bem"
+            Sh_T.Range("aq1").Value = "Altura"
+            Sh_T.Range("ar1").Value = "Largura"
+            Sh_T.Range("as1").Value = "Comprimento"
+            Sh_T.Range("at1").Value = "Área"
+            Sh_T.Range("au1").Value = "Pé Direito"
+            Sh_T.Range("av1").Value = "Esforço"
+            Sh_T.Range("aw1").Value = "Observacao Civil"
+            Sh_T.Range("ax1").Value = "Consultor"
+            Sh_T.Range("ay1").Value = "Líder"
+            Sh_T.Range("az1").Value = "Data/Hora"
+            Sh_T.Range("ba1").Value = "Foto"
+
+            Sh_T.Range("a1:ba1").Font.Bold = True
+            Sh_T.Range("a1:ba1").Interior.Color = System.Drawing.ColorTranslator.ToOle(System.Drawing.Color.LightBlue)
+
+            'Arrumar colunas
+            DS.Tables(0).Columns(50).SetOrdinal(33)
+            DS.Tables(0).Columns(51).SetOrdinal(47)
+
+            'Inserir linhas
+            For i = 0 To DS.Tables(0).Rows.Count - 1
+                For j = 0 To DS.Tables(0).Columns.Count - 1
+                    Sh_T.Cells(i + 2, j + 1) = DS.Tables(0).Rows(i).Item(j)
+                Next
+            Next
 
             Sh_T.Columns.AutoFit()
-            Sh_T.Range("a1:bh1").Font.Bold = True
-            Sh_T.Range("a1:bh1").Interior.Color = System.Drawing.ColorTranslator.ToOle(System.Drawing.Color.LightGray)
-
-            Sh_T.Range("a2").Value = 1
-
-            SFD.Title = "Selecione o local para Salvar em Excel"
-            SFD.Filter = "Excel (*.xlsx)|*.xlsx"
-            If SFD.ShowDialog = Windows.Forms.DialogResult.OK Then
-                salvar = SFD.FileName
-                xlWorkBook.SaveAs(salvar)
-                xlWorkBook.Close()
-            Else
-                xlWorkBook.Close()
-                MsgBox("O Excel não foi salvo. O software será fechado", MsgBoxStyle.Exclamation)
-                FRM.Close()
-            End If
+            xlApp.Visible = True
         Catch
             MsgBox("Erro ao Carregar Excel!", MsgBoxStyle.Critical)
         End Try

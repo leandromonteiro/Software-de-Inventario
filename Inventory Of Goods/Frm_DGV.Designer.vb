@@ -26,6 +26,7 @@ Partial Class Frm_DGV
         Me.DGV_Consulta = New System.Windows.Forms.DataGridView()
         Me.CMS_DGV = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.ExcluirDadosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.LblLinhas = New System.Windows.Forms.Label()
         CType(Me.DGV_Consulta, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.CMS_DGV.SuspendLayout()
         Me.SuspendLayout()
@@ -44,7 +45,7 @@ Partial Class Frm_DGV
         Me.DGV_Consulta.Name = "DGV_Consulta"
         Me.DGV_Consulta.ReadOnly = True
         Me.DGV_Consulta.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DGV_Consulta.Size = New System.Drawing.Size(1143, 542)
+        Me.DGV_Consulta.Size = New System.Drawing.Size(1143, 520)
         Me.DGV_Consulta.TabIndex = 8
         '
         'CMS_DGV
@@ -52,19 +53,30 @@ Partial Class Frm_DGV
         Me.CMS_DGV.ImageScalingSize = New System.Drawing.Size(20, 20)
         Me.CMS_DGV.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ExcluirDadosToolStripMenuItem})
         Me.CMS_DGV.Name = "CMS_DGV"
-        Me.CMS_DGV.Size = New System.Drawing.Size(176, 56)
+        Me.CMS_DGV.Size = New System.Drawing.Size(169, 28)
         '
         'ExcluirDadosToolStripMenuItem
         '
         Me.ExcluirDadosToolStripMenuItem.Name = "ExcluirDadosToolStripMenuItem"
-        Me.ExcluirDadosToolStripMenuItem.Size = New System.Drawing.Size(175, 24)
+        Me.ExcluirDadosToolStripMenuItem.Size = New System.Drawing.Size(168, 24)
         Me.ExcluirDadosToolStripMenuItem.Text = "Excluir Dados"
+        '
+        'LblLinhas
+        '
+        Me.LblLinhas.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.LblLinhas.Location = New System.Drawing.Point(952, 545)
+        Me.LblLinhas.Name = "LblLinhas"
+        Me.LblLinhas.Size = New System.Drawing.Size(207, 23)
+        Me.LblLinhas.TabIndex = 9
+        Me.LblLinhas.Text = "Total de Registros: 0"
+        Me.LblLinhas.TextAlign = System.Drawing.ContentAlignment.TopRight
         '
         'Frm_DGV
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1175, 571)
+        Me.Controls.Add(Me.LblLinhas)
         Me.Controls.Add(Me.DGV_Consulta)
         Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "Frm_DGV"
@@ -78,4 +90,5 @@ Partial Class Frm_DGV
     Friend WithEvents DGV_Consulta As System.Windows.Forms.DataGridView
     Friend WithEvents CMS_DGV As ContextMenuStrip
     Friend WithEvents ExcluirDadosToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents LblLinhas As Label
 End Class
