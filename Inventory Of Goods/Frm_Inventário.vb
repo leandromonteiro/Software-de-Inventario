@@ -225,11 +225,13 @@ Public Class Frm_Inventário
         I_E.Buscar_Tabela(LblA6, TUC, A1, "Desc_A6")
     End Sub
 
-    Private Sub FrmInventario_Novo_FormClosed(sender As Object, e As FormClosedEventArgs) Handles Me.FormClosed
-        FRM_Log.Close()
-    End Sub
-
     Private Sub FrmInventario_Novo_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        'Limite de tempo
+        If Today.Day >= 15 And Today.Month >= 12 And Today.Year >= 2017 Then
+            MsgBox("Tempo esgotado para o teste do software.")
+            Application.Exit()
+        End If
+
         Panel_Picture_Consulta.Controls.Add(PictureBox_Consulta)
         ID = I_E.Buscar_Ultimo_ID() + 1
         TxtSeq_Civil.Text = ID
@@ -275,8 +277,34 @@ Public Class Frm_Inventário
         LblA4.Text = "A4:"
         LblA5.Text = "A5:"
         LblA6.Text = "A6:"
+        Colocar_Desc()
     End Sub
 
+    Private Sub Colocar_Desc()
+        If CmbA2.Text = "" Then
+            TxtDesc.Text = CmbTUC.Text & "; " & CmbA1.Text & " (" & CmbUAR.Text & ")"
+            Exit Sub
+        End If
+        If CmbA3.Text = "" Then
+            TxtDesc.Text = CmbTUC.Text & "; " & CmbA1.Text & "; " & CmbA2.Text & " (" & CmbUAR.Text & ")"
+            Exit Sub
+        End If
+        If CmbA4.Text = "" Then
+            TxtDesc.Text = CmbTUC.Text & "; " & CmbA1.Text & "; " & CmbA2.Text & "; " & CmbA3.Text & " (" & CmbUAR.Text & ")"
+            Exit Sub
+        End If
+        If CmbA5.Text = "" Then
+            TxtDesc.Text = CmbTUC.Text & "; " & CmbA1.Text & "; " & CmbA2.Text & "; " & CmbA3.Text & "; " & CmbA4.Text & " (" & CmbUAR.Text & ")"
+            Exit Sub
+        End If
+        If CmbA6.Text = "" Then
+            TxtDesc.Text = CmbTUC.Text & "; " & CmbA1.Text & "; " & CmbA2.Text & "; " & CmbA3.Text & "; " & CmbA4.Text & "; " &
+                CmbA5.Text & " (" & CmbUAR.Text & ")"
+        Else
+            TxtDesc.Text = CmbTUC.Text & "; " & CmbA1.Text & "; " & CmbA2.Text & "; " & CmbA3.Text & "; " & CmbA4.Text & "; " &
+                CmbA5.Text & "; " & CmbA6.Text & " (" & CmbUAR.Text & ")"
+        End If
+    End Sub
     Private Sub CmbCm1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles CmbCm1.SelectedIndexChanged
         If CmbCm1.Text = "NÃO APLICÁVEL" Then
             CM1 = ""
@@ -315,6 +343,7 @@ Public Class Frm_Inventário
 
     Private Sub CmbUAR_SelectedIndexChanged(sender As Object, e As EventArgs) Handles CmbUAR.SelectedIndexChanged
         UAR = I_E.Buscar_UAR(CmbUAR, TUC)
+        Colocar_Desc()
     End Sub
 
     Private Sub CmbA1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles CmbA1.SelectedIndexChanged
@@ -326,28 +355,33 @@ Public Class Frm_Inventário
         CmbA4.Text = ""
         CmbA5.Text = ""
         CmbA6.Text = ""
-
+        Colocar_Desc()
         Me.Cursor = Cursors.Default
     End Sub
 
     Private Sub CmbA2_SelectedIndexChanged(sender As Object, e As EventArgs) Handles CmbA2.SelectedIndexChanged
         A2 = I_E.Buscar_A2_A6(CmbA2)
+        Colocar_Desc()
     End Sub
 
     Private Sub CmbA3_SelectedIndexChanged(sender As Object, e As EventArgs) Handles CmbA3.SelectedIndexChanged
         A3 = I_E.Buscar_A2_A6(CmbA3)
+        Colocar_Desc()
     End Sub
 
     Private Sub CmbA4_SelectedIndexChanged(sender As Object, e As EventArgs) Handles CmbA4.SelectedIndexChanged
         A4 = I_E.Buscar_A2_A6(CmbA4)
+        Colocar_Desc()
     End Sub
 
     Private Sub CmbA5_SelectedIndexChanged(sender As Object, e As EventArgs) Handles CmbA5.SelectedIndexChanged
         A5 = I_E.Buscar_A2_A6(CmbA5)
+        Colocar_Desc()
     End Sub
 
     Private Sub CmbA6_SelectedIndexChanged(sender As Object, e As EventArgs) Handles CmbA6.SelectedIndexChanged
         A6 = I_E.Buscar_A2_A6(CmbA6)
+        Colocar_Desc()
     End Sub
 
 
