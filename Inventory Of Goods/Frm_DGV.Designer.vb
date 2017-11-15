@@ -23,6 +23,7 @@ Partial Class Frm_DGV
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Frm_DGV))
         Me.DGV_Consulta = New System.Windows.Forms.DataGridView()
         Me.CMS_DGV = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.ExcluirDadosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -78,6 +79,7 @@ Partial Class Frm_DGV
         Me.ClientSize = New System.Drawing.Size(1175, 571)
         Me.Controls.Add(Me.LblLinhas)
         Me.Controls.Add(Me.DGV_Consulta)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "Frm_DGV"
         Me.Text = "Consulta"

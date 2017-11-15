@@ -22,6 +22,7 @@ Partial Class Frm_Inventário
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Frm_Inventário))
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.TpLocal = New System.Windows.Forms.TabPage()
         Me.CmbTI = New System.Windows.Forms.ComboBox()
@@ -1467,6 +1468,7 @@ Partial Class Frm_Inventário
         Me.ClientSize = New System.Drawing.Size(1482, 1009)
         Me.Controls.Add(Me.Panel_I)
         Me.Controls.Add(Me.MenuStrip1)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MainMenuStrip = Me.MenuStrip1
         Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "Frm_Inventário"
