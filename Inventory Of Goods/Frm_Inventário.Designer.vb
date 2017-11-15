@@ -35,21 +35,7 @@ Partial Class Frm_Inventário
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.TpDesc = New System.Windows.Forms.TabPage()
-        Me.Btn_Avancar10 = New System.Windows.Forms.Button()
-        Me.Btn_Voltar10 = New System.Windows.Forms.Button()
-        Me.TxtTag = New System.Windows.Forms.TextBox()
-        Me.LblTag = New System.Windows.Forms.Label()
-        Me.Label12 = New System.Windows.Forms.Label()
-        Me.PictureBox = New System.Windows.Forms.PictureBox()
-        Me.BtnAdd = New System.Windows.Forms.Button()
-        Me.BtnProximo = New System.Windows.Forms.Button()
-        Me.CmbCm3 = New System.Windows.Forms.ComboBox()
-        Me.BtnAnterior = New System.Windows.Forms.Button()
-        Me.Label36 = New System.Windows.Forms.Label()
-        Me.CmbCm2 = New System.Windows.Forms.ComboBox()
-        Me.Label35 = New System.Windows.Forms.Label()
-        Me.CmbCm1 = New System.Windows.Forms.ComboBox()
-        Me.Label34 = New System.Windows.Forms.Label()
+        Me.Panel_Desc = New System.Windows.Forms.Panel()
         Me.GbQtd = New System.Windows.Forms.GroupBox()
         Me.CmbStatus = New System.Windows.Forms.ComboBox()
         Me.CmbEstado = New System.Windows.Forms.ComboBox()
@@ -65,36 +51,51 @@ Partial Class Frm_Inventário
         Me.Label23 = New System.Windows.Forms.Label()
         Me.Label22 = New System.Windows.Forms.Label()
         Me.Label21 = New System.Windows.Forms.Label()
+        Me.TxtTag = New System.Windows.Forms.TextBox()
+        Me.CmbCm3 = New System.Windows.Forms.ComboBox()
+        Me.Btn_Avancar10 = New System.Windows.Forms.Button()
+        Me.CmbCm2 = New System.Windows.Forms.ComboBox()
+        Me.LblTag = New System.Windows.Forms.Label()
+        Me.CmbCm1 = New System.Windows.Forms.ComboBox()
+        Me.PictureBox = New System.Windows.Forms.PictureBox()
         Me.TxtObs = New System.Windows.Forms.TextBox()
-        Me.Label20 = New System.Windows.Forms.Label()
+        Me.Btn_Voltar10 = New System.Windows.Forms.Button()
         Me.TxtSerie = New System.Windows.Forms.TextBox()
-        Me.Label19 = New System.Windows.Forms.Label()
+        Me.Label36 = New System.Windows.Forms.Label()
         Me.TxtModelo = New System.Windows.Forms.TextBox()
-        Me.Label18 = New System.Windows.Forms.Label()
+        Me.BtnAnterior = New System.Windows.Forms.Button()
         Me.TxtFabricante = New System.Windows.Forms.TextBox()
-        Me.Label17 = New System.Windows.Forms.Label()
+        Me.BtnProximo = New System.Windows.Forms.Button()
         Me.TxtDesc = New System.Windows.Forms.TextBox()
-        Me.Label16 = New System.Windows.Forms.Label()
+        Me.Label35 = New System.Windows.Forms.Label()
         Me.CmbA6 = New System.Windows.Forms.ComboBox()
-        Me.LblA6 = New System.Windows.Forms.Label()
+        Me.BtnAdd = New System.Windows.Forms.Button()
         Me.CmbA5 = New System.Windows.Forms.ComboBox()
-        Me.LblA5 = New System.Windows.Forms.Label()
+        Me.Label12 = New System.Windows.Forms.Label()
         Me.CmbUAR = New System.Windows.Forms.ComboBox()
-        Me.Label13 = New System.Windows.Forms.Label()
+        Me.Label34 = New System.Windows.Forms.Label()
         Me.CmbA4 = New System.Windows.Forms.ComboBox()
-        Me.LblA4 = New System.Windows.Forms.Label()
-        Me.CmbA3 = New System.Windows.Forms.ComboBox()
-        Me.LblA3 = New System.Windows.Forms.Label()
-        Me.CmbA2 = New System.Windows.Forms.ComboBox()
-        Me.LblA2 = New System.Windows.Forms.Label()
-        Me.CmbA1 = New System.Windows.Forms.ComboBox()
-        Me.Label9 = New System.Windows.Forms.Label()
-        Me.CmbTUC = New System.Windows.Forms.ComboBox()
-        Me.Label8 = New System.Windows.Forms.Label()
-        Me.TxtSeq_Desc = New System.Windows.Forms.TextBox()
-        Me.TxtBay = New System.Windows.Forms.TextBox()
-        Me.Label5 = New System.Windows.Forms.Label()
         Me.Label7 = New System.Windows.Forms.Label()
+        Me.CmbA3 = New System.Windows.Forms.ComboBox()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.CmbA2 = New System.Windows.Forms.ComboBox()
+        Me.Label20 = New System.Windows.Forms.Label()
+        Me.CmbA1 = New System.Windows.Forms.ComboBox()
+        Me.Label8 = New System.Windows.Forms.Label()
+        Me.CmbTUC = New System.Windows.Forms.ComboBox()
+        Me.Label9 = New System.Windows.Forms.Label()
+        Me.TxtSeq_Desc = New System.Windows.Forms.TextBox()
+        Me.Label19 = New System.Windows.Forms.Label()
+        Me.TxtBay = New System.Windows.Forms.TextBox()
+        Me.LblA2 = New System.Windows.Forms.Label()
+        Me.LblA3 = New System.Windows.Forms.Label()
+        Me.Label18 = New System.Windows.Forms.Label()
+        Me.LblA4 = New System.Windows.Forms.Label()
+        Me.Label13 = New System.Windows.Forms.Label()
+        Me.Label17 = New System.Windows.Forms.Label()
+        Me.LblA5 = New System.Windows.Forms.Label()
+        Me.LblA6 = New System.Windows.Forms.Label()
+        Me.Label16 = New System.Windows.Forms.Label()
         Me.TpCivil = New System.Windows.Forms.TabPage()
         Me.TxtEsforco = New System.Windows.Forms.TextBox()
         Me.LblEsforco = New System.Windows.Forms.Label()
@@ -138,12 +139,12 @@ Partial Class Frm_Inventário
         Me.ExtrairToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ExcelToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.FBD = New System.Windows.Forms.FolderBrowserDialog()
-        Me.Panel_Desc = New System.Windows.Forms.Panel()
         Me.TabControl1.SuspendLayout()
         Me.TpLocal.SuspendLayout()
         Me.TpDesc.SuspendLayout()
-        CType(Me.PictureBox, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Panel_Desc.SuspendLayout()
         Me.GbQtd.SuspendLayout()
+        CType(Me.PictureBox, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TpCivil.SuspendLayout()
         Me.GbFotos.SuspendLayout()
         Me.TcFotos.SuspendLayout()
@@ -152,7 +153,6 @@ Partial Class Frm_Inventário
         CType(Me.PictureBox_Consulta, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel_I.SuspendLayout()
         Me.MenuStrip1.SuspendLayout()
-        Me.Panel_Desc.SuspendLayout()
         Me.SuspendLayout()
         '
         'TabControl1
@@ -185,7 +185,7 @@ Partial Class Frm_Inventário
         Me.TpLocal.Margin = New System.Windows.Forms.Padding(4)
         Me.TpLocal.Name = "TpLocal"
         Me.TpLocal.Padding = New System.Windows.Forms.Padding(4)
-        Me.TpLocal.Size = New System.Drawing.Size(1201, 677)
+        Me.TpLocal.Size = New System.Drawing.Size(1201, 723)
         Me.TpLocal.TabIndex = 0
         Me.TpLocal.Text = "Local"
         Me.TpLocal.UseVisualStyleBackColor = True
@@ -302,178 +302,59 @@ Partial Class Frm_Inventário
         Me.TpDesc.Text = "Descrição"
         Me.TpDesc.UseVisualStyleBackColor = True
         '
-        'Btn_Avancar10
+        'Panel_Desc
         '
-        Me.Btn_Avancar10.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.Btn_Avancar10.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.Btn_Avancar10.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Btn_Avancar10.Location = New System.Drawing.Point(997, 656)
-        Me.Btn_Avancar10.Margin = New System.Windows.Forms.Padding(4)
-        Me.Btn_Avancar10.Name = "Btn_Avancar10"
-        Me.Btn_Avancar10.Size = New System.Drawing.Size(63, 28)
-        Me.Btn_Avancar10.TabIndex = 47
-        Me.Btn_Avancar10.TabStop = False
-        Me.Btn_Avancar10.Text = ">>"
-        Me.Btn_Avancar10.UseVisualStyleBackColor = True
-        '
-        'Btn_Voltar10
-        '
-        Me.Btn_Voltar10.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.Btn_Voltar10.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.Btn_Voltar10.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Btn_Voltar10.Location = New System.Drawing.Point(784, 656)
-        Me.Btn_Voltar10.Margin = New System.Windows.Forms.Padding(4)
-        Me.Btn_Voltar10.Name = "Btn_Voltar10"
-        Me.Btn_Voltar10.Size = New System.Drawing.Size(63, 28)
-        Me.Btn_Voltar10.TabIndex = 46
-        Me.Btn_Voltar10.TabStop = False
-        Me.Btn_Voltar10.Text = "<<"
-        Me.Btn_Voltar10.UseVisualStyleBackColor = True
-        '
-        'TxtTag
-        '
-        Me.TxtTag.Location = New System.Drawing.Point(411, 619)
-        Me.TxtTag.Margin = New System.Windows.Forms.Padding(4)
-        Me.TxtTag.MaxLength = 200
-        Me.TxtTag.Name = "TxtTag"
-        Me.TxtTag.Size = New System.Drawing.Size(201, 22)
-        Me.TxtTag.TabIndex = 19
-        '
-        'LblTag
-        '
-        Me.LblTag.AutoSize = True
-        Me.LblTag.Location = New System.Drawing.Point(318, 624)
-        Me.LblTag.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.LblTag.Name = "LblTag"
-        Me.LblTag.Size = New System.Drawing.Size(41, 17)
-        Me.LblTag.TabIndex = 45
-        Me.LblTag.Text = "TAG:"
-        '
-        'Label12
-        '
-        Me.Label12.AutoSize = True
-        Me.Label12.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label12.Location = New System.Drawing.Point(673, 314)
-        Me.Label12.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.Label12.Name = "Label12"
-        Me.Label12.Size = New System.Drawing.Size(220, 17)
-        Me.Label12.TabIndex = 43
-        Me.Label12.Text = "Todas as Fotos do Inventário"
-        '
-        'PictureBox
-        '
-        Me.PictureBox.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.PictureBox.Location = New System.Drawing.Point(676, 339)
-        Me.PictureBox.Margin = New System.Windows.Forms.Padding(4)
-        Me.PictureBox.Name = "PictureBox"
-        Me.PictureBox.Size = New System.Drawing.Size(487, 309)
-        Me.PictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox.TabIndex = 0
-        Me.PictureBox.TabStop = False
-        '
-        'BtnAdd
-        '
-        Me.BtnAdd.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.BtnAdd.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.BtnAdd.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnAdd.Location = New System.Drawing.Point(676, 656)
-        Me.BtnAdd.Margin = New System.Windows.Forms.Padding(4)
-        Me.BtnAdd.Name = "BtnAdd"
-        Me.BtnAdd.Size = New System.Drawing.Size(100, 28)
-        Me.BtnAdd.TabIndex = 27
-        Me.BtnAdd.TabStop = False
-        Me.BtnAdd.Text = "Adicionar"
-        Me.BtnAdd.UseVisualStyleBackColor = True
-        '
-        'BtnProximo
-        '
-        Me.BtnProximo.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.BtnProximo.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.BtnProximo.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnProximo.Location = New System.Drawing.Point(926, 656)
-        Me.BtnProximo.Margin = New System.Windows.Forms.Padding(4)
-        Me.BtnProximo.Name = "BtnProximo"
-        Me.BtnProximo.Size = New System.Drawing.Size(63, 28)
-        Me.BtnProximo.TabIndex = 29
-        Me.BtnProximo.TabStop = False
-        Me.BtnProximo.Text = ">"
-        Me.BtnProximo.UseVisualStyleBackColor = True
-        '
-        'CmbCm3
-        '
-        Me.CmbCm3.DropDownWidth = 600
-        Me.CmbCm3.FormattingEnabled = True
-        Me.CmbCm3.Location = New System.Drawing.Point(109, 455)
-        Me.CmbCm3.Margin = New System.Windows.Forms.Padding(4)
-        Me.CmbCm3.Name = "CmbCm3"
-        Me.CmbCm3.Size = New System.Drawing.Size(503, 24)
-        Me.CmbCm3.TabIndex = 13
-        '
-        'BtnAnterior
-        '
-        Me.BtnAnterior.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.BtnAnterior.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.BtnAnterior.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnAnterior.Location = New System.Drawing.Point(855, 656)
-        Me.BtnAnterior.Margin = New System.Windows.Forms.Padding(4)
-        Me.BtnAnterior.Name = "BtnAnterior"
-        Me.BtnAnterior.Size = New System.Drawing.Size(63, 28)
-        Me.BtnAnterior.TabIndex = 28
-        Me.BtnAnterior.TabStop = False
-        Me.BtnAnterior.Text = "<"
-        Me.BtnAnterior.UseVisualStyleBackColor = True
-        '
-        'Label36
-        '
-        Me.Label36.AutoSize = True
-        Me.Label36.Location = New System.Drawing.Point(16, 459)
-        Me.Label36.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.Label36.Name = "Label36"
-        Me.Label36.Size = New System.Drawing.Size(40, 17)
-        Me.Label36.TabIndex = 42
-        Me.Label36.Text = "CM3:"
-        '
-        'CmbCm2
-        '
-        Me.CmbCm2.DropDownWidth = 700
-        Me.CmbCm2.FormattingEnabled = True
-        Me.CmbCm2.Location = New System.Drawing.Point(110, 418)
-        Me.CmbCm2.Margin = New System.Windows.Forms.Padding(4)
-        Me.CmbCm2.Name = "CmbCm2"
-        Me.CmbCm2.Size = New System.Drawing.Size(503, 24)
-        Me.CmbCm2.TabIndex = 12
-        '
-        'Label35
-        '
-        Me.Label35.AutoSize = True
-        Me.Label35.Location = New System.Drawing.Point(16, 423)
-        Me.Label35.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.Label35.Name = "Label35"
-        Me.Label35.Size = New System.Drawing.Size(40, 17)
-        Me.Label35.TabIndex = 40
-        Me.Label35.Text = "CM2:"
-        '
-        'CmbCm1
-        '
-        Me.CmbCm1.DropDownWidth = 800
-        Me.CmbCm1.FormattingEnabled = True
-        Me.CmbCm1.Location = New System.Drawing.Point(109, 381)
-        Me.CmbCm1.Margin = New System.Windows.Forms.Padding(4)
-        Me.CmbCm1.Name = "CmbCm1"
-        Me.CmbCm1.Size = New System.Drawing.Size(503, 24)
-        Me.CmbCm1.TabIndex = 11
-        '
-        'Label34
-        '
-        Me.Label34.AutoSize = True
-        Me.Label34.Location = New System.Drawing.Point(16, 386)
-        Me.Label34.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.Label34.Name = "Label34"
-        Me.Label34.Size = New System.Drawing.Size(40, 17)
-        Me.Label34.TabIndex = 38
-        Me.Label34.Text = "CM1:"
+        Me.Panel_Desc.AutoScroll = True
+        Me.Panel_Desc.Controls.Add(Me.GbQtd)
+        Me.Panel_Desc.Controls.Add(Me.TxtTag)
+        Me.Panel_Desc.Controls.Add(Me.CmbCm3)
+        Me.Panel_Desc.Controls.Add(Me.Btn_Avancar10)
+        Me.Panel_Desc.Controls.Add(Me.CmbCm2)
+        Me.Panel_Desc.Controls.Add(Me.LblTag)
+        Me.Panel_Desc.Controls.Add(Me.CmbCm1)
+        Me.Panel_Desc.Controls.Add(Me.PictureBox)
+        Me.Panel_Desc.Controls.Add(Me.TxtObs)
+        Me.Panel_Desc.Controls.Add(Me.Btn_Voltar10)
+        Me.Panel_Desc.Controls.Add(Me.TxtSerie)
+        Me.Panel_Desc.Controls.Add(Me.Label36)
+        Me.Panel_Desc.Controls.Add(Me.TxtModelo)
+        Me.Panel_Desc.Controls.Add(Me.BtnAnterior)
+        Me.Panel_Desc.Controls.Add(Me.TxtFabricante)
+        Me.Panel_Desc.Controls.Add(Me.BtnProximo)
+        Me.Panel_Desc.Controls.Add(Me.TxtDesc)
+        Me.Panel_Desc.Controls.Add(Me.Label35)
+        Me.Panel_Desc.Controls.Add(Me.CmbA6)
+        Me.Panel_Desc.Controls.Add(Me.BtnAdd)
+        Me.Panel_Desc.Controls.Add(Me.CmbA5)
+        Me.Panel_Desc.Controls.Add(Me.Label12)
+        Me.Panel_Desc.Controls.Add(Me.CmbUAR)
+        Me.Panel_Desc.Controls.Add(Me.Label34)
+        Me.Panel_Desc.Controls.Add(Me.CmbA4)
+        Me.Panel_Desc.Controls.Add(Me.Label7)
+        Me.Panel_Desc.Controls.Add(Me.CmbA3)
+        Me.Panel_Desc.Controls.Add(Me.Label5)
+        Me.Panel_Desc.Controls.Add(Me.CmbA2)
+        Me.Panel_Desc.Controls.Add(Me.Label20)
+        Me.Panel_Desc.Controls.Add(Me.CmbA1)
+        Me.Panel_Desc.Controls.Add(Me.Label8)
+        Me.Panel_Desc.Controls.Add(Me.CmbTUC)
+        Me.Panel_Desc.Controls.Add(Me.Label9)
+        Me.Panel_Desc.Controls.Add(Me.TxtSeq_Desc)
+        Me.Panel_Desc.Controls.Add(Me.Label19)
+        Me.Panel_Desc.Controls.Add(Me.TxtBay)
+        Me.Panel_Desc.Controls.Add(Me.LblA2)
+        Me.Panel_Desc.Controls.Add(Me.LblA3)
+        Me.Panel_Desc.Controls.Add(Me.Label18)
+        Me.Panel_Desc.Controls.Add(Me.LblA4)
+        Me.Panel_Desc.Controls.Add(Me.Label13)
+        Me.Panel_Desc.Controls.Add(Me.Label17)
+        Me.Panel_Desc.Controls.Add(Me.LblA5)
+        Me.Panel_Desc.Controls.Add(Me.LblA6)
+        Me.Panel_Desc.Controls.Add(Me.Label16)
+        Me.Panel_Desc.Location = New System.Drawing.Point(7, 23)
+        Me.Panel_Desc.Name = "Panel_Desc"
+        Me.Panel_Desc.Size = New System.Drawing.Size(1187, 696)
+        Me.Panel_Desc.TabIndex = 48
         '
         'GbQtd
         '
@@ -491,7 +372,7 @@ Partial Class Frm_Inventário
         Me.GbQtd.Controls.Add(Me.Label23)
         Me.GbQtd.Controls.Add(Me.Label22)
         Me.GbQtd.Controls.Add(Me.Label21)
-        Me.GbQtd.Location = New System.Drawing.Point(673, 12)
+        Me.GbQtd.Location = New System.Drawing.Point(750, 12)
         Me.GbQtd.Margin = New System.Windows.Forms.Padding(4)
         Me.GbQtd.Name = "GbQtd"
         Me.GbQtd.Padding = New System.Windows.Forms.Padding(4)
@@ -642,24 +523,104 @@ Partial Class Frm_Inventário
         Me.Label21.TabIndex = 37
         Me.Label21.Text = "Quantidade:"
         '
+        'TxtTag
+        '
+        Me.TxtTag.Location = New System.Drawing.Point(479, 619)
+        Me.TxtTag.Margin = New System.Windows.Forms.Padding(4)
+        Me.TxtTag.MaxLength = 200
+        Me.TxtTag.Name = "TxtTag"
+        Me.TxtTag.Size = New System.Drawing.Size(258, 22)
+        Me.TxtTag.TabIndex = 19
+        '
+        'CmbCm3
+        '
+        Me.CmbCm3.DropDownWidth = 600
+        Me.CmbCm3.FormattingEnabled = True
+        Me.CmbCm3.Location = New System.Drawing.Point(270, 456)
+        Me.CmbCm3.Margin = New System.Windows.Forms.Padding(4)
+        Me.CmbCm3.Name = "CmbCm3"
+        Me.CmbCm3.Size = New System.Drawing.Size(467, 24)
+        Me.CmbCm3.TabIndex = 13
+        '
+        'Btn_Avancar10
+        '
+        Me.Btn_Avancar10.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.Btn_Avancar10.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.Btn_Avancar10.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Btn_Avancar10.Location = New System.Drawing.Point(1072, 656)
+        Me.Btn_Avancar10.Margin = New System.Windows.Forms.Padding(4)
+        Me.Btn_Avancar10.Name = "Btn_Avancar10"
+        Me.Btn_Avancar10.Size = New System.Drawing.Size(63, 28)
+        Me.Btn_Avancar10.TabIndex = 47
+        Me.Btn_Avancar10.TabStop = False
+        Me.Btn_Avancar10.Text = ">>"
+        Me.Btn_Avancar10.UseVisualStyleBackColor = True
+        '
+        'CmbCm2
+        '
+        Me.CmbCm2.DropDownWidth = 700
+        Me.CmbCm2.FormattingEnabled = True
+        Me.CmbCm2.Location = New System.Drawing.Point(271, 419)
+        Me.CmbCm2.Margin = New System.Windows.Forms.Padding(4)
+        Me.CmbCm2.Name = "CmbCm2"
+        Me.CmbCm2.Size = New System.Drawing.Size(467, 24)
+        Me.CmbCm2.TabIndex = 12
+        '
+        'LblTag
+        '
+        Me.LblTag.AutoSize = True
+        Me.LblTag.Location = New System.Drawing.Point(386, 624)
+        Me.LblTag.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.LblTag.Name = "LblTag"
+        Me.LblTag.Size = New System.Drawing.Size(41, 17)
+        Me.LblTag.TabIndex = 45
+        Me.LblTag.Text = "TAG:"
+        '
+        'CmbCm1
+        '
+        Me.CmbCm1.DropDownWidth = 800
+        Me.CmbCm1.FormattingEnabled = True
+        Me.CmbCm1.Location = New System.Drawing.Point(270, 382)
+        Me.CmbCm1.Margin = New System.Windows.Forms.Padding(4)
+        Me.CmbCm1.Name = "CmbCm1"
+        Me.CmbCm1.Size = New System.Drawing.Size(467, 24)
+        Me.CmbCm1.TabIndex = 11
+        '
+        'PictureBox
+        '
+        Me.PictureBox.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.PictureBox.Location = New System.Drawing.Point(750, 339)
+        Me.PictureBox.Margin = New System.Windows.Forms.Padding(4)
+        Me.PictureBox.Name = "PictureBox"
+        Me.PictureBox.Size = New System.Drawing.Size(413, 309)
+        Me.PictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox.TabIndex = 0
+        Me.PictureBox.TabStop = False
+        '
         'TxtObs
         '
         Me.TxtObs.Location = New System.Drawing.Point(110, 656)
         Me.TxtObs.Margin = New System.Windows.Forms.Padding(4)
         Me.TxtObs.MaxLength = 200
         Me.TxtObs.Name = "TxtObs"
-        Me.TxtObs.Size = New System.Drawing.Size(502, 22)
+        Me.TxtObs.Size = New System.Drawing.Size(627, 22)
         Me.TxtObs.TabIndex = 20
         '
-        'Label20
+        'Btn_Voltar10
         '
-        Me.Label20.AutoSize = True
-        Me.Label20.Location = New System.Drawing.Point(17, 661)
-        Me.Label20.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.Label20.Name = "Label20"
-        Me.Label20.Size = New System.Drawing.Size(89, 17)
-        Me.Label20.TabIndex = 34
-        Me.Label20.Text = "Observação:"
+        Me.Btn_Voltar10.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.Btn_Voltar10.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.Btn_Voltar10.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Btn_Voltar10.Location = New System.Drawing.Point(859, 656)
+        Me.Btn_Voltar10.Margin = New System.Windows.Forms.Padding(4)
+        Me.Btn_Voltar10.Name = "Btn_Voltar10"
+        Me.Btn_Voltar10.Size = New System.Drawing.Size(63, 28)
+        Me.Btn_Voltar10.TabIndex = 46
+        Me.Btn_Voltar10.TabStop = False
+        Me.Btn_Voltar10.Text = "<<"
+        Me.Btn_Voltar10.UseVisualStyleBackColor = True
         '
         'TxtSerie
         '
@@ -667,37 +628,41 @@ Partial Class Frm_Inventário
         Me.TxtSerie.Margin = New System.Windows.Forms.Padding(4)
         Me.TxtSerie.MaxLength = 50
         Me.TxtSerie.Name = "TxtSerie"
-        Me.TxtSerie.Size = New System.Drawing.Size(201, 22)
+        Me.TxtSerie.Size = New System.Drawing.Size(269, 22)
         Me.TxtSerie.TabIndex = 18
         '
-        'Label19
+        'Label36
         '
-        Me.Label19.AutoSize = True
-        Me.Label19.Location = New System.Drawing.Point(16, 626)
-        Me.Label19.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.Label19.Name = "Label19"
-        Me.Label19.Size = New System.Drawing.Size(85, 17)
-        Me.Label19.TabIndex = 32
-        Me.Label19.Text = "N° de Série:"
+        Me.Label36.AutoSize = True
+        Me.Label36.Location = New System.Drawing.Point(16, 459)
+        Me.Label36.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label36.Name = "Label36"
+        Me.Label36.Size = New System.Drawing.Size(40, 17)
+        Me.Label36.TabIndex = 42
+        Me.Label36.Text = "CM3:"
         '
         'TxtModelo
         '
-        Me.TxtModelo.Location = New System.Drawing.Point(411, 586)
+        Me.TxtModelo.Location = New System.Drawing.Point(479, 586)
         Me.TxtModelo.Margin = New System.Windows.Forms.Padding(4)
         Me.TxtModelo.MaxLength = 50
         Me.TxtModelo.Name = "TxtModelo"
-        Me.TxtModelo.Size = New System.Drawing.Size(201, 22)
+        Me.TxtModelo.Size = New System.Drawing.Size(258, 22)
         Me.TxtModelo.TabIndex = 17
         '
-        'Label18
+        'BtnAnterior
         '
-        Me.Label18.AutoSize = True
-        Me.Label18.Location = New System.Drawing.Point(318, 590)
-        Me.Label18.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.Label18.Name = "Label18"
-        Me.Label18.Size = New System.Drawing.Size(58, 17)
-        Me.Label18.TabIndex = 30
-        Me.Label18.Text = "Modelo:"
+        Me.BtnAnterior.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.BtnAnterior.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.BtnAnterior.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnAnterior.Location = New System.Drawing.Point(930, 656)
+        Me.BtnAnterior.Margin = New System.Windows.Forms.Padding(4)
+        Me.BtnAnterior.Name = "BtnAnterior"
+        Me.BtnAnterior.Size = New System.Drawing.Size(63, 28)
+        Me.BtnAnterior.TabIndex = 28
+        Me.BtnAnterior.TabStop = False
+        Me.BtnAnterior.Text = "<"
+        Me.BtnAnterior.UseVisualStyleBackColor = True
         '
         'TxtFabricante
         '
@@ -705,213 +670,133 @@ Partial Class Frm_Inventário
         Me.TxtFabricante.Margin = New System.Windows.Forms.Padding(4)
         Me.TxtFabricante.MaxLength = 50
         Me.TxtFabricante.Name = "TxtFabricante"
-        Me.TxtFabricante.Size = New System.Drawing.Size(201, 22)
+        Me.TxtFabricante.Size = New System.Drawing.Size(269, 22)
         Me.TxtFabricante.TabIndex = 15
         '
-        'Label17
+        'BtnProximo
         '
-        Me.Label17.AutoSize = True
-        Me.Label17.Location = New System.Drawing.Point(16, 591)
-        Me.Label17.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.Label17.Name = "Label17"
-        Me.Label17.Size = New System.Drawing.Size(79, 17)
-        Me.Label17.TabIndex = 28
-        Me.Label17.Text = "Fabricante:"
+        Me.BtnProximo.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.BtnProximo.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.BtnProximo.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnProximo.Location = New System.Drawing.Point(1001, 656)
+        Me.BtnProximo.Margin = New System.Windows.Forms.Padding(4)
+        Me.BtnProximo.Name = "BtnProximo"
+        Me.BtnProximo.Size = New System.Drawing.Size(63, 28)
+        Me.BtnProximo.TabIndex = 29
+        Me.BtnProximo.TabStop = False
+        Me.BtnProximo.Text = ">"
+        Me.BtnProximo.UseVisualStyleBackColor = True
         '
         'TxtDesc
         '
-        Me.TxtDesc.Location = New System.Drawing.Point(109, 492)
+        Me.TxtDesc.Location = New System.Drawing.Point(109, 493)
         Me.TxtDesc.Margin = New System.Windows.Forms.Padding(4)
         Me.TxtDesc.MaxLength = 200
         Me.TxtDesc.Multiline = True
         Me.TxtDesc.Name = "TxtDesc"
-        Me.TxtDesc.Size = New System.Drawing.Size(503, 85)
+        Me.TxtDesc.Size = New System.Drawing.Size(628, 85)
         Me.TxtDesc.TabIndex = 14
         '
-        'Label16
+        'Label35
         '
-        Me.Label16.AutoSize = True
-        Me.Label16.Location = New System.Drawing.Point(16, 496)
-        Me.Label16.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.Label16.Name = "Label16"
-        Me.Label16.Size = New System.Drawing.Size(75, 17)
-        Me.Label16.TabIndex = 26
-        Me.Label16.Text = "Descrição:"
+        Me.Label35.AutoSize = True
+        Me.Label35.Location = New System.Drawing.Point(16, 423)
+        Me.Label35.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label35.Name = "Label35"
+        Me.Label35.Size = New System.Drawing.Size(40, 17)
+        Me.Label35.TabIndex = 40
+        Me.Label35.Text = "CM2:"
         '
         'CmbA6
         '
         Me.CmbA6.FormattingEnabled = True
-        Me.CmbA6.Location = New System.Drawing.Point(109, 344)
+        Me.CmbA6.Location = New System.Drawing.Point(270, 345)
         Me.CmbA6.Margin = New System.Windows.Forms.Padding(4)
         Me.CmbA6.Name = "CmbA6"
-        Me.CmbA6.Size = New System.Drawing.Size(503, 24)
+        Me.CmbA6.Size = New System.Drawing.Size(467, 24)
         Me.CmbA6.TabIndex = 10
         '
-        'LblA6
+        'BtnAdd
         '
-        Me.LblA6.AutoSize = True
-        Me.LblA6.Location = New System.Drawing.Point(16, 349)
-        Me.LblA6.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.LblA6.Name = "LblA6"
-        Me.LblA6.Size = New System.Drawing.Size(29, 17)
-        Me.LblA6.TabIndex = 24
-        Me.LblA6.Text = "A6:"
+        Me.BtnAdd.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.BtnAdd.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.BtnAdd.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnAdd.Location = New System.Drawing.Point(751, 656)
+        Me.BtnAdd.Margin = New System.Windows.Forms.Padding(4)
+        Me.BtnAdd.Name = "BtnAdd"
+        Me.BtnAdd.Size = New System.Drawing.Size(100, 28)
+        Me.BtnAdd.TabIndex = 27
+        Me.BtnAdd.TabStop = False
+        Me.BtnAdd.Text = "Adicionar"
+        Me.BtnAdd.UseVisualStyleBackColor = True
         '
         'CmbA5
         '
         Me.CmbA5.FormattingEnabled = True
-        Me.CmbA5.Location = New System.Drawing.Point(109, 307)
+        Me.CmbA5.Location = New System.Drawing.Point(270, 308)
         Me.CmbA5.Margin = New System.Windows.Forms.Padding(4)
         Me.CmbA5.Name = "CmbA5"
-        Me.CmbA5.Size = New System.Drawing.Size(503, 24)
+        Me.CmbA5.Size = New System.Drawing.Size(467, 24)
         Me.CmbA5.TabIndex = 9
         '
-        'LblA5
+        'Label12
         '
-        Me.LblA5.AutoSize = True
-        Me.LblA5.Location = New System.Drawing.Point(16, 312)
-        Me.LblA5.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.LblA5.Name = "LblA5"
-        Me.LblA5.Size = New System.Drawing.Size(29, 17)
-        Me.LblA5.TabIndex = 22
-        Me.LblA5.Text = "A5:"
+        Me.Label12.AutoSize = True
+        Me.Label12.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label12.Location = New System.Drawing.Point(753, 314)
+        Me.Label12.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label12.Name = "Label12"
+        Me.Label12.Size = New System.Drawing.Size(220, 17)
+        Me.Label12.TabIndex = 43
+        Me.Label12.Text = "Todas as Fotos do Inventário"
         '
         'CmbUAR
         '
         Me.CmbUAR.DropDownWidth = 600
         Me.CmbUAR.FormattingEnabled = True
-        Me.CmbUAR.Location = New System.Drawing.Point(109, 159)
+        Me.CmbUAR.Location = New System.Drawing.Point(270, 160)
         Me.CmbUAR.Margin = New System.Windows.Forms.Padding(4)
         Me.CmbUAR.Name = "CmbUAR"
-        Me.CmbUAR.Size = New System.Drawing.Size(503, 24)
+        Me.CmbUAR.Size = New System.Drawing.Size(467, 24)
         Me.CmbUAR.TabIndex = 5
         '
-        'Label13
+        'Label34
         '
-        Me.Label13.AutoSize = True
-        Me.Label13.Location = New System.Drawing.Point(16, 164)
-        Me.Label13.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.Label13.Name = "Label13"
-        Me.Label13.Size = New System.Drawing.Size(41, 17)
-        Me.Label13.TabIndex = 20
-        Me.Label13.Text = "UAR:"
+        Me.Label34.AutoSize = True
+        Me.Label34.Location = New System.Drawing.Point(16, 386)
+        Me.Label34.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label34.Name = "Label34"
+        Me.Label34.Size = New System.Drawing.Size(40, 17)
+        Me.Label34.TabIndex = 38
+        Me.Label34.Text = "CM1:"
         '
         'CmbA4
         '
         Me.CmbA4.FormattingEnabled = True
-        Me.CmbA4.Location = New System.Drawing.Point(109, 270)
+        Me.CmbA4.Location = New System.Drawing.Point(270, 271)
         Me.CmbA4.Margin = New System.Windows.Forms.Padding(4)
         Me.CmbA4.Name = "CmbA4"
-        Me.CmbA4.Size = New System.Drawing.Size(503, 24)
+        Me.CmbA4.Size = New System.Drawing.Size(467, 24)
         Me.CmbA4.TabIndex = 8
         '
-        'LblA4
+        'Label7
         '
-        Me.LblA4.AutoSize = True
-        Me.LblA4.Location = New System.Drawing.Point(16, 275)
-        Me.LblA4.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.LblA4.Name = "LblA4"
-        Me.LblA4.Size = New System.Drawing.Size(29, 17)
-        Me.LblA4.TabIndex = 18
-        Me.LblA4.Text = "A4:"
+        Me.Label7.AutoSize = True
+        Me.Label7.Location = New System.Drawing.Point(16, 16)
+        Me.Label7.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(25, 17)
+        Me.Label7.TabIndex = 5
+        Me.Label7.Text = "ID:"
         '
         'CmbA3
         '
         Me.CmbA3.FormattingEnabled = True
-        Me.CmbA3.Location = New System.Drawing.Point(109, 233)
+        Me.CmbA3.Location = New System.Drawing.Point(270, 234)
         Me.CmbA3.Margin = New System.Windows.Forms.Padding(4)
         Me.CmbA3.Name = "CmbA3"
-        Me.CmbA3.Size = New System.Drawing.Size(503, 24)
+        Me.CmbA3.Size = New System.Drawing.Size(467, 24)
         Me.CmbA3.TabIndex = 7
-        '
-        'LblA3
-        '
-        Me.LblA3.AutoSize = True
-        Me.LblA3.Location = New System.Drawing.Point(16, 238)
-        Me.LblA3.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.LblA3.Name = "LblA3"
-        Me.LblA3.Size = New System.Drawing.Size(29, 17)
-        Me.LblA3.TabIndex = 16
-        Me.LblA3.Text = "A3:"
-        '
-        'CmbA2
-        '
-        Me.CmbA2.FormattingEnabled = True
-        Me.CmbA2.Location = New System.Drawing.Point(109, 196)
-        Me.CmbA2.Margin = New System.Windows.Forms.Padding(4)
-        Me.CmbA2.Name = "CmbA2"
-        Me.CmbA2.Size = New System.Drawing.Size(503, 24)
-        Me.CmbA2.TabIndex = 6
-        '
-        'LblA2
-        '
-        Me.LblA2.AutoSize = True
-        Me.LblA2.Location = New System.Drawing.Point(16, 201)
-        Me.LblA2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.LblA2.Name = "LblA2"
-        Me.LblA2.Size = New System.Drawing.Size(29, 17)
-        Me.LblA2.TabIndex = 14
-        Me.LblA2.Text = "A2:"
-        '
-        'CmbA1
-        '
-        Me.CmbA1.DropDownWidth = 600
-        Me.CmbA1.FormattingEnabled = True
-        Me.CmbA1.Location = New System.Drawing.Point(109, 122)
-        Me.CmbA1.Margin = New System.Windows.Forms.Padding(4)
-        Me.CmbA1.Name = "CmbA1"
-        Me.CmbA1.Size = New System.Drawing.Size(503, 24)
-        Me.CmbA1.TabIndex = 4
-        '
-        'Label9
-        '
-        Me.Label9.AutoSize = True
-        Me.Label9.Location = New System.Drawing.Point(16, 127)
-        Me.Label9.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(92, 17)
-        Me.Label9.TabIndex = 12
-        Me.Label9.Text = "Tipo de Bem:"
-        '
-        'CmbTUC
-        '
-        Me.CmbTUC.DropDownWidth = 550
-        Me.CmbTUC.FormattingEnabled = True
-        Me.CmbTUC.Location = New System.Drawing.Point(109, 86)
-        Me.CmbTUC.Margin = New System.Windows.Forms.Padding(4)
-        Me.CmbTUC.Name = "CmbTUC"
-        Me.CmbTUC.Size = New System.Drawing.Size(503, 24)
-        Me.CmbTUC.TabIndex = 3
-        '
-        'Label8
-        '
-        Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(16, 90)
-        Me.Label8.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(40, 17)
-        Me.Label8.TabIndex = 10
-        Me.Label8.Text = "TUC:"
-        '
-        'TxtSeq_Desc
-        '
-        Me.TxtSeq_Desc.Enabled = False
-        Me.TxtSeq_Desc.Location = New System.Drawing.Point(109, 12)
-        Me.TxtSeq_Desc.Margin = New System.Windows.Forms.Padding(4)
-        Me.TxtSeq_Desc.Name = "TxtSeq_Desc"
-        Me.TxtSeq_Desc.Size = New System.Drawing.Size(503, 22)
-        Me.TxtSeq_Desc.TabIndex = 1
-        Me.TxtSeq_Desc.Text = "1"
-        Me.TxtSeq_Desc.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
-        '
-        'TxtBay
-        '
-        Me.TxtBay.Location = New System.Drawing.Point(109, 49)
-        Me.TxtBay.Margin = New System.Windows.Forms.Padding(4)
-        Me.TxtBay.MaxLength = 200
-        Me.TxtBay.Name = "TxtBay"
-        Me.TxtBay.Size = New System.Drawing.Size(503, 22)
-        Me.TxtBay.TabIndex = 2
         '
         'Label5
         '
@@ -923,15 +808,189 @@ Partial Class Frm_Inventário
         Me.Label5.TabIndex = 8
         Me.Label5.Text = "Bay:"
         '
-        'Label7
+        'CmbA2
         '
-        Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(16, 16)
-        Me.Label7.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(25, 17)
-        Me.Label7.TabIndex = 5
-        Me.Label7.Text = "ID:"
+        Me.CmbA2.FormattingEnabled = True
+        Me.CmbA2.Location = New System.Drawing.Point(270, 197)
+        Me.CmbA2.Margin = New System.Windows.Forms.Padding(4)
+        Me.CmbA2.Name = "CmbA2"
+        Me.CmbA2.Size = New System.Drawing.Size(467, 24)
+        Me.CmbA2.TabIndex = 6
+        '
+        'Label20
+        '
+        Me.Label20.AutoSize = True
+        Me.Label20.Location = New System.Drawing.Point(17, 661)
+        Me.Label20.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label20.Name = "Label20"
+        Me.Label20.Size = New System.Drawing.Size(89, 17)
+        Me.Label20.TabIndex = 34
+        Me.Label20.Text = "Observação:"
+        '
+        'CmbA1
+        '
+        Me.CmbA1.DropDownWidth = 600
+        Me.CmbA1.FormattingEnabled = True
+        Me.CmbA1.Location = New System.Drawing.Point(270, 123)
+        Me.CmbA1.Margin = New System.Windows.Forms.Padding(4)
+        Me.CmbA1.Name = "CmbA1"
+        Me.CmbA1.Size = New System.Drawing.Size(467, 24)
+        Me.CmbA1.TabIndex = 4
+        '
+        'Label8
+        '
+        Me.Label8.AutoSize = True
+        Me.Label8.Location = New System.Drawing.Point(16, 90)
+        Me.Label8.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(40, 17)
+        Me.Label8.TabIndex = 10
+        Me.Label8.Text = "TUC:"
+        '
+        'CmbTUC
+        '
+        Me.CmbTUC.DropDownWidth = 550
+        Me.CmbTUC.FormattingEnabled = True
+        Me.CmbTUC.Location = New System.Drawing.Point(270, 87)
+        Me.CmbTUC.Margin = New System.Windows.Forms.Padding(4)
+        Me.CmbTUC.Name = "CmbTUC"
+        Me.CmbTUC.Size = New System.Drawing.Size(467, 24)
+        Me.CmbTUC.TabIndex = 3
+        '
+        'Label9
+        '
+        Me.Label9.AutoSize = True
+        Me.Label9.Location = New System.Drawing.Point(16, 127)
+        Me.Label9.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(92, 17)
+        Me.Label9.TabIndex = 12
+        Me.Label9.Text = "Tipo de Bem:"
+        '
+        'TxtSeq_Desc
+        '
+        Me.TxtSeq_Desc.Enabled = False
+        Me.TxtSeq_Desc.Location = New System.Drawing.Point(270, 13)
+        Me.TxtSeq_Desc.Margin = New System.Windows.Forms.Padding(4)
+        Me.TxtSeq_Desc.Name = "TxtSeq_Desc"
+        Me.TxtSeq_Desc.Size = New System.Drawing.Size(467, 22)
+        Me.TxtSeq_Desc.TabIndex = 1
+        Me.TxtSeq_Desc.Text = "1"
+        Me.TxtSeq_Desc.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'Label19
+        '
+        Me.Label19.AutoSize = True
+        Me.Label19.Location = New System.Drawing.Point(16, 626)
+        Me.Label19.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label19.Name = "Label19"
+        Me.Label19.Size = New System.Drawing.Size(85, 17)
+        Me.Label19.TabIndex = 32
+        Me.Label19.Text = "N° de Série:"
+        '
+        'TxtBay
+        '
+        Me.TxtBay.Location = New System.Drawing.Point(270, 50)
+        Me.TxtBay.Margin = New System.Windows.Forms.Padding(4)
+        Me.TxtBay.MaxLength = 200
+        Me.TxtBay.Name = "TxtBay"
+        Me.TxtBay.Size = New System.Drawing.Size(467, 22)
+        Me.TxtBay.TabIndex = 2
+        '
+        'LblA2
+        '
+        Me.LblA2.AutoSize = True
+        Me.LblA2.Location = New System.Drawing.Point(16, 201)
+        Me.LblA2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.LblA2.MaximumSize = New System.Drawing.Size(200, 0)
+        Me.LblA2.Name = "LblA2"
+        Me.LblA2.Size = New System.Drawing.Size(29, 17)
+        Me.LblA2.TabIndex = 14
+        Me.LblA2.Text = "A2:"
+        '
+        'LblA3
+        '
+        Me.LblA3.AutoSize = True
+        Me.LblA3.Location = New System.Drawing.Point(16, 238)
+        Me.LblA3.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.LblA3.MaximumSize = New System.Drawing.Size(200, 0)
+        Me.LblA3.Name = "LblA3"
+        Me.LblA3.Size = New System.Drawing.Size(29, 17)
+        Me.LblA3.TabIndex = 16
+        Me.LblA3.Text = "A3:"
+        '
+        'Label18
+        '
+        Me.Label18.AutoSize = True
+        Me.Label18.Location = New System.Drawing.Point(386, 590)
+        Me.Label18.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label18.Name = "Label18"
+        Me.Label18.Size = New System.Drawing.Size(58, 17)
+        Me.Label18.TabIndex = 30
+        Me.Label18.Text = "Modelo:"
+        '
+        'LblA4
+        '
+        Me.LblA4.AutoSize = True
+        Me.LblA4.Location = New System.Drawing.Point(16, 275)
+        Me.LblA4.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.LblA4.MaximumSize = New System.Drawing.Size(200, 0)
+        Me.LblA4.Name = "LblA4"
+        Me.LblA4.Size = New System.Drawing.Size(29, 17)
+        Me.LblA4.TabIndex = 18
+        Me.LblA4.Text = "A4:"
+        '
+        'Label13
+        '
+        Me.Label13.AutoSize = True
+        Me.Label13.Location = New System.Drawing.Point(16, 164)
+        Me.Label13.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label13.Name = "Label13"
+        Me.Label13.Size = New System.Drawing.Size(41, 17)
+        Me.Label13.TabIndex = 20
+        Me.Label13.Text = "UAR:"
+        '
+        'Label17
+        '
+        Me.Label17.AutoSize = True
+        Me.Label17.Location = New System.Drawing.Point(16, 591)
+        Me.Label17.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label17.Name = "Label17"
+        Me.Label17.Size = New System.Drawing.Size(79, 17)
+        Me.Label17.TabIndex = 28
+        Me.Label17.Text = "Fabricante:"
+        '
+        'LblA5
+        '
+        Me.LblA5.AutoSize = True
+        Me.LblA5.Location = New System.Drawing.Point(16, 312)
+        Me.LblA5.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.LblA5.MaximumSize = New System.Drawing.Size(200, 0)
+        Me.LblA5.Name = "LblA5"
+        Me.LblA5.Size = New System.Drawing.Size(29, 17)
+        Me.LblA5.TabIndex = 22
+        Me.LblA5.Text = "A5:"
+        '
+        'LblA6
+        '
+        Me.LblA6.AutoSize = True
+        Me.LblA6.Location = New System.Drawing.Point(16, 349)
+        Me.LblA6.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.LblA6.MaximumSize = New System.Drawing.Size(200, 0)
+        Me.LblA6.Name = "LblA6"
+        Me.LblA6.Size = New System.Drawing.Size(29, 17)
+        Me.LblA6.TabIndex = 24
+        Me.LblA6.Text = "A6:"
+        '
+        'Label16
+        '
+        Me.Label16.AutoSize = True
+        Me.Label16.Location = New System.Drawing.Point(16, 496)
+        Me.Label16.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label16.Name = "Label16"
+        Me.Label16.Size = New System.Drawing.Size(75, 17)
+        Me.Label16.TabIndex = 26
+        Me.Label16.Text = "Descrição:"
         '
         'TpCivil
         '
@@ -954,7 +1013,7 @@ Partial Class Frm_Inventário
         Me.TpCivil.Location = New System.Drawing.Point(4, 25)
         Me.TpCivil.Margin = New System.Windows.Forms.Padding(4)
         Me.TpCivil.Name = "TpCivil"
-        Me.TpCivil.Size = New System.Drawing.Size(1201, 677)
+        Me.TpCivil.Size = New System.Drawing.Size(1201, 723)
         Me.TpCivil.TabIndex = 2
         Me.TpCivil.Text = "Civil"
         Me.TpCivil.UseVisualStyleBackColor = True
@@ -1400,60 +1459,6 @@ Partial Class Frm_Inventário
         Me.ExcelToolStripMenuItem.Size = New System.Drawing.Size(118, 26)
         Me.ExcelToolStripMenuItem.Text = "Excel"
         '
-        'Panel_Desc
-        '
-        Me.Panel_Desc.AutoScroll = True
-        Me.Panel_Desc.Controls.Add(Me.GbQtd)
-        Me.Panel_Desc.Controls.Add(Me.TxtTag)
-        Me.Panel_Desc.Controls.Add(Me.CmbCm3)
-        Me.Panel_Desc.Controls.Add(Me.Btn_Avancar10)
-        Me.Panel_Desc.Controls.Add(Me.CmbCm2)
-        Me.Panel_Desc.Controls.Add(Me.LblTag)
-        Me.Panel_Desc.Controls.Add(Me.CmbCm1)
-        Me.Panel_Desc.Controls.Add(Me.PictureBox)
-        Me.Panel_Desc.Controls.Add(Me.TxtObs)
-        Me.Panel_Desc.Controls.Add(Me.Btn_Voltar10)
-        Me.Panel_Desc.Controls.Add(Me.TxtSerie)
-        Me.Panel_Desc.Controls.Add(Me.Label36)
-        Me.Panel_Desc.Controls.Add(Me.TxtModelo)
-        Me.Panel_Desc.Controls.Add(Me.BtnAnterior)
-        Me.Panel_Desc.Controls.Add(Me.TxtFabricante)
-        Me.Panel_Desc.Controls.Add(Me.BtnProximo)
-        Me.Panel_Desc.Controls.Add(Me.TxtDesc)
-        Me.Panel_Desc.Controls.Add(Me.Label35)
-        Me.Panel_Desc.Controls.Add(Me.CmbA6)
-        Me.Panel_Desc.Controls.Add(Me.BtnAdd)
-        Me.Panel_Desc.Controls.Add(Me.CmbA5)
-        Me.Panel_Desc.Controls.Add(Me.Label12)
-        Me.Panel_Desc.Controls.Add(Me.CmbUAR)
-        Me.Panel_Desc.Controls.Add(Me.Label34)
-        Me.Panel_Desc.Controls.Add(Me.CmbA4)
-        Me.Panel_Desc.Controls.Add(Me.Label7)
-        Me.Panel_Desc.Controls.Add(Me.CmbA3)
-        Me.Panel_Desc.Controls.Add(Me.Label5)
-        Me.Panel_Desc.Controls.Add(Me.CmbA2)
-        Me.Panel_Desc.Controls.Add(Me.Label20)
-        Me.Panel_Desc.Controls.Add(Me.CmbA1)
-        Me.Panel_Desc.Controls.Add(Me.Label8)
-        Me.Panel_Desc.Controls.Add(Me.CmbTUC)
-        Me.Panel_Desc.Controls.Add(Me.Label9)
-        Me.Panel_Desc.Controls.Add(Me.TxtSeq_Desc)
-        Me.Panel_Desc.Controls.Add(Me.Label19)
-        Me.Panel_Desc.Controls.Add(Me.TxtBay)
-        Me.Panel_Desc.Controls.Add(Me.LblA2)
-        Me.Panel_Desc.Controls.Add(Me.LblA3)
-        Me.Panel_Desc.Controls.Add(Me.Label18)
-        Me.Panel_Desc.Controls.Add(Me.LblA4)
-        Me.Panel_Desc.Controls.Add(Me.Label13)
-        Me.Panel_Desc.Controls.Add(Me.Label17)
-        Me.Panel_Desc.Controls.Add(Me.LblA5)
-        Me.Panel_Desc.Controls.Add(Me.LblA6)
-        Me.Panel_Desc.Controls.Add(Me.Label16)
-        Me.Panel_Desc.Location = New System.Drawing.Point(7, 23)
-        Me.Panel_Desc.Name = "Panel_Desc"
-        Me.Panel_Desc.Size = New System.Drawing.Size(1187, 696)
-        Me.Panel_Desc.TabIndex = 48
-        '
         'Frm_Inventário
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -1471,9 +1476,11 @@ Partial Class Frm_Inventário
         Me.TpLocal.ResumeLayout(False)
         Me.TpLocal.PerformLayout()
         Me.TpDesc.ResumeLayout(False)
-        CType(Me.PictureBox, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.Panel_Desc.ResumeLayout(False)
+        Me.Panel_Desc.PerformLayout()
         Me.GbQtd.ResumeLayout(False)
         Me.GbQtd.PerformLayout()
+        CType(Me.PictureBox, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TpCivil.ResumeLayout(False)
         Me.TpCivil.PerformLayout()
         Me.GbFotos.ResumeLayout(False)
@@ -1486,8 +1493,6 @@ Partial Class Frm_Inventário
         Me.Panel_I.PerformLayout()
         Me.MenuStrip1.ResumeLayout(False)
         Me.MenuStrip1.PerformLayout()
-        Me.Panel_Desc.ResumeLayout(False)
-        Me.Panel_Desc.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
