@@ -82,6 +82,7 @@
         End Try
         Frm_Inventário.A_Fotos_Inventario.Clear()
         Frm_Inventário.Foto = ""
+        Frm_Inventário.PictureBox_Consulta.ImageLocation = ""
 
         If Texto_Foto <> "" Then
             Dim Palavras As String() = Texto_Foto.Split("|")
@@ -121,4 +122,5 @@
         I_E.Consulta_Grid(DGV_Consulta)
         LblLinhas.Text = "Total de Registros: " & DGV_Consulta.Rows.Count
     End Sub
+
 End Class

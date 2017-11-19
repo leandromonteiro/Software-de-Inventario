@@ -352,9 +352,9 @@ Partial Class Frm_Inventário
         Me.Panel_Desc.Controls.Add(Me.LblA5)
         Me.Panel_Desc.Controls.Add(Me.LblA6)
         Me.Panel_Desc.Controls.Add(Me.Label16)
-        Me.Panel_Desc.Location = New System.Drawing.Point(7, 23)
+        Me.Panel_Desc.Location = New System.Drawing.Point(-7, 7)
         Me.Panel_Desc.Name = "Panel_Desc"
-        Me.Panel_Desc.Size = New System.Drawing.Size(1187, 696)
+        Me.Panel_Desc.Size = New System.Drawing.Size(1205, 712)
         Me.Panel_Desc.TabIndex = 48
         '
         'GbQtd
@@ -548,7 +548,7 @@ Partial Class Frm_Inventário
         Me.Btn_Avancar10.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.Btn_Avancar10.Cursor = System.Windows.Forms.Cursors.Hand
         Me.Btn_Avancar10.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Btn_Avancar10.Location = New System.Drawing.Point(1072, 656)
+        Me.Btn_Avancar10.Location = New System.Drawing.Point(1071, 654)
         Me.Btn_Avancar10.Margin = New System.Windows.Forms.Padding(4)
         Me.Btn_Avancar10.Name = "Btn_Avancar10"
         Me.Btn_Avancar10.Size = New System.Drawing.Size(63, 28)
@@ -595,7 +595,7 @@ Partial Class Frm_Inventário
         Me.PictureBox.Location = New System.Drawing.Point(750, 339)
         Me.PictureBox.Margin = New System.Windows.Forms.Padding(4)
         Me.PictureBox.Name = "PictureBox"
-        Me.PictureBox.Size = New System.Drawing.Size(413, 309)
+        Me.PictureBox.Size = New System.Drawing.Size(411, 304)
         Me.PictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PictureBox.TabIndex = 0
         Me.PictureBox.TabStop = False
@@ -614,7 +614,7 @@ Partial Class Frm_Inventário
         Me.Btn_Voltar10.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.Btn_Voltar10.Cursor = System.Windows.Forms.Cursors.Hand
         Me.Btn_Voltar10.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Btn_Voltar10.Location = New System.Drawing.Point(859, 656)
+        Me.Btn_Voltar10.Location = New System.Drawing.Point(858, 654)
         Me.Btn_Voltar10.Margin = New System.Windows.Forms.Padding(4)
         Me.Btn_Voltar10.Name = "Btn_Voltar10"
         Me.Btn_Voltar10.Size = New System.Drawing.Size(63, 28)
@@ -656,7 +656,7 @@ Partial Class Frm_Inventário
         Me.BtnAnterior.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.BtnAnterior.Cursor = System.Windows.Forms.Cursors.Hand
         Me.BtnAnterior.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnAnterior.Location = New System.Drawing.Point(930, 656)
+        Me.BtnAnterior.Location = New System.Drawing.Point(929, 654)
         Me.BtnAnterior.Margin = New System.Windows.Forms.Padding(4)
         Me.BtnAnterior.Name = "BtnAnterior"
         Me.BtnAnterior.Size = New System.Drawing.Size(63, 28)
@@ -679,7 +679,7 @@ Partial Class Frm_Inventário
         Me.BtnProximo.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.BtnProximo.Cursor = System.Windows.Forms.Cursors.Hand
         Me.BtnProximo.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnProximo.Location = New System.Drawing.Point(1001, 656)
+        Me.BtnProximo.Location = New System.Drawing.Point(1000, 654)
         Me.BtnProximo.Margin = New System.Windows.Forms.Padding(4)
         Me.BtnProximo.Name = "BtnProximo"
         Me.BtnProximo.Size = New System.Drawing.Size(63, 28)
@@ -722,7 +722,7 @@ Partial Class Frm_Inventário
         Me.BtnAdd.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.BtnAdd.Cursor = System.Windows.Forms.Cursors.Hand
         Me.BtnAdd.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnAdd.Location = New System.Drawing.Point(751, 656)
+        Me.BtnAdd.Location = New System.Drawing.Point(750, 654)
         Me.BtnAdd.Margin = New System.Windows.Forms.Padding(4)
         Me.BtnAdd.Name = "BtnAdd"
         Me.BtnAdd.Size = New System.Drawing.Size(100, 28)
@@ -1193,11 +1193,11 @@ Partial Class Frm_Inventário
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.TcFotos.Controls.Add(Me.TpConsulta)
-        Me.TcFotos.Location = New System.Drawing.Point(8, 27)
+        Me.TcFotos.Location = New System.Drawing.Point(8, 29)
         Me.TcFotos.Margin = New System.Windows.Forms.Padding(4)
         Me.TcFotos.Name = "TcFotos"
         Me.TcFotos.SelectedIndex = 0
-        Me.TcFotos.Size = New System.Drawing.Size(784, 714)
+        Me.TcFotos.Size = New System.Drawing.Size(758, 712)
         Me.TcFotos.TabIndex = 5
         '
         'TpConsulta
@@ -1213,7 +1213,7 @@ Partial Class Frm_Inventário
         Me.TpConsulta.Margin = New System.Windows.Forms.Padding(4)
         Me.TpConsulta.Name = "TpConsulta"
         Me.TpConsulta.Padding = New System.Windows.Forms.Padding(4)
-        Me.TpConsulta.Size = New System.Drawing.Size(776, 684)
+        Me.TpConsulta.Size = New System.Drawing.Size(750, 682)
         Me.TpConsulta.TabIndex = 1
         Me.TpConsulta.Text = "Consultar Fotos"
         Me.TpConsulta.UseVisualStyleBackColor = True
@@ -1223,7 +1223,7 @@ Partial Class Frm_Inventário
         Me.BtnRemover_Fotos.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.BtnRemover_Fotos.Cursor = System.Windows.Forms.Cursors.Hand
         Me.BtnRemover_Fotos.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnRemover_Fotos.Location = New System.Drawing.Point(8, 646)
+        Me.BtnRemover_Fotos.Location = New System.Drawing.Point(8, 644)
         Me.BtnRemover_Fotos.Margin = New System.Windows.Forms.Padding(4)
         Me.BtnRemover_Fotos.Name = "BtnRemover_Fotos"
         Me.BtnRemover_Fotos.Size = New System.Drawing.Size(100, 28)
@@ -1240,7 +1240,7 @@ Partial Class Frm_Inventário
         Me.TB.Location = New System.Drawing.Point(11, 583)
         Me.TB.Maximum = 20
         Me.TB.Name = "TB"
-        Me.TB.Size = New System.Drawing.Size(758, 56)
+        Me.TB.Size = New System.Drawing.Size(732, 56)
         Me.TB.TabIndex = 10
         '
         'BtnAnterior_Consulta
@@ -1248,7 +1248,7 @@ Partial Class Frm_Inventário
         Me.BtnAnterior_Consulta.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.BtnAnterior_Consulta.Cursor = System.Windows.Forms.Cursors.Hand
         Me.BtnAnterior_Consulta.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnAnterior_Consulta.Location = New System.Drawing.Point(115, 646)
+        Me.BtnAnterior_Consulta.Location = New System.Drawing.Point(115, 644)
         Me.BtnAnterior_Consulta.Margin = New System.Windows.Forms.Padding(4)
         Me.BtnAnterior_Consulta.Name = "BtnAnterior_Consulta"
         Me.BtnAnterior_Consulta.Size = New System.Drawing.Size(63, 28)
@@ -1261,7 +1261,7 @@ Partial Class Frm_Inventário
         Me.BtnProximo_Consulta.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.BtnProximo_Consulta.Cursor = System.Windows.Forms.Cursors.Hand
         Me.BtnProximo_Consulta.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnProximo_Consulta.Location = New System.Drawing.Point(185, 646)
+        Me.BtnProximo_Consulta.Location = New System.Drawing.Point(185, 644)
         Me.BtnProximo_Consulta.Margin = New System.Windows.Forms.Padding(4)
         Me.BtnProximo_Consulta.Name = "BtnProximo_Consulta"
         Me.BtnProximo_Consulta.Size = New System.Drawing.Size(63, 28)
@@ -1274,7 +1274,7 @@ Partial Class Frm_Inventário
         Me.BtnGirar.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.BtnGirar.Cursor = System.Windows.Forms.Cursors.Hand
         Me.BtnGirar.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnGirar.Location = New System.Drawing.Point(256, 646)
+        Me.BtnGirar.Location = New System.Drawing.Point(256, 644)
         Me.BtnGirar.Margin = New System.Windows.Forms.Padding(4)
         Me.BtnGirar.Name = "BtnGirar"
         Me.BtnGirar.Size = New System.Drawing.Size(93, 28)
@@ -1288,7 +1288,7 @@ Partial Class Frm_Inventário
         Me.PictureBox_Consulta.Location = New System.Drawing.Point(12, 11)
         Me.PictureBox_Consulta.Margin = New System.Windows.Forms.Padding(4)
         Me.PictureBox_Consulta.Name = "PictureBox_Consulta"
-        Me.PictureBox_Consulta.Size = New System.Drawing.Size(745, 552)
+        Me.PictureBox_Consulta.Size = New System.Drawing.Size(696, 552)
         Me.PictureBox_Consulta.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PictureBox_Consulta.TabIndex = 1
         Me.PictureBox_Consulta.TabStop = False
@@ -1301,7 +1301,7 @@ Partial Class Frm_Inventário
         Me.Panel_Picture_Consulta.AutoScroll = True
         Me.Panel_Picture_Consulta.Location = New System.Drawing.Point(8, 7)
         Me.Panel_Picture_Consulta.Name = "Panel_Picture_Consulta"
-        Me.Panel_Picture_Consulta.Size = New System.Drawing.Size(761, 569)
+        Me.Panel_Picture_Consulta.Size = New System.Drawing.Size(735, 567)
         Me.Panel_Picture_Consulta.TabIndex = 10
         '
         'BtnCopiar

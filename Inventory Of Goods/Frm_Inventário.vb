@@ -734,8 +734,10 @@ Public Class Frm_Inventário
             PictureBox_Consulta.Width -= (TB.Value + 1) * (20%)
             PictureBox_Consulta.Height -= (TB.Value + 1) * (20%)
         End If
+        If TB.Value = 0 Then
+            PictureBox_Consulta.Width = 530
+            PictureBox_Consulta.Height = 450
+        End If
         V_Atual_TB = TB.Value
     End Sub
-
-
 End Class
