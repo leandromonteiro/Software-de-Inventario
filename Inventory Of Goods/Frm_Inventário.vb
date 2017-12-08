@@ -307,7 +307,7 @@ Public Class Frm_Inventário
     End Sub
     Private Sub CmbCm1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles CmbCm1.SelectedIndexChanged
         If CmbCm1.Text = "NÃO APLICÁVEL" Then
-            CM1 = ""
+            CM1 = "9"
         Else
             CM1 = I_E.Buscar_CM1(CmbCm1)
         End If
@@ -315,7 +315,7 @@ Public Class Frm_Inventário
 
     Private Sub CmbCm2_SelectedIndexChanged(sender As Object, e As EventArgs) Handles CmbCm2.SelectedIndexChanged
         If CmbCm2.Text = "NÃO APLICÁVEL" Then
-            CM2 = ""
+            CM2 = "9"
         Else
             CM2 = I_E.Buscar_CM2(CmbCm2)
         End If
@@ -323,7 +323,7 @@ Public Class Frm_Inventário
 
     Private Sub CmbCm3_SelectedIndexChanged(sender As Object, e As EventArgs) Handles CmbCm3.SelectedIndexChanged
         If CmbCm3.Text = "NÃO APLICÁVEL" Then
-            CM3 = ""
+            CM3 = "9"
         Else
             CM3 = I_E.Buscar_CM3(CmbCm3)
         End If
@@ -620,6 +620,14 @@ Public Class Frm_Inventário
         End If
     End Sub
 
+    Private Sub TxtEsforco_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TxtEsforco.KeyPress
+        If e.KeyChar = ","c Then
+            e.Handled = (CType(sender, TextBox).Text.IndexOf(","c) <> -1)
+        ElseIf e.KeyChar <> ControlChars.Back Then
+            e.Handled = ("0123456789".IndexOf(e.KeyChar) = -1)
+        End If
+    End Sub
+
     Private Sub TxtComprimento_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TxtComprimento.KeyPress
         If e.KeyChar = ","c Then
             e.Handled = (CType(sender, TextBox).Text.IndexOf(","c) <> -1)
@@ -740,4 +748,5 @@ Public Class Frm_Inventário
         End If
         V_Atual_TB = TB.Value
     End Sub
+
 End Class

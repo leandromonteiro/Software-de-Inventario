@@ -535,8 +535,8 @@ Public Class Inventário_Excel
                                   "'," & cod_tuc & ",'" & tuc & "','" & cod_tipo_bem & "','" & tipo_bem & "', '" & cod_uar & "','" & uar & "','" & cod_a2 & "','" & desc_a2 & "','" &
                                   cod_a3 & "','" & desc_a3 & "','" & cod_a4 & "','" & desc_a4 & "','" & cod_a5 & "','" & desc_a5 & "','" & cod_a6 & "','" & desc_a6 & "'," & cod_cm1 &
                                   ",'" & desc_cm1 & "'," & cod_cm2 & ",'" & desc_cm2 & "'," & cod_cm3 & ",'" & desc_cm3 & "','" & descricao & "','" & fabricante & "','" & modelo & "','" &
-                                  serie & "','" & observacao & "'," & quantidade & ", '" & unidade & "'," & ano & ", " & mes & "," & dia & ",'" & status_bem & "','" & estado_bem &
-                                  "'," & altura & "," & largura & "," & comprimento & "," & area & "," & pe & "," & esforco & ",'" & obs_civil & "','" & consultor & "','" &
+                                  serie & "','" & observacao & "'," & Replace(CStr(quantidade), ",", ".") & ", '" & unidade & "'," & ano & ", " & mes & "," & dia & ",'" & status_bem & "','" & estado_bem &
+                                  "'," & Replace(CStr(altura), ",", ".") & "," & Replace(CStr(largura), ",", ".") & "," & Replace(CStr(comprimento), ",", ".") & "," & Replace(CStr(area), ",", ".") & "," & Replace(CStr(pe), ",", ".") & "," & Replace(CStr(esforco), ",", ".") & ",'" & obs_civil & "','" & consultor & "','" &
                                   lider & "','" & Now & "','" & Num_Manutencao & "','" & Foto & "');"
                 cmd.ExecuteNonQuery()
                 cmd.Dispose()
@@ -573,10 +573,10 @@ Public Class Inventário_Excel
                     "',Desc_A6='" & a6 & "',Cod_CM1='" & cod_cm1 & "',Desc_CM1='" & cm1 & "',Cod_CM2='" & cod_cm2 &
                     "',Desc_CM2='" & cm2 & "',Cod_CM3='" & cod_cm3 & "',Desc_CM3='" & cm3 & "',Descricao='" & descricao &
                     "',Fabricante='" & fabricante & "',Modelo='" & modelo & "',serie='" & serie & "',Observacao='" & obs & "',Quantidade=" &
-                    qtd & ",Unidade_Medida='" & um & "',Ano='" & ano & "',Mes='" & mes & "',Dia='" & dia &
-                    "',Status_Bem='" & status & "',Estado_Bem='" & estado_bem & "',Altura=" & altura & ",Largura=" & largura & ",Comprimento=" &
-                    comprimento & ",area=" & area & ",Pe_direito=" & pe & ",Obs_Civil='" & obs_civil & "',foto='" & foto & "',Consultor='" & consultor & "',Lider='" &
-                    lider & "',Data_Hora='" & Now & "',Numero_Manutencao='" & TAG & "',esforco=" & esforco & " where ID=" & ID & ";"
+                    Replace(CStr(qtd), ",", ".") & ",Unidade_Medida='" & um & "',Ano='" & ano & "',Mes='" & mes & "',Dia='" & dia &
+                    "',Status_Bem='" & status & "',Estado_Bem='" & estado_bem & "',Altura=" & Replace(CStr(altura), ",", ".") & ",Largura=" & Replace(CStr(largura), ",", ".") & ",Comprimento=" &
+                    Replace(CStr(comprimento), ",", ".") & ",area=" & Replace(CStr(area), ",", ".") & ",Pe_direito=" & Replace(CStr(pe), ",", ".") & ",Obs_Civil='" & obs_civil & "',foto='" & foto & "',Consultor='" & consultor & "',Lider='" &
+                    lider & "',Data_Hora='" & Now & "',Numero_Manutencao='" & TAG & "',esforco=" & Replace(CStr(esforco), ",", ".") & " where ID=" & ID & ";"
 
                 cmd.ExecuteNonQuery()
                 cmd.Dispose()
@@ -724,17 +724,17 @@ Public Class Inventário_Excel
             Sh_T.Range("au1").Value = "Pé Direito"
             Sh_T.Range("av1").Value = "Esforço"
             Sh_T.Range("aw1").Value = "Observacao Civil"
-            Sh_T.Range("ax1").Value = "Consultor"
-            Sh_T.Range("ay1").Value = "Líder"
-            Sh_T.Range("az1").Value = "Data/Hora"
-            Sh_T.Range("ba1").Value = "Foto"
+            Sh_T.Range("ax1").Value = "Foto"
+            Sh_T.Range("ay1").Value = "Consultor"
+            Sh_T.Range("az1").Value = "Líder"
+            Sh_T.Range("ba1").Value = "Data/Hora"
 
             Sh_T.Range("a1:ba1").Font.Bold = True
             Sh_T.Range("a1:ba1").Interior.Color = System.Drawing.ColorTranslator.ToOle(System.Drawing.Color.LightBlue)
 
             'Arrumar colunas
-            DS.Tables(0).Columns(50).SetOrdinal(33)
-            DS.Tables(0).Columns(51).SetOrdinal(47)
+            'DS.Tables(0).Columns(50).SetOrdinal(33)
+            'DS.Tables(0).Columns(51).SetOrdinal(47)
 
             'Inserir linhas
             For i = 0 To DS.Tables(0).Rows.Count - 1
