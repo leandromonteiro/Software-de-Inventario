@@ -40,12 +40,12 @@ Partial Class SplashScreen_Inventario
         'MainLayoutPanel
         '
         Me.MainLayoutPanel.BackgroundImage = CType(resources.GetObject("MainLayoutPanel.BackgroundImage"), System.Drawing.Image)
-        Me.MainLayoutPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+        Me.MainLayoutPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.MainLayoutPanel.ColumnCount = 1
         Me.MainLayoutPanel.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 243.0!))
         Me.MainLayoutPanel.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100.0!))
         Me.MainLayoutPanel.Controls.Add(Me.DetailsLayoutPanel, 1, 1)
-        Me.MainLayoutPanel.Controls.Add(Me.ApplicationTitle, 1, 0)
+        Me.MainLayoutPanel.Controls.Add(Me.ApplicationTitle, 0, 0)
         Me.MainLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill
         Me.MainLayoutPanel.Location = New System.Drawing.Point(0, 0)
         Me.MainLayoutPanel.Name = "MainLayoutPanel"
@@ -72,35 +72,37 @@ Partial Class SplashScreen_Inventario
         '
         'Version
         '
-        Me.Version.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.Version.BackColor = System.Drawing.Color.Transparent
+        Me.Version.Dock = System.Windows.Forms.DockStyle.Right
         Me.Version.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Version.Location = New System.Drawing.Point(5, 4)
+        Me.Version.Location = New System.Drawing.Point(3, 0)
         Me.Version.Name = "Version"
-        Me.Version.Size = New System.Drawing.Size(308, 30)
+        Me.Version.Size = New System.Drawing.Size(313, 39)
         Me.Version.TabIndex = 1
         Me.Version.Text = "Versão {0}.{1:00}"
+        Me.Version.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'Copyright
         '
-        Me.Copyright.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.Copyright.BackColor = System.Drawing.Color.Transparent
+        Me.Copyright.Dock = System.Windows.Forms.DockStyle.Bottom
         Me.Copyright.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Copyright.Location = New System.Drawing.Point(4, 39)
+        Me.Copyright.Location = New System.Drawing.Point(3, 39)
         Me.Copyright.Name = "Copyright"
-        Me.Copyright.Size = New System.Drawing.Size(311, 40)
+        Me.Copyright.Size = New System.Drawing.Size(313, 40)
         Me.Copyright.TabIndex = 2
         Me.Copyright.Text = "Copyright"
+        Me.Copyright.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'ApplicationTitle
         '
-        Me.ApplicationTitle.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.ApplicationTitle.BackColor = System.Drawing.Color.Transparent
+        Me.ApplicationTitle.Dock = System.Windows.Forms.DockStyle.Left
         Me.ApplicationTitle.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ApplicationTitle.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.ApplicationTitle.Location = New System.Drawing.Point(125, 61)
+        Me.ApplicationTitle.Location = New System.Drawing.Point(0, 0)
         Me.ApplicationTitle.Name = "ApplicationTitle"
-        Me.ApplicationTitle.Size = New System.Drawing.Size(385, 95)
+        Me.ApplicationTitle.Size = New System.Drawing.Size(238, 103)
         Me.ApplicationTitle.TabIndex = 0
         Me.ApplicationTitle.Text = "Inventário Aneel"
         Me.ApplicationTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter

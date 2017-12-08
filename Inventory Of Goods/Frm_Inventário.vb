@@ -227,7 +227,7 @@ Public Class Frm_Inventário
 
     Private Sub FrmInventario_Novo_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'Limite de tempo
-        If Today.Day >= 15 And Today.Month >= 12 And Today.Year >= 2017 Then
+        If Today.Day >= 31 And Today.Month >= 12 And Today.Year >= 2017 Then
             MsgBox("Tempo esgotado para o teste do software.")
             Application.Exit()
         End If
