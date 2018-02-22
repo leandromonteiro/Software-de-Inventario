@@ -739,6 +739,9 @@ Public Class Inventário_Excel
             'Inserir linhas
             For i = 0 To DS.Tables(0).Rows.Count - 1
                 For j = 0 To DS.Tables(0).Columns.Count - 1
+                    If InStr(1, DS.Tables(0).Rows(i).Item(j).ToString, "=") = 1 Then
+                        DS.Tables(0).Rows(i).Item(j) = "'" & DS.Tables(0).Rows(i).Item(j)
+                    End If
                     If j = 52 Then
                         Sh_T.Cells(i + 2, j + 1) = DS.Tables(0).Rows(i).Item(j).ToString.Replace(".bmp", "").Replace(".jpg", "").Replace(".png", "").Replace("|", ", ")
                     Else
