@@ -134,10 +134,10 @@
             Frm_Inventário.TxtSeq_Civil.Text = ID
             Frm_Inventário.TxtSeq_Desc.Text = ID
             Frm_Inventário.TxtSeq_Local.Text = ID
-            Frm_Inventário.TxtLocal.Text = DGV_Consulta.Item(2, DGV_Consulta.CurrentRow.Index).Value
-            Frm_Inventário.TxtODI.Text = DGV_Consulta.Item(3, DGV_Consulta.CurrentRow.Index).Value
-            Frm_Inventário.TI = DGV_Consulta.Item(4, DGV_Consulta.CurrentRow.Index).Value
-            Frm_Inventário.CmbTI.Text = DGV_Consulta.Item(5, DGV_Consulta.CurrentRow.Index).Value
+            'Frm_Inventário.TxtLocal.Text = DGV_Consulta.Item(2, DGV_Consulta.CurrentRow.Index).Value
+            'Frm_Inventário.TxtODI.Text = DGV_Consulta.Item(3, DGV_Consulta.CurrentRow.Index).Value
+            'Frm_Inventário.TI = DGV_Consulta.Item(4, DGV_Consulta.CurrentRow.Index).Value
+            'Frm_Inventário.CmbTI.Text = DGV_Consulta.Item(5, DGV_Consulta.CurrentRow.Index).Value
             Frm_Inventário.TxtBay.Text = ""
             Frm_Inventário.TUC = DGV_Consulta.Item(7, DGV_Consulta.CurrentRow.Index).Value
             Frm_Inventário.CmbTUC.Text = DGV_Consulta.Item(8, DGV_Consulta.CurrentRow.Index).Value

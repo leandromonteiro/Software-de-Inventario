@@ -140,6 +140,7 @@ Partial Class Frm_Inventário
         Me.ExtrairToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ExcelToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.FBD = New System.Windows.Forms.FolderBrowserDialog()
+        Me.PB_Excel = New System.Windows.Forms.ProgressBar()
         Me.TabControl1.SuspendLayout()
         Me.TpLocal.SuspendLayout()
         Me.TpDesc.SuspendLayout()
@@ -1460,12 +1461,20 @@ Partial Class Frm_Inventário
         Me.ExcelToolStripMenuItem.Size = New System.Drawing.Size(118, 26)
         Me.ExcelToolStripMenuItem.Text = "Excel"
         '
+        'PB_Excel
+        '
+        Me.PB_Excel.Location = New System.Drawing.Point(16, 3)
+        Me.PB_Excel.Name = "PB_Excel"
+        Me.PB_Excel.Size = New System.Drawing.Size(281, 23)
+        Me.PB_Excel.TabIndex = 15
+        '
         'Frm_Inventário
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.AutoScroll = True
         Me.ClientSize = New System.Drawing.Size(1482, 1009)
+        Me.Controls.Add(Me.PB_Excel)
         Me.Controls.Add(Me.Panel_I)
         Me.Controls.Add(Me.MenuStrip1)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
@@ -1616,4 +1625,5 @@ Partial Class Frm_Inventário
     Friend WithEvents Btn_Avancar10 As Button
     Friend WithEvents Btn_Voltar10 As Button
     Friend WithEvents Panel_Desc As Panel
+    Public WithEvents PB_Excel As ProgressBar
 End Class

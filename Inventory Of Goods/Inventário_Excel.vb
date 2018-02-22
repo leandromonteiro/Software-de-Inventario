@@ -29,13 +29,13 @@ Public Class Inventário_Excel
     End Function
 
     Public Sub Consulta_Descricao_Civil(ID As Integer, TxtBay As TextBox, cod_tuc As Integer, Cmbtuc As ComboBox, cod_tipo_bem As String, cmba1 As ComboBox,
-                                        cod_uar As Integer, Cmbuar As ComboBox, cod_a2 As String, Cmba2 As ComboBox, cod_a3 As String,
-                                        Cmba3 As ComboBox, cod_a4 As String, Cmba4 As ComboBox, cod_a5 As String, Cmba5 As ComboBox,
-                                        cod_a6 As String, Cmba6 As ComboBox, cod_cm1 As String, Cmbcm1 As ComboBox,
+                                        cod_uar As Integer, Cmbuar As ComboBox, Cmba2 As ComboBox,
+                                        Cmba3 As ComboBox, Cmba4 As ComboBox, Cmba5 As ComboBox,
+                                        Cmba6 As ComboBox, cod_cm1 As String, Cmbcm1 As ComboBox,
                                         cod_cm2 As String, Cmbcm2 As ComboBox, cod_cm3 As String, Cmbcm3 As ComboBox, txtdesc As TextBox, txtfabric As TextBox,
                                         txtmodelo As TextBox, txtobs As TextBox, txtqtd As TextBox, cmbun As ComboBox, cmbano As ComboBox, cmbmes As ComboBox,
                                         cmbdia As ComboBox, cmbstatus As ComboBox, cmbestado As ComboBox, txtaltura As TextBox, txtlarg As TextBox, txtcomp As TextBox,
-                                        txtarea As TextBox, txtpe As TextBox, txtobs_civil As TextBox, txtesforco As TextBox)
+                                        txtarea As TextBox, txtpe As TextBox, txtobs_civil As TextBox, txtesforco As TextBox, txtserie As TextBox, txtTag As TextBox)
         Try
             Dim leitor As SQLite.SQLiteDataReader
             Dim connection As New SQLite.SQLiteConnection(connstr)
@@ -56,15 +56,15 @@ Public Class Inventário_Excel
             cmba1.Text = leitor("desc_tipo_bem")
             cod_uar = leitor("cod_uar")
             Cmbuar.Text = leitor("desc_uar")
-            cod_a2 = leitor("cod_a2")
+            Frm_Inventário.A2 = leitor("cod_a2")
             Cmba2.Text = leitor("desc_a2")
-            cod_a3 = leitor("cod_a3")
+            Frm_Inventário.A3 = leitor("cod_a3")
             Cmba3.Text = leitor("desc_a3")
-            cod_a4 = leitor("cod_a4")
+            Frm_Inventário.A4 = leitor("cod_a4")
             Cmba4.Text = leitor("desc_a4")
-            cod_a5 = leitor("cod_a5")
+            Frm_Inventário.A5 = leitor("cod_a5")
             Cmba5.Text = leitor("desc_a5")
-            cod_a6 = leitor("cod_a6")
+            Frm_Inventário.A6 = leitor("cod_a6")
             Cmba6.Text = leitor("desc_a6")
             cod_cm1 = leitor("cod_cm1")
             Cmbcm1.Text = leitor("desc_cm1")
@@ -75,12 +75,14 @@ Public Class Inventário_Excel
             txtdesc.Text = leitor("descricao")
             txtfabric.Text = leitor("fabricante")
             txtmodelo.Text = leitor("modelo")
+            txtserie.Text = ""
+            txtTag.Text = ""
             txtobs.Text = leitor("observacao")
             txtqtd.Text = leitor("quantidade")
             cmbun.Text = leitor("unidade_medida")
-            cmbano.Text = leitor("ano")
-            cmbmes.Text = leitor("mes")
-            cmbdia.Text = leitor("dia")
+            cmbano.Text = ""
+            cmbmes.Text = ""
+            cmbdia.Text = ""
             cmbstatus.Text = leitor("status_bem")
             cmbestado.Text = leitor("estado_bem")
             txtaltura.Text = leitor("altura")
@@ -735,9 +737,12 @@ Public Class Inventário_Excel
             'Arrumar colunas
             'DS.Tables(0).Columns(50).SetOrdinal(33)
             'DS.Tables(0).Columns(51).SetOrdinal(47)
-
+            Dim Linhas As Integer
+            Linhas = DS.Tables(0).Rows.Count
+            Frm_Inventário.PB_Excel.Value = 0
+            Frm_Inventário.PB_Excel.Visible = True
             'Inserir linhas
-            For i = 0 To DS.Tables(0).Rows.Count - 1
+            For i = 0 To Linhas - 1
                 For j = 0 To DS.Tables(0).Columns.Count - 1
                     If InStr(1, DS.Tables(0).Rows(i).Item(j).ToString, "=") = 1 Then
                         DS.Tables(0).Rows(i).Item(j) = "'" & DS.Tables(0).Rows(i).Item(j)
@@ -749,10 +754,12 @@ Public Class Inventário_Excel
                     End If
 
                 Next
+                Frm_Inventário.PB_Excel.Value = ((i + 1) / Linhas) * 100
             Next
 
             Sh_T.Columns.AutoFit()
             xlApp.Visible = True
+            Frm_Inventário.PB_Excel.Visible = False
         Catch
             MsgBox("Erro ao Carregar Excel!", MsgBoxStyle.Critical)
         End Try

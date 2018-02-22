@@ -100,9 +100,9 @@ Partial Class SplashScreen_Inventario
         Me.ApplicationTitle.Dock = System.Windows.Forms.DockStyle.Left
         Me.ApplicationTitle.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ApplicationTitle.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.ApplicationTitle.Location = New System.Drawing.Point(0, 0)
+        Me.ApplicationTitle.Location = New System.Drawing.Point(3, 0)
         Me.ApplicationTitle.Name = "ApplicationTitle"
-        Me.ApplicationTitle.Size = New System.Drawing.Size(238, 103)
+        Me.ApplicationTitle.Size = New System.Drawing.Size(238, 218)
         Me.ApplicationTitle.TabIndex = 0
         Me.ApplicationTitle.Text = "Inventário Aneel"
         Me.ApplicationTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter

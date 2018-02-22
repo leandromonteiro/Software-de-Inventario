@@ -226,11 +226,6 @@ Public Class Frm_Inventário
     End Sub
 
     Private Sub FrmInventario_Novo_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        'Limite de tempo
-        If Today.Day >= 31 And Today.Month >= 12 And Today.Year >= 2017 Then
-            MsgBox("Tempo esgotado para o teste do software.")
-            Application.Exit()
-        End If
 
         Panel_Picture_Consulta.Controls.Add(PictureBox_Consulta)
         ID = I_E.Buscar_Ultimo_ID() + 1
@@ -241,13 +236,9 @@ Public Class Frm_Inventário
         I_E.Consulta_TUC(CmbTUC)
         I_E.Consulta_CM(CmbCm1, CmbCm2, CmbCm3)
         I_E.Consulta_TI_Geral(CmbTI_Geral)
-        'If Nome_Imagem Is Nothing Then
-        '    Exit Sub
-        'End If
-        'Nome_Imagem = I_E.DS.Tables("TB_Foto").Rows(0)(0)
-        'Imagem = I_E.DS.Tables("TB_Foto").Rows(0)(1)
-        'N_Fotos = 0
-        'PictureBox.ImageLocation = Imagem
+
+        PB_Excel.Visible = False
+
     End Sub
 
     Private Sub CmbTUC_SelectedIndexChanged(sender As Object, e As EventArgs) Handles CmbTUC.SelectedIndexChanged
@@ -583,10 +574,10 @@ Public Class Frm_Inventário
         Limpar_Tudo()
         'Consultar ID +1
         ID = I_E.Buscar_Ultimo_ID()
-        I_E.Consulta_Descricao_Civil(ID, TxtBay, TUC, CmbTUC, A1, CmbA1, UAR, CmbUAR, A2, CmbA2, A3, CmbA3, A4, CmbA4, A5,
-                                     CmbA5, A6, CmbA6, CM1, CmbCm1, CM2, CmbCm2, CM3, CmbCm3, TxtDesc, TxtFabricante, TxtModelo, TxtObs,
+        I_E.Consulta_Descricao_Civil(ID, TxtBay, TUC, CmbTUC, A1, CmbA1, UAR, CmbUAR, CmbA2, CmbA3, CmbA4,
+                                     CmbA5, CmbA6, CM1, CmbCm1, CM2, CmbCm2, CM3, CmbCm3, TxtDesc, TxtFabricante, TxtModelo, TxtObs,
                                      TxtQtd, CmbUm, CmbAno, CmbMes, CmbDia, CmbStatus, CmbEstado, TxtAltura, TxtLargura, TxtComprimento,
-                                     TxtArea, TxtPe, TxtObsCivil, TxtEsforco)
+                                     TxtArea, TxtPe, TxtObsCivil, TxtEsforco, TxtSerie, TxtTag)
         'Consultar A2 a A6
         Ajuste_A1()
         I_E.Consulta_UAR(CmbUAR, TUC)
