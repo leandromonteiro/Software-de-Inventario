@@ -28,6 +28,7 @@ Partial Class Frm_DGV
         Me.CMS_DGV = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.ExcluirDadosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.LblLinhas = New System.Windows.Forms.Label()
+        Me.CopiarDadosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         CType(Me.DGV_Consulta, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.CMS_DGV.SuspendLayout()
         Me.SuspendLayout()
@@ -52,14 +53,14 @@ Partial Class Frm_DGV
         'CMS_DGV
         '
         Me.CMS_DGV.ImageScalingSize = New System.Drawing.Size(20, 20)
-        Me.CMS_DGV.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ExcluirDadosToolStripMenuItem})
+        Me.CMS_DGV.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ExcluirDadosToolStripMenuItem, Me.CopiarDadosToolStripMenuItem})
         Me.CMS_DGV.Name = "CMS_DGV"
-        Me.CMS_DGV.Size = New System.Drawing.Size(169, 28)
+        Me.CMS_DGV.Size = New System.Drawing.Size(176, 80)
         '
         'ExcluirDadosToolStripMenuItem
         '
         Me.ExcluirDadosToolStripMenuItem.Name = "ExcluirDadosToolStripMenuItem"
-        Me.ExcluirDadosToolStripMenuItem.Size = New System.Drawing.Size(168, 24)
+        Me.ExcluirDadosToolStripMenuItem.Size = New System.Drawing.Size(175, 24)
         Me.ExcluirDadosToolStripMenuItem.Text = "Excluir Dados"
         '
         'LblLinhas
@@ -71,6 +72,12 @@ Partial Class Frm_DGV
         Me.LblLinhas.TabIndex = 9
         Me.LblLinhas.Text = "Total de Registros: 0"
         Me.LblLinhas.TextAlign = System.Drawing.ContentAlignment.TopRight
+        '
+        'CopiarDadosToolStripMenuItem
+        '
+        Me.CopiarDadosToolStripMenuItem.Name = "CopiarDadosToolStripMenuItem"
+        Me.CopiarDadosToolStripMenuItem.Size = New System.Drawing.Size(175, 24)
+        Me.CopiarDadosToolStripMenuItem.Text = "Copiar Dados"
         '
         'Frm_DGV
         '
@@ -93,4 +100,5 @@ Partial Class Frm_DGV
     Friend WithEvents CMS_DGV As ContextMenuStrip
     Friend WithEvents ExcluirDadosToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents LblLinhas As Label
+    Friend WithEvents CopiarDadosToolStripMenuItem As ToolStripMenuItem
 End Class

@@ -123,4 +123,80 @@
         LblLinhas.Text = "Total de Registros: " & DGV_Consulta.Rows.Count
     End Sub
 
+    Private Sub CopiarDadosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CopiarDadosToolStripMenuItem.Click
+        If DGV_Consulta.CurrentRow.Index = -1 Then
+            Exit Sub
+        End If
+        Dim ID As Integer
+        ID = I_E.Buscar_Ultimo_ID() + 1
+        Try
+
+            Frm_Inventário.TxtSeq_Civil.Text = ID
+            Frm_Inventário.TxtSeq_Desc.Text = ID
+            Frm_Inventário.TxtSeq_Local.Text = ID
+            Frm_Inventário.TxtLocal.Text = DGV_Consulta.Item(2, DGV_Consulta.CurrentRow.Index).Value
+            Frm_Inventário.TxtODI.Text = DGV_Consulta.Item(3, DGV_Consulta.CurrentRow.Index).Value
+            Frm_Inventário.TI = DGV_Consulta.Item(4, DGV_Consulta.CurrentRow.Index).Value
+            Frm_Inventário.CmbTI.Text = DGV_Consulta.Item(5, DGV_Consulta.CurrentRow.Index).Value
+            Frm_Inventário.TxtBay.Text = ""
+            Frm_Inventário.TUC = DGV_Consulta.Item(7, DGV_Consulta.CurrentRow.Index).Value
+            Frm_Inventário.CmbTUC.Text = DGV_Consulta.Item(8, DGV_Consulta.CurrentRow.Index).Value
+            Frm_Inventário.A1 = DGV_Consulta.Item(9, DGV_Consulta.CurrentRow.Index).Value
+            Frm_Inventário.CmbA1.Text = DGV_Consulta.Item(10, DGV_Consulta.CurrentRow.Index).Value
+            Frm_Inventário.UAR = DGV_Consulta.Item(11, DGV_Consulta.CurrentRow.Index).Value
+            Frm_Inventário.CmbUAR.Text = DGV_Consulta.Item(12, DGV_Consulta.CurrentRow.Index).Value
+            Frm_Inventário.A2 = IIf(IsDBNull(DGV_Consulta.Item(13, DGV_Consulta.CurrentRow.Index).Value), "", DGV_Consulta.Item(13, DGV_Consulta.CurrentRow.Index).Value)
+            Frm_Inventário.CmbA2.Text = IIf(IsDBNull(DGV_Consulta.Item(14, DGV_Consulta.CurrentRow.Index).Value), "", DGV_Consulta.Item(14, DGV_Consulta.CurrentRow.Index).Value)
+            Frm_Inventário.A3 = IIf(IsDBNull(DGV_Consulta.Item(15, DGV_Consulta.CurrentRow.Index).Value), "", DGV_Consulta.Item(15, DGV_Consulta.CurrentRow.Index).Value)
+            Frm_Inventário.CmbA3.Text = IIf(IsDBNull(DGV_Consulta.Item(16, DGV_Consulta.CurrentRow.Index).Value), "", DGV_Consulta.Item(16, DGV_Consulta.CurrentRow.Index).Value)
+            Frm_Inventário.A4 = IIf(IsDBNull(DGV_Consulta.Item(17, DGV_Consulta.CurrentRow.Index).Value), "", DGV_Consulta.Item(17, DGV_Consulta.CurrentRow.Index).Value)
+            Frm_Inventário.CmbA4.Text = IIf(IsDBNull(DGV_Consulta.Item(18, DGV_Consulta.CurrentRow.Index).Value), "", DGV_Consulta.Item(18, DGV_Consulta.CurrentRow.Index).Value)
+            Frm_Inventário.A5 = IIf(IsDBNull(DGV_Consulta.Item(19, DGV_Consulta.CurrentRow.Index).Value), "", DGV_Consulta.Item(19, DGV_Consulta.CurrentRow.Index).Value)
+            Frm_Inventário.CmbA5.Text = IIf(IsDBNull(DGV_Consulta.Item(20, DGV_Consulta.CurrentRow.Index).Value), "", DGV_Consulta.Item(20, DGV_Consulta.CurrentRow.Index).Value)
+            Frm_Inventário.A6 = IIf(IsDBNull(DGV_Consulta.Item(21, DGV_Consulta.CurrentRow.Index).Value), "", DGV_Consulta.Item(21, DGV_Consulta.CurrentRow.Index).Value)
+            Frm_Inventário.CmbA6.Text = IIf(IsDBNull(DGV_Consulta.Item(22, DGV_Consulta.CurrentRow.Index).Value), "", DGV_Consulta.Item(22, DGV_Consulta.CurrentRow.Index).Value)
+            Frm_Inventário.CM1 = DGV_Consulta.Item(23, DGV_Consulta.CurrentRow.Index).Value
+            Frm_Inventário.CmbCm1.Text = DGV_Consulta.Item(24, DGV_Consulta.CurrentRow.Index).Value
+            Frm_Inventário.CM2 = DGV_Consulta.Item(25, DGV_Consulta.CurrentRow.Index).Value
+            Frm_Inventário.CmbCm2.Text = DGV_Consulta.Item(26, DGV_Consulta.CurrentRow.Index).Value
+            Frm_Inventário.CM3 = DGV_Consulta.Item(27, DGV_Consulta.CurrentRow.Index).Value
+            Frm_Inventário.CmbCm3.Text = DGV_Consulta.Item(28, DGV_Consulta.CurrentRow.Index).Value
+            Frm_Inventário.TxtDesc.Text = DGV_Consulta.Item(29, DGV_Consulta.CurrentRow.Index).Value
+            Frm_Inventário.TxtFabricante.Text = IIf(IsDBNull(DGV_Consulta.Item(30, DGV_Consulta.CurrentRow.Index).Value), "", DGV_Consulta.Item(30, DGV_Consulta.CurrentRow.Index).Value)
+            Frm_Inventário.TxtModelo.Text = IIf(IsDBNull(DGV_Consulta.Item(31, DGV_Consulta.CurrentRow.Index).Value), "", DGV_Consulta.Item(31, DGV_Consulta.CurrentRow.Index).Value)
+            Frm_Inventário.TxtSerie.Text = ""
+            Frm_Inventário.TxtObs.Text = IIf(IsDBNull(DGV_Consulta.Item(34, DGV_Consulta.CurrentRow.Index).Value), "", DGV_Consulta.Item(34, DGV_Consulta.CurrentRow.Index).Value)
+            Frm_Inventário.TxtQtd.Text = DGV_Consulta.Item(35, DGV_Consulta.CurrentRow.Index).Value
+            Frm_Inventário.CmbUm.Text = DGV_Consulta.Item(36, DGV_Consulta.CurrentRow.Index).Value
+            Frm_Inventário.CmbAno.Text = ""
+            Frm_Inventário.CmbMes.Text = ""
+            Frm_Inventário.CmbDia.Text = ""
+            Frm_Inventário.CmbStatus.Text = DGV_Consulta.Item(40, DGV_Consulta.CurrentRow.Index).Value
+            Frm_Inventário.CmbEstado.Text = DGV_Consulta.Item(41, DGV_Consulta.CurrentRow.Index).Value
+            Frm_Inventário.TxtAltura.Text = IIf(IsDBNull(DGV_Consulta.Item(42, DGV_Consulta.CurrentRow.Index).Value), "", DGV_Consulta.Item(42, DGV_Consulta.CurrentRow.Index).Value)
+            Frm_Inventário.TxtLargura.Text = IIf(IsDBNull(DGV_Consulta.Item(43, DGV_Consulta.CurrentRow.Index).Value), "", DGV_Consulta.Item(43, DGV_Consulta.CurrentRow.Index).Value)
+            Frm_Inventário.TxtComprimento.Text = IIf(IsDBNull(DGV_Consulta.Item(44, DGV_Consulta.CurrentRow.Index).Value), "", DGV_Consulta.Item(44, DGV_Consulta.CurrentRow.Index).Value)
+            Frm_Inventário.TxtArea.Text = IIf(IsDBNull(DGV_Consulta.Item(45, DGV_Consulta.CurrentRow.Index).Value), "", DGV_Consulta.Item(45, DGV_Consulta.CurrentRow.Index).Value)
+            Frm_Inventário.TxtPe.Text = IIf(IsDBNull(DGV_Consulta.Item(46, DGV_Consulta.CurrentRow.Index).Value), "", DGV_Consulta.Item(46, DGV_Consulta.CurrentRow.Index).Value)
+            Frm_Inventário.TxtObsCivil.Text = IIf(IsDBNull(DGV_Consulta.Item(48, DGV_Consulta.CurrentRow.Index).Value), "", DGV_Consulta.Item(48, DGV_Consulta.CurrentRow.Index).Value)
+            Frm_Inventário.TxtTag.Text = ""
+            Frm_Inventário.TxtEsforco.Text = DGV_Consulta.Item(47, DGV_Consulta.CurrentRow.Index).Value
+
+            Texto_Foto = ""
+        Catch
+        End Try
+        Frm_Inventário.A_Fotos_Inventario.Clear()
+        Frm_Inventário.Foto = ""
+        Frm_Inventário.PictureBox_Consulta.ImageLocation = ""
+
+        'Ajuste A1
+        Frm_Inventário.Ajuste_A1()
+
+        'Consulta TI_Geral
+        Frm_Inventário.CmbTI_Geral.Text = I_E.Consulta_TI_Geral(Frm_Inventário.TI)
+
+        Frm_Inventário.BtnS_Multi.Enabled = True
+        Frm_Inventário.BtnCopiar.Enabled = False
+        Me.Close()
+    End Sub
 End Class
