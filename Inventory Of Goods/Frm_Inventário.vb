@@ -253,6 +253,11 @@ Public Class Frm_Inventário
         CmbA4.Text = ""
         CmbA5.Text = ""
         CmbA6.Text = ""
+        A2 = ""
+        A3 = ""
+        A4 = ""
+        A5 = ""
+        A6 = ""
         CmbA2.Items.Clear()
         CmbA3.Items.Clear()
         CmbA4.Items.Clear()
@@ -346,6 +351,11 @@ Public Class Frm_Inventário
         CmbA4.Text = ""
         CmbA5.Text = ""
         CmbA6.Text = ""
+        A2 = ""
+        A3 = ""
+        A4 = ""
+        A5 = ""
+        A6 = ""
         Colocar_Desc()
         Me.Cursor = Cursors.Default
     End Sub

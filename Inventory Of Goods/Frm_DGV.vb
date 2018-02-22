@@ -193,7 +193,7 @@
         Frm_Inventário.Ajuste_A1()
 
         'Consulta TI_Geral
-        Frm_Inventário.CmbTI_Geral.Text = I_E.Consulta_TI_Geral(Frm_Inventário.TI)
+        'Frm_Inventário.CmbTI_Geral.Text = I_E.Consulta_TI_Geral(Frm_Inventário.TI)
 
         Frm_Inventário.BtnS_Multi.Enabled = True
         Frm_Inventário.BtnCopiar.Enabled = False
