@@ -20,7 +20,7 @@
         Copyright.Text = My.Application.Info.Copyright
 
         'Limite de tempo
-        If Today.Day >= 1 And Today.Month >= 4 And Today.Year >= 2018 Then
+        If Today.Day >= 1 And Today.Month >= 6 And Today.Year >= 2018 Then
             MsgBox("Tempo de teste do software expirado.", vbCritical)
             Application.Exit()
         End If
