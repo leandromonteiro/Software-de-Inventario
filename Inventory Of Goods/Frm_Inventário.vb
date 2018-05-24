@@ -274,6 +274,9 @@ Public Class Frm_Inventário
         LblA5.Text = "A5:"
         LblA6.Text = "A6:"
         Colocar_Desc()
+        If I_E.Contar_Unidade_TUC(TUC) = 1 Then
+            CmbUm.Text = I_E.Unidade_TUC(TUC)
+        End If
     End Sub
 
     Private Sub Colocar_Desc()
@@ -357,6 +360,10 @@ Public Class Frm_Inventário
         A5 = ""
         A6 = ""
         Colocar_Desc()
+        If I_E.Contar_Unidade_A1(TUC, A1) = 1 Then
+            CmbUm.Text = I_E.Unidade_A1(TUC, A1)
+        End If
+
         Me.Cursor = Cursors.Default
     End Sub
 
@@ -368,11 +375,17 @@ Public Class Frm_Inventário
     Private Sub CmbA3_SelectedIndexChanged(sender As Object, e As EventArgs) Handles CmbA3.SelectedIndexChanged
         A3 = I_E.Buscar_A2_A6(CmbA3)
         Colocar_Desc()
+        If I_E.Contar_Unidade_A3(TUC, A1, A3) = 1 Then
+            CmbUm.Text = I_E.Unidade_A3(TUC, A1, A3)
+        End If
     End Sub
 
     Private Sub CmbA4_SelectedIndexChanged(sender As Object, e As EventArgs) Handles CmbA4.SelectedIndexChanged
         A4 = I_E.Buscar_A2_A6(CmbA4)
         Colocar_Desc()
+        If I_E.Contar_Unidade_A4(TUC, A4) = 1 Then
+            CmbUm.Text = I_E.Unidade_A4(TUC, A4)
+        End If
     End Sub
 
     Private Sub CmbA5_SelectedIndexChanged(sender As Object, e As EventArgs) Handles CmbA5.SelectedIndexChanged

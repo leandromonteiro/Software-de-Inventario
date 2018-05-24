@@ -5,6 +5,182 @@ Public Class Inventário_Excel
     Dim connstr As String = "Data Source=C:\Users\Public\INVENTARIO.db;;Version=3;New=True;Compress=True;Pooling=True"
     Public DS As New DataSet
 
+    Public Function Contar_Unidade_TUC(TUC As String) As Integer
+        Try
+            Dim leitor As SQLite.SQLiteDataReader
+            Dim connection As New SQLite.SQLiteConnection(connstr)
+            Dim cmd As New SQLite.SQLiteCommand
+            connection.Open()
+            cmd.Connection = connection
+            cmd.CommandText = "select count(ID) from Unidade where TUC='" & TUC & "';"
+            leitor = cmd.ExecuteReader
+            leitor.Read()
+            Contar_Unidade_TUC = leitor("count(ID)")
+            cmd.Dispose()
+            connection.Close()
+            connection.Dispose()
+            Return Contar_Unidade_TUC
+
+        Catch
+            MsgBox("Erro ao contar dados de Unidade TUC", MsgBoxStyle.Critical)
+            Return Nothing
+        End Try
+    End Function
+
+    Public Function Unidade_TUC(TUC As String) As String
+        Try
+            Dim leitor As SQLite.SQLiteDataReader
+            Dim connection As New SQLite.SQLiteConnection(connstr)
+            Dim cmd As New SQLite.SQLiteCommand
+            connection.Open()
+            cmd.Connection = connection
+            cmd.CommandText = "select UM from Unidade where TUC='" & TUC & "';"
+            leitor = cmd.ExecuteReader
+            leitor.Read()
+            Unidade_TUC = leitor("UM")
+            cmd.Dispose()
+            connection.Close()
+            connection.Dispose()
+            Return Unidade_TUC
+
+        Catch
+            MsgBox("Erro ao buscar dados de Unidade TUC", MsgBoxStyle.Critical)
+            Return Nothing
+        End Try
+    End Function
+
+    Public Function Contar_Unidade_A1(TUC As String, A1 As String) As Integer
+        Try
+            Dim leitor As SQLite.SQLiteDataReader
+            Dim connection As New SQLite.SQLiteConnection(connstr)
+            Dim cmd As New SQLite.SQLiteCommand
+            connection.Open()
+            cmd.Connection = connection
+            cmd.CommandText = "select count(ID) from Unidade where TUC='" & TUC & "' AND A1='" & A1 & "';"
+            leitor = cmd.ExecuteReader
+            leitor.Read()
+            Contar_Unidade_A1 = leitor("count(ID)")
+            cmd.Dispose()
+            connection.Close()
+            connection.Dispose()
+            Return Contar_Unidade_A1
+
+        Catch
+            MsgBox("Erro ao contar dados de Unidade A1", MsgBoxStyle.Critical)
+            Return Nothing
+        End Try
+    End Function
+
+    Public Function Unidade_A1(TUC As String, A1 As String) As String
+        Try
+            Dim leitor As SQLite.SQLiteDataReader
+            Dim connection As New SQLite.SQLiteConnection(connstr)
+            Dim cmd As New SQLite.SQLiteCommand
+            connection.Open()
+            cmd.Connection = connection
+            cmd.CommandText = "select UM from Unidade where TUC='" & TUC & "' AND A1='" & A1 & "';"
+            leitor = cmd.ExecuteReader
+            leitor.Read()
+            Unidade_A1 = leitor("UM")
+            cmd.Dispose()
+            connection.Close()
+            connection.Dispose()
+            Return Unidade_A1
+
+        Catch
+            MsgBox("Erro ao buscar dados de Unidade A1", MsgBoxStyle.Critical)
+            Return Nothing
+        End Try
+    End Function
+
+    Public Function Contar_Unidade_A3(TUC As String, A1 As String, A3 As String) As Integer
+        Try
+            Dim leitor As SQLite.SQLiteDataReader
+            Dim connection As New SQLite.SQLiteConnection(connstr)
+            Dim cmd As New SQLite.SQLiteCommand
+            connection.Open()
+            cmd.Connection = connection
+            cmd.CommandText = "select count(ID) from Unidade where TUC='" & TUC & "' AND A1='" & A1 & "' AND A3='" & A3 & "';"
+            leitor = cmd.ExecuteReader
+            leitor.Read()
+            Contar_Unidade_A3 = leitor("count(ID)")
+            cmd.Dispose()
+            connection.Close()
+            connection.Dispose()
+            Return Contar_Unidade_A3
+
+        Catch
+            MsgBox("Erro ao contar dados de Unidade A3", MsgBoxStyle.Critical)
+            Return Nothing
+        End Try
+    End Function
+
+    Public Function Unidade_A3(TUC As String, A1 As String, A3 As String) As String
+        Try
+            Dim leitor As SQLite.SQLiteDataReader
+            Dim connection As New SQLite.SQLiteConnection(connstr)
+            Dim cmd As New SQLite.SQLiteCommand
+            connection.Open()
+            cmd.Connection = connection
+            cmd.CommandText = "select UM from Unidade where TUC='" & TUC & "' AND A1='" & A1 & "'  AND A3='" & A3 & "';"
+            leitor = cmd.ExecuteReader
+            leitor.Read()
+            Unidade_A3 = leitor("UM")
+            cmd.Dispose()
+            connection.Close()
+            connection.Dispose()
+            Return Unidade_A3
+
+        Catch
+            MsgBox("Erro ao buscar dados de Unidade A3", MsgBoxStyle.Critical)
+            Return Nothing
+        End Try
+    End Function
+
+    Public Function Contar_Unidade_A4(TUC As String, A4 As String) As Integer
+        Try
+            Dim leitor As SQLite.SQLiteDataReader
+            Dim connection As New SQLite.SQLiteConnection(connstr)
+            Dim cmd As New SQLite.SQLiteCommand
+            connection.Open()
+            cmd.Connection = connection
+            cmd.CommandText = "select count(ID) from Unidade where TUC='" & TUC & "' AND A4='" & A4 & "';"
+            leitor = cmd.ExecuteReader
+            leitor.Read()
+            Contar_Unidade_A4 = leitor("count(ID)")
+            cmd.Dispose()
+            connection.Close()
+            connection.Dispose()
+            Return Contar_Unidade_A4
+
+        Catch
+            MsgBox("Erro ao contar dados de Unidade A4", MsgBoxStyle.Critical)
+            Return Nothing
+        End Try
+    End Function
+
+    Public Function Unidade_A4(TUC As String, A4 As String) As String
+        Try
+            Dim leitor As SQLite.SQLiteDataReader
+            Dim connection As New SQLite.SQLiteConnection(connstr)
+            Dim cmd As New SQLite.SQLiteCommand
+            connection.Open()
+            cmd.Connection = connection
+            cmd.CommandText = "select UM from Unidade where TUC='" & TUC & "' AND A4='" & A4 & "';"
+            leitor = cmd.ExecuteReader
+            leitor.Read()
+            Unidade_A4 = leitor("UM")
+            cmd.Dispose()
+            connection.Close()
+            connection.Dispose()
+            Return Unidade_A4
+
+        Catch
+            MsgBox("Erro ao buscar dados de Unidade A4", MsgBoxStyle.Critical)
+            Return Nothing
+        End Try
+    End Function
+
     Public Function Consulta_TI_Geral(TI As Integer)
         Try
             Dim leitor As SQLite.SQLiteDataReader
@@ -32,7 +208,7 @@ Public Class Inventário_Excel
                                         cod_uar As Integer, Cmbuar As ComboBox, Cmba2 As ComboBox,
                                         Cmba3 As ComboBox, Cmba4 As ComboBox, Cmba5 As ComboBox,
                                         Cmba6 As ComboBox, cod_cm1 As String, Cmbcm1 As ComboBox,
-                                        cod_cm2 As String, Cmbcm2 As ComboBox, cod_cm3 As String, Cmbcm3 As ComboBox, txtdesc As TextBox, txtfabric As TextBox,
+                                        cod_cm2 As String, Cmbcm2 As ComboBox, cod_cm3 As String, Cmbcm3 As ComboBox, txtdesc As RichTextBox, txtfabric As TextBox,
                                         txtmodelo As TextBox, txtobs As TextBox, txtqtd As TextBox, cmbun As ComboBox, cmbano As ComboBox, cmbmes As ComboBox,
                                         cmbdia As ComboBox, cmbstatus As ComboBox, cmbestado As ComboBox, txtaltura As TextBox, txtlarg As TextBox, txtcomp As TextBox,
                                         txtarea As TextBox, txtpe As TextBox, txtobs_civil As TextBox, txtesforco As TextBox, txtserie As TextBox, txtTag As TextBox)

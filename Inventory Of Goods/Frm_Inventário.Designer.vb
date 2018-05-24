@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class Frm_Inventário
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class Frm_Inventário
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Frm_Inventário))
         Me.TabControl1 = New System.Windows.Forms.TabControl()
@@ -67,7 +67,6 @@ Partial Class Frm_Inventário
         Me.BtnAnterior = New System.Windows.Forms.Button()
         Me.TxtFabricante = New System.Windows.Forms.TextBox()
         Me.BtnProximo = New System.Windows.Forms.Button()
-        Me.TxtDesc = New System.Windows.Forms.TextBox()
         Me.Label35 = New System.Windows.Forms.Label()
         Me.CmbA6 = New System.Windows.Forms.ComboBox()
         Me.BtnAdd = New System.Windows.Forms.Button()
@@ -141,6 +140,9 @@ Partial Class Frm_Inventário
         Me.ExcelToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.FBD = New System.Windows.Forms.FolderBrowserDialog()
         Me.PB_Excel = New System.Windows.Forms.ProgressBar()
+        Me.TxtDesc = New System.Windows.Forms.RichTextBox()
+        Me.Label14 = New System.Windows.Forms.Label()
+        Me.LblNomeCadastro = New System.Windows.Forms.Label()
         Me.TabControl1.SuspendLayout()
         Me.TpLocal.SuspendLayout()
         Me.TpDesc.SuspendLayout()
@@ -167,7 +169,7 @@ Partial Class Frm_Inventário
         Me.TabControl1.Location = New System.Drawing.Point(6, 15)
         Me.TabControl1.Name = "TabControl1"
         Me.TabControl1.SelectedIndex = 0
-        Me.TabControl1.Size = New System.Drawing.Size(907, 611)
+        Me.TabControl1.Size = New System.Drawing.Size(907, 536)
         Me.TabControl1.TabIndex = 1
         '
         'TpLocal
@@ -286,14 +288,19 @@ Partial Class Frm_Inventário
         Me.TpDesc.Location = New System.Drawing.Point(4, 22)
         Me.TpDesc.Name = "TpDesc"
         Me.TpDesc.Padding = New System.Windows.Forms.Padding(3)
-        Me.TpDesc.Size = New System.Drawing.Size(899, 585)
+        Me.TpDesc.Size = New System.Drawing.Size(899, 510)
         Me.TpDesc.TabIndex = 1
         Me.TpDesc.Text = "Descrição"
         Me.TpDesc.UseVisualStyleBackColor = True
         '
         'Panel_Desc
         '
+        Me.Panel_Desc.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.Panel_Desc.AutoScroll = True
+        Me.Panel_Desc.Controls.Add(Me.LblNomeCadastro)
+        Me.Panel_Desc.Controls.Add(Me.Label14)
+        Me.Panel_Desc.Controls.Add(Me.TxtDesc)
         Me.Panel_Desc.Controls.Add(Me.GbQtd)
         Me.Panel_Desc.Controls.Add(Me.TxtTag)
         Me.Panel_Desc.Controls.Add(Me.CmbCm3)
@@ -310,7 +317,6 @@ Partial Class Frm_Inventário
         Me.Panel_Desc.Controls.Add(Me.BtnAnterior)
         Me.Panel_Desc.Controls.Add(Me.TxtFabricante)
         Me.Panel_Desc.Controls.Add(Me.BtnProximo)
-        Me.Panel_Desc.Controls.Add(Me.TxtDesc)
         Me.Panel_Desc.Controls.Add(Me.Label35)
         Me.Panel_Desc.Controls.Add(Me.CmbA6)
         Me.Panel_Desc.Controls.Add(Me.BtnAdd)
@@ -343,7 +349,7 @@ Partial Class Frm_Inventário
         Me.Panel_Desc.Location = New System.Drawing.Point(-5, 6)
         Me.Panel_Desc.Margin = New System.Windows.Forms.Padding(2)
         Me.Panel_Desc.Name = "Panel_Desc"
-        Me.Panel_Desc.Size = New System.Drawing.Size(904, 578)
+        Me.Panel_Desc.Size = New System.Drawing.Size(899, 499)
         Me.Panel_Desc.TabIndex = 48
         '
         'GbQtd
@@ -423,7 +429,6 @@ Partial Class Frm_Inventário
         Me.CmbUm.Name = "CmbUm"
         Me.CmbUm.Size = New System.Drawing.Size(191, 21)
         Me.CmbUm.TabIndex = 22
-        Me.CmbUm.Text = "UN"
         '
         'TxtQtd
         '
@@ -499,7 +504,9 @@ Partial Class Frm_Inventário
         '
         'TxtTag
         '
-        Me.TxtTag.Location = New System.Drawing.Point(359, 503)
+        Me.TxtTag.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.TxtTag.Location = New System.Drawing.Point(359, 476)
         Me.TxtTag.MaxLength = 200
         Me.TxtTag.Name = "TxtTag"
         Me.TxtTag.Size = New System.Drawing.Size(194, 20)
@@ -516,10 +523,9 @@ Partial Class Frm_Inventário
         '
         'Btn_Avancar10
         '
-        Me.Btn_Avancar10.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.Btn_Avancar10.Cursor = System.Windows.Forms.Cursors.Hand
         Me.Btn_Avancar10.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Btn_Avancar10.Location = New System.Drawing.Point(803, 531)
+        Me.Btn_Avancar10.Location = New System.Drawing.Point(803, 506)
         Me.Btn_Avancar10.Name = "Btn_Avancar10"
         Me.Btn_Avancar10.Size = New System.Drawing.Size(47, 23)
         Me.Btn_Avancar10.TabIndex = 47
@@ -538,8 +544,10 @@ Partial Class Frm_Inventário
         '
         'LblTag
         '
+        Me.LblTag.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.LblTag.AutoSize = True
-        Me.LblTag.Location = New System.Drawing.Point(290, 507)
+        Me.LblTag.Location = New System.Drawing.Point(290, 480)
         Me.LblTag.Name = "LblTag"
         Me.LblTag.Size = New System.Drawing.Size(32, 13)
         Me.LblTag.TabIndex = 45
@@ -556,19 +564,20 @@ Partial Class Frm_Inventário
         '
         'PictureBox
         '
-        Me.PictureBox.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
+        Me.PictureBox.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.PictureBox.Location = New System.Drawing.Point(562, 275)
+        Me.PictureBox.Location = New System.Drawing.Point(562, 298)
         Me.PictureBox.Name = "PictureBox"
-        Me.PictureBox.Size = New System.Drawing.Size(308, 247)
+        Me.PictureBox.Size = New System.Drawing.Size(286, 182)
         Me.PictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PictureBox.TabIndex = 0
         Me.PictureBox.TabStop = False
         '
         'TxtObs
         '
-        Me.TxtObs.Location = New System.Drawing.Point(82, 533)
+        Me.TxtObs.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.TxtObs.Location = New System.Drawing.Point(82, 504)
         Me.TxtObs.MaxLength = 200
         Me.TxtObs.Name = "TxtObs"
         Me.TxtObs.Size = New System.Drawing.Size(471, 20)
@@ -576,10 +585,9 @@ Partial Class Frm_Inventário
         '
         'Btn_Voltar10
         '
-        Me.Btn_Voltar10.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.Btn_Voltar10.Cursor = System.Windows.Forms.Cursors.Hand
         Me.Btn_Voltar10.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Btn_Voltar10.Location = New System.Drawing.Point(644, 531)
+        Me.Btn_Voltar10.Location = New System.Drawing.Point(644, 506)
         Me.Btn_Voltar10.Name = "Btn_Voltar10"
         Me.Btn_Voltar10.Size = New System.Drawing.Size(47, 23)
         Me.Btn_Voltar10.TabIndex = 46
@@ -589,7 +597,9 @@ Partial Class Frm_Inventário
         '
         'TxtSerie
         '
-        Me.TxtSerie.Location = New System.Drawing.Point(82, 505)
+        Me.TxtSerie.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.TxtSerie.Location = New System.Drawing.Point(82, 478)
         Me.TxtSerie.MaxLength = 50
         Me.TxtSerie.Name = "TxtSerie"
         Me.TxtSerie.Size = New System.Drawing.Size(203, 20)
@@ -606,7 +616,9 @@ Partial Class Frm_Inventário
         '
         'TxtModelo
         '
-        Me.TxtModelo.Location = New System.Drawing.Point(359, 476)
+        Me.TxtModelo.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.TxtModelo.Location = New System.Drawing.Point(359, 449)
         Me.TxtModelo.MaxLength = 50
         Me.TxtModelo.Name = "TxtModelo"
         Me.TxtModelo.Size = New System.Drawing.Size(194, 20)
@@ -614,10 +626,9 @@ Partial Class Frm_Inventário
         '
         'BtnAnterior
         '
-        Me.BtnAnterior.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.BtnAnterior.Cursor = System.Windows.Forms.Cursors.Hand
         Me.BtnAnterior.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnAnterior.Location = New System.Drawing.Point(697, 531)
+        Me.BtnAnterior.Location = New System.Drawing.Point(697, 506)
         Me.BtnAnterior.Name = "BtnAnterior"
         Me.BtnAnterior.Size = New System.Drawing.Size(47, 23)
         Me.BtnAnterior.TabIndex = 28
@@ -627,7 +638,9 @@ Partial Class Frm_Inventário
         '
         'TxtFabricante
         '
-        Me.TxtFabricante.Location = New System.Drawing.Point(82, 477)
+        Me.TxtFabricante.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.TxtFabricante.Location = New System.Drawing.Point(82, 450)
         Me.TxtFabricante.MaxLength = 50
         Me.TxtFabricante.Name = "TxtFabricante"
         Me.TxtFabricante.Size = New System.Drawing.Size(203, 20)
@@ -635,25 +648,15 @@ Partial Class Frm_Inventário
         '
         'BtnProximo
         '
-        Me.BtnProximo.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.BtnProximo.Cursor = System.Windows.Forms.Cursors.Hand
         Me.BtnProximo.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnProximo.Location = New System.Drawing.Point(750, 531)
+        Me.BtnProximo.Location = New System.Drawing.Point(750, 506)
         Me.BtnProximo.Name = "BtnProximo"
         Me.BtnProximo.Size = New System.Drawing.Size(47, 23)
         Me.BtnProximo.TabIndex = 29
         Me.BtnProximo.TabStop = False
         Me.BtnProximo.Text = ">"
         Me.BtnProximo.UseVisualStyleBackColor = True
-        '
-        'TxtDesc
-        '
-        Me.TxtDesc.Location = New System.Drawing.Point(82, 401)
-        Me.TxtDesc.MaxLength = 200
-        Me.TxtDesc.Multiline = True
-        Me.TxtDesc.Name = "TxtDesc"
-        Me.TxtDesc.Size = New System.Drawing.Size(472, 70)
-        Me.TxtDesc.TabIndex = 14
         '
         'Label35
         '
@@ -674,10 +677,9 @@ Partial Class Frm_Inventário
         '
         'BtnAdd
         '
-        Me.BtnAdd.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.BtnAdd.Cursor = System.Windows.Forms.Cursors.Hand
         Me.BtnAdd.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnAdd.Location = New System.Drawing.Point(562, 531)
+        Me.BtnAdd.Location = New System.Drawing.Point(562, 506)
         Me.BtnAdd.Name = "BtnAdd"
         Me.BtnAdd.Size = New System.Drawing.Size(75, 23)
         Me.BtnAdd.TabIndex = 27
@@ -696,10 +698,10 @@ Partial Class Frm_Inventário
         'Label12
         '
         Me.Label12.AutoSize = True
-        Me.Label12.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label12.Location = New System.Drawing.Point(565, 255)
+        Me.Label12.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label12.Location = New System.Drawing.Point(561, 483)
         Me.Label12.Name = "Label12"
-        Me.Label12.Size = New System.Drawing.Size(173, 13)
+        Me.Label12.Size = New System.Drawing.Size(145, 13)
         Me.Label12.TabIndex = 43
         Me.Label12.Text = "Todas as Fotos do Inventário"
         '
@@ -765,8 +767,10 @@ Partial Class Frm_Inventário
         '
         'Label20
         '
+        Me.Label20.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.Label20.AutoSize = True
-        Me.Label20.Location = New System.Drawing.Point(13, 537)
+        Me.Label20.Location = New System.Drawing.Point(11, 511)
         Me.Label20.Name = "Label20"
         Me.Label20.Size = New System.Drawing.Size(68, 13)
         Me.Label20.TabIndex = 34
@@ -820,8 +824,10 @@ Partial Class Frm_Inventário
         '
         'Label19
         '
+        Me.Label19.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.Label19.AutoSize = True
-        Me.Label19.Location = New System.Drawing.Point(12, 509)
+        Me.Label19.Location = New System.Drawing.Point(12, 482)
         Me.Label19.Name = "Label19"
         Me.Label19.Size = New System.Drawing.Size(64, 13)
         Me.Label19.TabIndex = 32
@@ -857,8 +863,10 @@ Partial Class Frm_Inventário
         '
         'Label18
         '
+        Me.Label18.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.Label18.AutoSize = True
-        Me.Label18.Location = New System.Drawing.Point(290, 479)
+        Me.Label18.Location = New System.Drawing.Point(290, 452)
         Me.Label18.Name = "Label18"
         Me.Label18.Size = New System.Drawing.Size(45, 13)
         Me.Label18.TabIndex = 30
@@ -885,8 +893,10 @@ Partial Class Frm_Inventário
         '
         'Label17
         '
+        Me.Label17.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.Label17.AutoSize = True
-        Me.Label17.Location = New System.Drawing.Point(12, 480)
+        Me.Label17.Location = New System.Drawing.Point(12, 453)
         Me.Label17.Name = "Label17"
         Me.Label17.Size = New System.Drawing.Size(60, 13)
         Me.Label17.TabIndex = 28
@@ -1212,7 +1222,7 @@ Partial Class Frm_Inventário
         '
         Me.BtnCopiar.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.BtnCopiar.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.BtnCopiar.Location = New System.Drawing.Point(773, 660)
+        Me.BtnCopiar.Location = New System.Drawing.Point(773, 582)
         Me.BtnCopiar.Name = "BtnCopiar"
         Me.BtnCopiar.Size = New System.Drawing.Size(136, 37)
         Me.BtnCopiar.TabIndex = 5
@@ -1223,7 +1233,7 @@ Partial Class Frm_Inventário
         '
         Me.BtnSalvar.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.BtnSalvar.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.BtnSalvar.Location = New System.Drawing.Point(684, 660)
+        Me.BtnSalvar.Location = New System.Drawing.Point(684, 582)
         Me.BtnSalvar.Name = "BtnSalvar"
         Me.BtnSalvar.Size = New System.Drawing.Size(83, 37)
         Me.BtnSalvar.TabIndex = 4
@@ -1235,7 +1245,7 @@ Partial Class Frm_Inventário
         Me.BtnConsultar.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.BtnConsultar.Cursor = System.Windows.Forms.Cursors.Hand
         Me.BtnConsultar.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnConsultar.Location = New System.Drawing.Point(3, 626)
+        Me.BtnConsultar.Location = New System.Drawing.Point(3, 550)
         Me.BtnConsultar.Name = "BtnConsultar"
         Me.BtnConsultar.Size = New System.Drawing.Size(907, 23)
         Me.BtnConsultar.TabIndex = 8
@@ -1247,7 +1257,7 @@ Partial Class Frm_Inventário
         Me.Label10.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.Label10.AutoSize = True
         Me.Label10.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label10.Location = New System.Drawing.Point(16, 657)
+        Me.Label10.Location = New System.Drawing.Point(16, 579)
         Me.Label10.Name = "Label10"
         Me.Label10.Size = New System.Drawing.Size(110, 13)
         Me.Label10.TabIndex = 10
@@ -1256,7 +1266,7 @@ Partial Class Frm_Inventário
         'TxtConsultor
         '
         Me.TxtConsultor.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.TxtConsultor.Location = New System.Drawing.Point(132, 656)
+        Me.TxtConsultor.Location = New System.Drawing.Point(132, 578)
         Me.TxtConsultor.MaxLength = 50
         Me.TxtConsultor.Name = "TxtConsultor"
         Me.TxtConsultor.Size = New System.Drawing.Size(436, 20)
@@ -1265,7 +1275,7 @@ Partial Class Frm_Inventário
         'TxtLider
         '
         Me.TxtLider.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.TxtLider.Location = New System.Drawing.Point(132, 682)
+        Me.TxtLider.Location = New System.Drawing.Point(132, 604)
         Me.TxtLider.MaxLength = 50
         Me.TxtLider.Name = "TxtLider"
         Me.TxtLider.Size = New System.Drawing.Size(436, 20)
@@ -1276,7 +1286,7 @@ Partial Class Frm_Inventário
         Me.Label11.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.Label11.AutoSize = True
         Me.Label11.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label11.Location = New System.Drawing.Point(16, 683)
+        Me.Label11.Location = New System.Drawing.Point(16, 605)
         Me.Label11.Name = "Label11"
         Me.Label11.Size = New System.Drawing.Size(87, 13)
         Me.Label11.TabIndex = 12
@@ -1284,7 +1294,8 @@ Partial Class Frm_Inventário
         '
         'Panel_I
         '
-        Me.Panel_I.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+        Me.Panel_I.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Panel_I.AutoScroll = True
         Me.Panel_I.Controls.Add(Me.BtnS_Multi)
@@ -1297,16 +1308,16 @@ Partial Class Frm_Inventário
         Me.Panel_I.Controls.Add(Me.Label10)
         Me.Panel_I.Controls.Add(Me.TxtConsultor)
         Me.Panel_I.Controls.Add(Me.Label11)
-        Me.Panel_I.Location = New System.Drawing.Point(12, 23)
+        Me.Panel_I.Location = New System.Drawing.Point(12, 27)
         Me.Panel_I.Name = "Panel_I"
-        Me.Panel_I.Size = New System.Drawing.Size(1091, 731)
+        Me.Panel_I.Size = New System.Drawing.Size(1045, 628)
         Me.Panel_I.TabIndex = 13
         '
         'BtnS_Multi
         '
         Me.BtnS_Multi.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.BtnS_Multi.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.BtnS_Multi.Location = New System.Drawing.Point(595, 660)
+        Me.BtnS_Multi.Location = New System.Drawing.Point(595, 582)
         Me.BtnS_Multi.Name = "BtnS_Multi"
         Me.BtnS_Multi.Size = New System.Drawing.Size(83, 37)
         Me.BtnS_Multi.TabIndex = 13
@@ -1320,7 +1331,7 @@ Partial Class Frm_Inventário
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
         Me.MenuStrip1.Padding = New System.Windows.Forms.Padding(4, 2, 0, 2)
-        Me.MenuStrip1.Size = New System.Drawing.Size(1011, 24)
+        Me.MenuStrip1.Size = New System.Drawing.Size(1057, 24)
         Me.MenuStrip1.TabIndex = 14
         Me.MenuStrip1.Text = "MenuStrip1"
         '
@@ -1358,18 +1369,50 @@ Partial Class Frm_Inventário
         '
         'PB_Excel
         '
-        Me.PB_Excel.Location = New System.Drawing.Point(12, 2)
+        Me.PB_Excel.Location = New System.Drawing.Point(11, 0)
         Me.PB_Excel.Margin = New System.Windows.Forms.Padding(2)
         Me.PB_Excel.Name = "PB_Excel"
         Me.PB_Excel.Size = New System.Drawing.Size(211, 19)
         Me.PB_Excel.TabIndex = 15
+        '
+        'TxtDesc
+        '
+        Me.TxtDesc.AutoWordSelection = True
+        Me.TxtDesc.Location = New System.Drawing.Point(82, 397)
+        Me.TxtDesc.MaxLength = 500
+        Me.TxtDesc.Name = "TxtDesc"
+        Me.TxtDesc.Size = New System.Drawing.Size(471, 47)
+        Me.TxtDesc.TabIndex = 14
+        Me.TxtDesc.Text = ""
+        '
+        'Label14
+        '
+        Me.Label14.AutoSize = True
+        Me.Label14.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label14.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.Label14.Location = New System.Drawing.Point(561, 269)
+        Me.Label14.Name = "Label14"
+        Me.Label14.Size = New System.Drawing.Size(62, 13)
+        Me.Label14.TabIndex = 49
+        Me.Label14.Text = "Individual"
+        '
+        'LblNomeCadastro
+        '
+        Me.LblNomeCadastro.AutoSize = True
+        Me.LblNomeCadastro.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LblNomeCadastro.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.LblNomeCadastro.Location = New System.Drawing.Point(559, 250)
+        Me.LblNomeCadastro.Name = "LblNomeCadastro"
+        Me.LblNomeCadastro.Size = New System.Drawing.Size(128, 13)
+        Me.LblNomeCadastro.TabIndex = 50
+        Me.LblNomeCadastro.Text = "Forma de Cadastramento:"
         '
         'Frm_Inventário
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.AutoScroll = True
-        Me.ClientSize = New System.Drawing.Size(1028, 609)
+        Me.ClientSize = New System.Drawing.Size(1057, 655)
         Me.Controls.Add(Me.PB_Excel)
         Me.Controls.Add(Me.Panel_I)
         Me.Controls.Add(Me.MenuStrip1)
@@ -1445,7 +1488,6 @@ Partial Class Frm_Inventário
     Friend WithEvents Label18 As System.Windows.Forms.Label
     Friend WithEvents TxtFabricante As System.Windows.Forms.TextBox
     Friend WithEvents Label17 As System.Windows.Forms.Label
-    Friend WithEvents TxtDesc As System.Windows.Forms.TextBox
     Friend WithEvents Label16 As System.Windows.Forms.Label
     Friend WithEvents CmbA6 As System.Windows.Forms.ComboBox
     Friend WithEvents LblA6 As System.Windows.Forms.Label
@@ -1521,4 +1563,7 @@ Partial Class Frm_Inventário
     Friend WithEvents Btn_Voltar10 As Button
     Friend WithEvents Panel_Desc As Panel
     Public WithEvents PB_Excel As ProgressBar
+    Friend WithEvents TxtDesc As RichTextBox
+    Friend WithEvents Label14 As Label
+    Friend WithEvents LblNomeCadastro As Label
 End Class
