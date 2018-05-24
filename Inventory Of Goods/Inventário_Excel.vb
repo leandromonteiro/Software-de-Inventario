@@ -5,6 +5,336 @@ Public Class Inventário_Excel
     Dim connstr As String = "Data Source=C:\Users\Public\INVENTARIO.db;;Version=3;New=True;Compress=True;Pooling=True"
     Public DS As New DataSet
 
+    Public Function Contar_Cadastro_TUC_TI_A3(TUC As String, TI As String, A3 As String) As Integer
+        Try
+            Dim leitor As SQLite.SQLiteDataReader
+            Dim connection As New SQLite.SQLiteConnection(connstr)
+            Dim cmd As New SQLite.SQLiteCommand
+            connection.Open()
+            cmd.Connection = connection
+            cmd.CommandText = "select count(ID) from Cadastro where TUC='" & TUC & "' AND TI='" & TI & "' AND A3='" & A3 & "';"
+            leitor = cmd.ExecuteReader
+            leitor.Read()
+            Contar_Cadastro_TUC_TI_A3 = leitor("count(ID)")
+            cmd.Dispose()
+            connection.Close()
+            connection.Dispose()
+            Return Contar_Cadastro_TUC_TI_A3
+
+        Catch
+            MsgBox("Erro ao contar dados de Contar_Cadastro_TUC_TI_A3", MsgBoxStyle.Critical)
+            Return Nothing
+        End Try
+    End Function
+
+    Public Function Cadastro_TUC_TI_A3(TUC As String, TI As String, A3 As String) As String
+        Try
+            Dim leitor As SQLite.SQLiteDataReader
+            Dim connection As New SQLite.SQLiteConnection(connstr)
+            Dim cmd As New SQLite.SQLiteCommand
+            connection.Open()
+            cmd.Connection = connection
+            cmd.CommandText = "select STATUS from Cadastro where TUC='" & TUC & "' AND TI='" & TI & "' AND A3='" & A3 & "';"
+            leitor = cmd.ExecuteReader
+            leitor.Read()
+            Cadastro_TUC_TI_A3 = leitor("STATUS")
+            cmd.Dispose()
+            connection.Close()
+            connection.Dispose()
+            Return Cadastro_TUC_TI_A3
+
+        Catch
+            MsgBox("Erro ao buscar dados de Cadastro_TUC_TI_A3", MsgBoxStyle.Critical)
+            Return Nothing
+        End Try
+    End Function
+
+    Public Function Contar_Cadastro_TUC_A3(TUC As String, A3 As String) As Integer
+        Try
+            Dim leitor As SQLite.SQLiteDataReader
+            Dim connection As New SQLite.SQLiteConnection(connstr)
+            Dim cmd As New SQLite.SQLiteCommand
+            connection.Open()
+            cmd.Connection = connection
+            cmd.CommandText = "select count(ID) from Cadastro where TUC='" & TUC & "' AND A3='" & A3 & "';"
+            leitor = cmd.ExecuteReader
+            leitor.Read()
+            Contar_Cadastro_TUC_A3 = leitor("count(ID)")
+            cmd.Dispose()
+            connection.Close()
+            connection.Dispose()
+            Return Contar_Cadastro_TUC_A3
+
+        Catch
+            MsgBox("Erro ao contar dados de Contar_Cadastro_TUC_A3", MsgBoxStyle.Critical)
+            Return Nothing
+        End Try
+    End Function
+
+    Public Function Cadastro_TUC_A3(TUC As String, A3 As String) As String
+        Try
+            Dim leitor As SQLite.SQLiteDataReader
+            Dim connection As New SQLite.SQLiteConnection(connstr)
+            Dim cmd As New SQLite.SQLiteCommand
+            connection.Open()
+            cmd.Connection = connection
+            cmd.CommandText = "select STATUS from Cadastro where TUC='" & TUC & "' AND A3='" & A3 & "';"
+            leitor = cmd.ExecuteReader
+            leitor.Read()
+            Cadastro_TUC_A3 = leitor("STATUS")
+            cmd.Dispose()
+            connection.Close()
+            connection.Dispose()
+            Return Cadastro_TUC_A3
+
+        Catch
+            MsgBox("Erro ao buscar dados de Cadastro_TUC_A1_A3", MsgBoxStyle.Critical)
+            Return Nothing
+        End Try
+    End Function
+
+    Public Function Contar_Cadastro_TUC_TI_A2(TUC As String, TI As String, A2 As String) As Integer
+        Try
+            Dim leitor As SQLite.SQLiteDataReader
+            Dim connection As New SQLite.SQLiteConnection(connstr)
+            Dim cmd As New SQLite.SQLiteCommand
+            connection.Open()
+            cmd.Connection = connection
+            cmd.CommandText = "select count(ID) from Cadastro where TUC='" & TUC & "' AND TI='" & TI & "' AND A2='" & A2 & "';"
+            leitor = cmd.ExecuteReader
+            leitor.Read()
+            Contar_Cadastro_TUC_TI_A2 = leitor("count(ID)")
+            cmd.Dispose()
+            connection.Close()
+            connection.Dispose()
+            Return Contar_Cadastro_TUC_TI_A2
+
+        Catch
+            MsgBox("Erro ao contar dados de Contar_Cadastro_TUC_TI_A2", MsgBoxStyle.Critical)
+            Return Nothing
+        End Try
+    End Function
+
+    Public Function Cadastro_TUC_TI_A2(TUC As String, TI As String, A2 As String) As String
+        Try
+            Dim leitor As SQLite.SQLiteDataReader
+            Dim connection As New SQLite.SQLiteConnection(connstr)
+            Dim cmd As New SQLite.SQLiteCommand
+            connection.Open()
+            cmd.Connection = connection
+            cmd.CommandText = "select STATUS from Cadastro where TUC='" & TUC & "' AND TI='" & TI & "' AND A2='" & A2 & "';"
+            leitor = cmd.ExecuteReader
+            leitor.Read()
+            Cadastro_TUC_TI_A2 = leitor("STATUS")
+            cmd.Dispose()
+            connection.Close()
+            connection.Dispose()
+            Return Cadastro_TUC_TI_A2
+
+        Catch
+            MsgBox("Erro ao buscar dados de Cadastro_TUC_TI_A2", MsgBoxStyle.Critical)
+            Return Nothing
+        End Try
+    End Function
+
+    Public Function Contar_Cadastro_TUC_A2(TUC As String, A2 As String) As Integer
+        Try
+            Dim leitor As SQLite.SQLiteDataReader
+            Dim connection As New SQLite.SQLiteConnection(connstr)
+            Dim cmd As New SQLite.SQLiteCommand
+            connection.Open()
+            cmd.Connection = connection
+            cmd.CommandText = "select count(ID) from Cadastro where TUC='" & TUC & "' AND A2='" & A2 & "';"
+            leitor = cmd.ExecuteReader
+            leitor.Read()
+            Contar_Cadastro_TUC_A2 = leitor("count(ID)")
+            cmd.Dispose()
+            connection.Close()
+            connection.Dispose()
+            Return Contar_Cadastro_TUC_A2
+
+        Catch
+            MsgBox("Erro ao contar dados de Contar_Cadastro_TUC_A2", MsgBoxStyle.Critical)
+            Return Nothing
+        End Try
+    End Function
+
+    Public Function Cadastro_TUC_A2(TUC As String, A2 As String) As String
+        Try
+            Dim leitor As SQLite.SQLiteDataReader
+            Dim connection As New SQLite.SQLiteConnection(connstr)
+            Dim cmd As New SQLite.SQLiteCommand
+            connection.Open()
+            cmd.Connection = connection
+            cmd.CommandText = "select STATUS from Cadastro where TUC='" & TUC & "' AND A2='" & A2 & "';"
+            leitor = cmd.ExecuteReader
+            leitor.Read()
+            Cadastro_TUC_A2 = leitor("STATUS")
+            cmd.Dispose()
+            connection.Close()
+            connection.Dispose()
+            Return Cadastro_TUC_A2
+
+        Catch
+            MsgBox("Erro ao buscar dados de Cadastro_TUC_A1_A2", MsgBoxStyle.Critical)
+            Return Nothing
+        End Try
+    End Function
+
+    Public Function Contar_Cadastro_TUC_A1_A2(TUC As String, A1 As String, A2 As String) As Integer
+        Try
+            Dim leitor As SQLite.SQLiteDataReader
+            Dim connection As New SQLite.SQLiteConnection(connstr)
+            Dim cmd As New SQLite.SQLiteCommand
+            connection.Open()
+            cmd.Connection = connection
+            cmd.CommandText = "select count(ID) from Cadastro where TUC='" & TUC & "' AND A1='" & A1 & "' AND A2='" & A2 & "';"
+            leitor = cmd.ExecuteReader
+            leitor.Read()
+            Contar_Cadastro_TUC_A1_A2 = leitor("count(ID)")
+            cmd.Dispose()
+            connection.Close()
+            connection.Dispose()
+            Return Contar_Cadastro_TUC_A1_A2
+
+        Catch
+            MsgBox("Erro ao contar dados de Contar_Cadastro_TUC_A1_A2", MsgBoxStyle.Critical)
+            Return Nothing
+        End Try
+    End Function
+
+    Public Function Cadastro_TUC_A1_A2(TUC As String, A1 As String, A2 As String) As String
+        Try
+            Dim leitor As SQLite.SQLiteDataReader
+            Dim connection As New SQLite.SQLiteConnection(connstr)
+            Dim cmd As New SQLite.SQLiteCommand
+            connection.Open()
+            cmd.Connection = connection
+            cmd.CommandText = "select STATUS from Cadastro where TUC='" & TUC & "' AND A1='" & A1 & "' AND A2='" & A2 & "';"
+            leitor = cmd.ExecuteReader
+            leitor.Read()
+            Cadastro_TUC_A1_A2 = leitor("STATUS")
+            cmd.Dispose()
+            connection.Close()
+            connection.Dispose()
+            Return Cadastro_TUC_A1_A2
+
+        Catch
+            MsgBox("Erro ao buscar dados de Cadastro_TUC_A1_A2", MsgBoxStyle.Critical)
+            Return Nothing
+        End Try
+    End Function
+
+    Public Function Contar_Cadastro_TUC_TI(TUC As String, TI As String) As Integer
+        Try
+            Dim leitor As SQLite.SQLiteDataReader
+            Dim connection As New SQLite.SQLiteConnection(connstr)
+            Dim cmd As New SQLite.SQLiteCommand
+            connection.Open()
+            cmd.Connection = connection
+            cmd.CommandText = "select count(ID) from Cadastro where TUC='" & TUC & "' AND TI='" & TI & "';"
+            leitor = cmd.ExecuteReader
+            leitor.Read()
+            Contar_Cadastro_TUC_TI = leitor("count(ID)")
+            cmd.Dispose()
+            connection.Close()
+            connection.Dispose()
+            Return Contar_Cadastro_TUC_TI
+
+        Catch
+            MsgBox("Erro ao contar dados de Contar_Cadastro_TUC_TI", MsgBoxStyle.Critical)
+            Return Nothing
+        End Try
+    End Function
+
+    Public Function Cadastro_TUC_TI(TUC As String, TI As String) As String
+        Try
+            Dim leitor As SQLite.SQLiteDataReader
+            Dim connection As New SQLite.SQLiteConnection(connstr)
+            Dim cmd As New SQLite.SQLiteCommand
+            connection.Open()
+            cmd.Connection = connection
+            cmd.CommandText = "select STATUS from Cadastro where TUC='" & TUC & "' AND TI='" & TI & "';"
+            leitor = cmd.ExecuteReader
+            leitor.Read()
+            Cadastro_TUC_TI = leitor("STATUS")
+            cmd.Dispose()
+            connection.Close()
+            connection.Dispose()
+            Return Cadastro_TUC_TI
+
+        Catch
+            MsgBox("Erro ao buscar dados de Cadastro_TUC_TI", MsgBoxStyle.Critical)
+            Return Nothing
+        End Try
+    End Function
+
+    Public Function Contar_Cadastro_TUC(TUC As String) As Integer
+        Try
+            Dim leitor As SQLite.SQLiteDataReader
+            Dim connection As New SQLite.SQLiteConnection(connstr)
+            Dim cmd As New SQLite.SQLiteCommand
+            connection.Open()
+            cmd.Connection = connection
+            cmd.CommandText = "select count(ID) from Cadastro where TUC='" & TUC & "';"
+            leitor = cmd.ExecuteReader
+            leitor.Read()
+            Contar_Cadastro_TUC = leitor("count(ID)")
+            cmd.Dispose()
+            connection.Close()
+            connection.Dispose()
+            Return Contar_Cadastro_TUC
+
+        Catch
+            MsgBox("Erro ao contar dados de Contar_Cadastro_TUC", MsgBoxStyle.Critical)
+            Return Nothing
+        End Try
+    End Function
+
+    Public Function Cadastro_TUC(TUC As String) As String
+        Try
+            Dim leitor As SQLite.SQLiteDataReader
+            Dim connection As New SQLite.SQLiteConnection(connstr)
+            Dim cmd As New SQLite.SQLiteCommand
+            connection.Open()
+            cmd.Connection = connection
+            cmd.CommandText = "select STATUS from Cadastro where TUC='" & TUC & "';"
+            leitor = cmd.ExecuteReader
+            leitor.Read()
+            Cadastro_TUC = leitor("STATUS")
+            cmd.Dispose()
+            connection.Close()
+            connection.Dispose()
+            Return Cadastro_TUC
+
+        Catch
+            MsgBox("Erro ao buscar dados de Cadastro_TUC", MsgBoxStyle.Critical)
+            Return Nothing
+        End Try
+    End Function
+
+    Public Function Contar_Unidade_A3(TUC As String, A1 As String, A3 As String) As Integer
+        Try
+            Dim leitor As SQLite.SQLiteDataReader
+            Dim connection As New SQLite.SQLiteConnection(connstr)
+            Dim cmd As New SQLite.SQLiteCommand
+            connection.Open()
+            cmd.Connection = connection
+            cmd.CommandText = "select count(ID) from Unidade where TUC='" & TUC & "' AND A1='" & A1 & "' AND A3='" & A3 & "';"
+            leitor = cmd.ExecuteReader
+            leitor.Read()
+            Contar_Unidade_A3 = leitor("count(ID)")
+            cmd.Dispose()
+            connection.Close()
+            connection.Dispose()
+            Return Contar_Unidade_A3
+
+        Catch
+            MsgBox("Erro ao contar dados de Unidade A3", MsgBoxStyle.Critical)
+            Return Nothing
+        End Try
+    End Function
+
     Public Function Contar_Unidade_TUC(TUC As String) As Integer
         Try
             Dim leitor As SQLite.SQLiteDataReader
@@ -89,28 +419,6 @@ Public Class Inventário_Excel
 
         Catch
             MsgBox("Erro ao buscar dados de Unidade A1", MsgBoxStyle.Critical)
-            Return Nothing
-        End Try
-    End Function
-
-    Public Function Contar_Unidade_A3(TUC As String, A1 As String, A3 As String) As Integer
-        Try
-            Dim leitor As SQLite.SQLiteDataReader
-            Dim connection As New SQLite.SQLiteConnection(connstr)
-            Dim cmd As New SQLite.SQLiteCommand
-            connection.Open()
-            cmd.Connection = connection
-            cmd.CommandText = "select count(ID) from Unidade where TUC='" & TUC & "' AND A1='" & A1 & "' AND A3='" & A3 & "';"
-            leitor = cmd.ExecuteReader
-            leitor.Read()
-            Contar_Unidade_A3 = leitor("count(ID)")
-            cmd.Dispose()
-            connection.Close()
-            connection.Dispose()
-            Return Contar_Unidade_A3
-
-        Catch
-            MsgBox("Erro ao contar dados de Unidade A3", MsgBoxStyle.Critical)
             Return Nothing
         End Try
     End Function

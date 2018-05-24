@@ -277,6 +277,17 @@ Public Class Frm_Inventário
         If I_E.Contar_Unidade_TUC(TUC) = 1 Then
             CmbUm.Text = I_E.Unidade_TUC(TUC)
         End If
+        'CADASTRO
+        If I_E.Contar_Cadastro_TUC(TUC) = 1 Then
+            LblCadastro.Text = I_E.Cadastro_TUC(TUC)
+            Exit Sub
+        End If
+
+        If I_E.Contar_Cadastro_TUC_TI(TUC, TI) = 1 Then
+            LblCadastro.Text = I_E.Cadastro_TUC_TI(TUC, TI)
+        Else
+            LblCadastro.Text = ""
+        End If
     End Sub
 
     Private Sub Colocar_Desc()
@@ -370,6 +381,24 @@ Public Class Frm_Inventário
     Private Sub CmbA2_SelectedIndexChanged(sender As Object, e As EventArgs) Handles CmbA2.SelectedIndexChanged
         A2 = I_E.Buscar_A2_A6(CmbA2)
         Colocar_Desc()
+        'CADASTRO
+        If I_E.Contar_Cadastro_TUC_A1_A2(TUC, A1, A2) = 1 Then
+            LblCadastro.Text = I_E.Cadastro_TUC_A1_A2(TUC, A1, A2)
+            Exit Sub
+        End If
+
+        If I_E.Contar_Cadastro_TUC_A2(TUC, A2) = 1 Then
+            LblCadastro.Text = I_E.Cadastro_TUC_A2(TUC, A2)
+            Exit Sub
+        End If
+
+        If I_E.Contar_Cadastro_TUC_TI_A2(TUC, TI, A2) = 1 Then
+            LblCadastro.Text = I_E.Cadastro_TUC_TI_A2(TUC, TI, A2)
+            Exit Sub
+        End If
+        If I_E.Contar_Cadastro_TUC_TI(TUC, TI) = 1 Then
+            LblCadastro.Text = I_E.Cadastro_TUC_TI(TUC, TI)
+        End If
     End Sub
 
     Private Sub CmbA3_SelectedIndexChanged(sender As Object, e As EventArgs) Handles CmbA3.SelectedIndexChanged
@@ -377,6 +406,18 @@ Public Class Frm_Inventário
         Colocar_Desc()
         If I_E.Contar_Unidade_A3(TUC, A1, A3) = 1 Then
             CmbUm.Text = I_E.Unidade_A3(TUC, A1, A3)
+        End If
+        'CADASTRO
+        If I_E.Contar_Cadastro_TUC_A3(TUC, A3) = 1 Then
+            LblCadastro.Text = I_E.Cadastro_TUC_A3(TUC, A3)
+            Exit Sub
+        End If
+        If I_E.Contar_Cadastro_TUC_TI_A3(TUC, TI, A3) = 1 Then
+            LblCadastro.Text = I_E.Cadastro_TUC_TI_A3(TUC, TI, A3)
+            Exit Sub
+        End If
+        If I_E.Contar_Cadastro_TUC_TI(TUC, TI) = 1 Then
+            LblCadastro.Text = I_E.Cadastro_TUC_TI(TUC, TI)
         End If
     End Sub
 

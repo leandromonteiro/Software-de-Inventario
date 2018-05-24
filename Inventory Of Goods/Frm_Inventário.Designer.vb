@@ -141,7 +141,7 @@ Partial Class Frm_Inventário
         Me.FBD = New System.Windows.Forms.FolderBrowserDialog()
         Me.PB_Excel = New System.Windows.Forms.ProgressBar()
         Me.TxtDesc = New System.Windows.Forms.RichTextBox()
-        Me.Label14 = New System.Windows.Forms.Label()
+        Me.LblCadastro = New System.Windows.Forms.Label()
         Me.LblNomeCadastro = New System.Windows.Forms.Label()
         Me.TabControl1.SuspendLayout()
         Me.TpLocal.SuspendLayout()
@@ -299,7 +299,7 @@ Partial Class Frm_Inventário
             Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.Panel_Desc.AutoScroll = True
         Me.Panel_Desc.Controls.Add(Me.LblNomeCadastro)
-        Me.Panel_Desc.Controls.Add(Me.Label14)
+        Me.Panel_Desc.Controls.Add(Me.LblCadastro)
         Me.Panel_Desc.Controls.Add(Me.TxtDesc)
         Me.Panel_Desc.Controls.Add(Me.GbQtd)
         Me.Panel_Desc.Controls.Add(Me.TxtTag)
@@ -1385,16 +1385,15 @@ Partial Class Frm_Inventário
         Me.TxtDesc.TabIndex = 14
         Me.TxtDesc.Text = ""
         '
-        'Label14
+        'LblCadastro
         '
-        Me.Label14.AutoSize = True
-        Me.Label14.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label14.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.Label14.Location = New System.Drawing.Point(561, 269)
-        Me.Label14.Name = "Label14"
-        Me.Label14.Size = New System.Drawing.Size(62, 13)
-        Me.Label14.TabIndex = 49
-        Me.Label14.Text = "Individual"
+        Me.LblCadastro.AutoSize = True
+        Me.LblCadastro.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LblCadastro.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.LblCadastro.Location = New System.Drawing.Point(561, 269)
+        Me.LblCadastro.Name = "LblCadastro"
+        Me.LblCadastro.Size = New System.Drawing.Size(0, 13)
+        Me.LblCadastro.TabIndex = 49
         '
         'LblNomeCadastro
         '
@@ -1564,6 +1563,6 @@ Partial Class Frm_Inventário
     Friend WithEvents Panel_Desc As Panel
     Public WithEvents PB_Excel As ProgressBar
     Friend WithEvents TxtDesc As RichTextBox
-    Friend WithEvents Label14 As Label
+    Friend WithEvents LblCadastro As Label
     Friend WithEvents LblNomeCadastro As Label
 End Class
