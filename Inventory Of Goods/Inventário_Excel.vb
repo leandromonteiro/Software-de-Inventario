@@ -1228,13 +1228,15 @@ Public Class Inventário_Excel
             'Inserir linhas
             For i = 0 To Linhas - 1
                 For j = 0 To DS.Tables(0).Columns.Count - 1
-                    'Colocar '0 nos cod atributos
-                    If InStr(1, DS.Tables(0).Rows(i).Item(j).ToString, "=") = 1 Then
-                        DS.Tables(0).Rows(i).Item(j) = "'" & DS.Tables(0).Rows(i).Item(j)
-                    End If
                     'Colunas anteriores
                     If j <= 32 Then
-                        Sh_T.Cells(i + 2, j + 1) = DS.Tables(0).Rows(i).Item(j)
+                        'Colocar '0 nos cod atributos
+                        If j = 9 Or j = 13 Or j = 15 Or j = 17 Or j = 19 Or j = 21 Then
+                            Sh_T.Cells(i + 2, j + 1) = "'" & DS.Tables(0).Rows(i).Item(j)
+                        Else
+                            Sh_T.Cells(i + 2, j + 1) = DS.Tables(0).Rows(i).Item(j)
+                        End If
+
                     End If
                     'TAG
                     If j = 33 Then
