@@ -58,26 +58,26 @@
             Frm_Inventário.TxtFabricante.Text = IIf(IsDBNull(DGV_Consulta.Item(30, e.RowIndex).Value), "", DGV_Consulta.Item(30, e.RowIndex).Value)
             Frm_Inventário.TxtModelo.Text = IIf(IsDBNull(DGV_Consulta.Item(31, e.RowIndex).Value), "", DGV_Consulta.Item(31, e.RowIndex).Value)
             Frm_Inventário.TxtSerie.Text = IIf(IsDBNull(DGV_Consulta.Item(32, e.RowIndex).Value), "", DGV_Consulta.Item(32, e.RowIndex).Value)
-            Frm_Inventário.TxtObs.Text = IIf(IsDBNull(DGV_Consulta.Item(34, e.RowIndex).Value), "", DGV_Consulta.Item(34, e.RowIndex).Value)
-            Frm_Inventário.TxtQtd.Text = DGV_Consulta.Item(35, e.RowIndex).Value
-            Frm_Inventário.CmbUm.Text = DGV_Consulta.Item(36, e.RowIndex).Value
-            Frm_Inventário.CmbAno.Text = IIf(IsDBNull(DGV_Consulta.Item(37, e.RowIndex).Value), "", DGV_Consulta.Item(37, e.RowIndex).Value)
-            Frm_Inventário.CmbMes.Text = IIf(IsDBNull(DGV_Consulta.Item(38, e.RowIndex).Value), "", DGV_Consulta.Item(38, e.RowIndex).Value)
-            Frm_Inventário.CmbDia.Text = IIf(IsDBNull(DGV_Consulta.Item(39, e.RowIndex).Value), "", DGV_Consulta.Item(39, e.RowIndex).Value)
-            Frm_Inventário.CmbStatus.Text = DGV_Consulta.Item(40, e.RowIndex).Value
-            Frm_Inventário.CmbEstado.Text = DGV_Consulta.Item(41, e.RowIndex).Value
-            Frm_Inventário.TxtAltura.Text = IIf(IsDBNull(DGV_Consulta.Item(42, e.RowIndex).Value), "", DGV_Consulta.Item(42, e.RowIndex).Value)
-            Frm_Inventário.TxtLargura.Text = IIf(IsDBNull(DGV_Consulta.Item(43, e.RowIndex).Value), "", DGV_Consulta.Item(43, e.RowIndex).Value)
-            Frm_Inventário.TxtComprimento.Text = IIf(IsDBNull(DGV_Consulta.Item(44, e.RowIndex).Value), "", DGV_Consulta.Item(44, e.RowIndex).Value)
-            Frm_Inventário.TxtArea.Text = IIf(IsDBNull(DGV_Consulta.Item(45, e.RowIndex).Value), "", DGV_Consulta.Item(45, e.RowIndex).Value)
-            Frm_Inventário.TxtPe.Text = IIf(IsDBNull(DGV_Consulta.Item(46, e.RowIndex).Value), "", DGV_Consulta.Item(46, e.RowIndex).Value)
-            Frm_Inventário.TxtObsCivil.Text = IIf(IsDBNull(DGV_Consulta.Item(48, e.RowIndex).Value), "", DGV_Consulta.Item(48, e.RowIndex).Value)
-            Frm_Inventário.TxtConsultor.Text = DGV_Consulta.Item(50, e.RowIndex).Value
-            Frm_Inventário.TxtLider.Text = DGV_Consulta.Item(51, e.RowIndex).Value
-            Frm_Inventário.TxtTag.Text = DGV_Consulta.Item(33, e.RowIndex).Value
-            Frm_Inventário.TxtEsforco.Text = DGV_Consulta.Item(47, e.RowIndex).Value
+            Frm_Inventário.TxtObs.Text = IIf(IsDBNull(DGV_Consulta.Item(33, e.RowIndex).Value), "", DGV_Consulta.Item(33, e.RowIndex).Value)
+            Frm_Inventário.TxtQtd.Text = DGV_Consulta.Item(34, e.RowIndex).Value
+            Frm_Inventário.CmbUm.Text = DGV_Consulta.Item(35, e.RowIndex).Value
+            Frm_Inventário.CmbAno.Text = IIf(IsDBNull(DGV_Consulta.Item(36, e.RowIndex).Value), "", DGV_Consulta.Item(36, e.RowIndex).Value)
+            Frm_Inventário.CmbMes.Text = IIf(IsDBNull(DGV_Consulta.Item(37, e.RowIndex).Value), "", DGV_Consulta.Item(37, e.RowIndex).Value)
+            Frm_Inventário.CmbDia.Text = IIf(IsDBNull(DGV_Consulta.Item(38, e.RowIndex).Value), "", DGV_Consulta.Item(38, e.RowIndex).Value)
+            Frm_Inventário.CmbStatus.Text = DGV_Consulta.Item(39, e.RowIndex).Value
+            Frm_Inventário.CmbEstado.Text = DGV_Consulta.Item(40, e.RowIndex).Value
+            Frm_Inventário.TxtAltura.Text = IIf(IsDBNull(DGV_Consulta.Item(41, e.RowIndex).Value), "", DGV_Consulta.Item(41, e.RowIndex).Value)
+            Frm_Inventário.TxtLargura.Text = IIf(IsDBNull(DGV_Consulta.Item(42, e.RowIndex).Value), "", DGV_Consulta.Item(42, e.RowIndex).Value)
+            Frm_Inventário.TxtComprimento.Text = IIf(IsDBNull(DGV_Consulta.Item(43, e.RowIndex).Value), "", DGV_Consulta.Item(43, e.RowIndex).Value)
+            Frm_Inventário.TxtArea.Text = IIf(IsDBNull(DGV_Consulta.Item(44, e.RowIndex).Value), "", DGV_Consulta.Item(44, e.RowIndex).Value)
+            Frm_Inventário.TxtPe.Text = IIf(IsDBNull(DGV_Consulta.Item(45, e.RowIndex).Value), "", DGV_Consulta.Item(45, e.RowIndex).Value)
+            Frm_Inventário.TxtObsCivil.Text = IIf(IsDBNull(DGV_Consulta.Item(46, e.RowIndex).Value), "", DGV_Consulta.Item(46, e.RowIndex).Value)
+            Frm_Inventário.TxtConsultor.Text = DGV_Consulta.Item(47, e.RowIndex).Value
+            Frm_Inventário.TxtLider.Text = DGV_Consulta.Item(48, e.RowIndex).Value
+            Frm_Inventário.TxtTag.Text = DGV_Consulta.Item(50, e.RowIndex).Value
+            Frm_Inventário.TxtEsforco.Text = DGV_Consulta.Item(51, e.RowIndex).Value
 
-            Texto_Foto = DGV_Consulta.Item(49, e.RowIndex).Value
+            Texto_Foto = DGV_Consulta.Item(52, e.RowIndex).Value
         Catch
         End Try
         Frm_Inventário.A_Fotos_Inventario.Clear()

@@ -22,7 +22,7 @@ Public Class Inventário_Excel
             Return Contar_Cadastro_TUC_TI_A3
 
         Catch
-            MsgBox("Erro ao contar dados de Contar_Cadastro_TUC_TI_A3", MsgBoxStyle.Critical)
+            'MsgBox("Erro ao contar dados de Contar_Cadastro_TUC_TI_A3", MsgBoxStyle.Critical)
             Return Nothing
         End Try
     End Function
@@ -66,7 +66,7 @@ Public Class Inventário_Excel
             Return Contar_Cadastro_TUC_A3
 
         Catch
-            MsgBox("Erro ao contar dados de Contar_Cadastro_TUC_A3", MsgBoxStyle.Critical)
+            'MsgBox("Erro ao contar dados de Contar_Cadastro_TUC_A3", MsgBoxStyle.Critical)
             Return Nothing
         End Try
     End Function
@@ -110,7 +110,7 @@ Public Class Inventário_Excel
             Return Contar_Cadastro_TUC_TI_A2
 
         Catch
-            MsgBox("Erro ao contar dados de Contar_Cadastro_TUC_TI_A2", MsgBoxStyle.Critical)
+            'MsgBox("Erro ao contar dados de Contar_Cadastro_TUC_TI_A2", MsgBoxStyle.Critical)
             Return Nothing
         End Try
     End Function
@@ -154,7 +154,7 @@ Public Class Inventário_Excel
             Return Contar_Cadastro_TUC_A2
 
         Catch
-            MsgBox("Erro ao contar dados de Contar_Cadastro_TUC_A2", MsgBoxStyle.Critical)
+            'MsgBox("Erro ao contar dados de Contar_Cadastro_TUC_A2", MsgBoxStyle.Critical)
             Return Nothing
         End Try
     End Function
@@ -198,7 +198,7 @@ Public Class Inventário_Excel
             Return Contar_Cadastro_TUC_A1_A2
 
         Catch
-            MsgBox("Erro ao contar dados de Contar_Cadastro_TUC_A1_A2", MsgBoxStyle.Critical)
+            'MsgBox("Erro ao contar dados de Contar_Cadastro_TUC_A1_A2", MsgBoxStyle.Critical)
             Return Nothing
         End Try
     End Function
@@ -242,7 +242,7 @@ Public Class Inventário_Excel
             Return Contar_Cadastro_TUC_TI
 
         Catch
-            MsgBox("Erro ao contar dados de Contar_Cadastro_TUC_TI", MsgBoxStyle.Critical)
+            'MsgBox("Erro ao contar dados de Contar_Cadastro_TUC_TI", MsgBoxStyle.Critical)
             Return Nothing
         End Try
     End Function
@@ -286,7 +286,7 @@ Public Class Inventário_Excel
             Return Contar_Cadastro_TUC
 
         Catch
-            MsgBox("Erro ao contar dados de Contar_Cadastro_TUC", MsgBoxStyle.Critical)
+            'MsgBox("Erro ao contar dados de Contar_Cadastro_TUC", MsgBoxStyle.Critical)
             Return Nothing
         End Try
     End Function
@@ -330,7 +330,7 @@ Public Class Inventário_Excel
             Return Contar_Unidade_A3
 
         Catch
-            MsgBox("Erro ao contar dados de Unidade A3", MsgBoxStyle.Critical)
+            'MsgBox("Erro ao contar dados de Unidade A3", MsgBoxStyle.Critical)
             Return Nothing
         End Try
     End Function
@@ -352,7 +352,7 @@ Public Class Inventário_Excel
             Return Contar_Unidade_TUC
 
         Catch
-            MsgBox("Erro ao contar dados de Unidade TUC", MsgBoxStyle.Critical)
+            'MsgBox("Erro ao contar dados de Unidade TUC", MsgBoxStyle.Critical)
             Return Nothing
         End Try
     End Function
@@ -396,7 +396,7 @@ Public Class Inventário_Excel
             Return Contar_Unidade_A1
 
         Catch
-            MsgBox("Erro ao contar dados de Unidade A1", MsgBoxStyle.Critical)
+            'MsgBox("Erro ao contar dados de Unidade A1", MsgBoxStyle.Critical)
             Return Nothing
         End Try
     End Function
@@ -462,7 +462,7 @@ Public Class Inventário_Excel
             Return Contar_Unidade_A4
 
         Catch
-            MsgBox("Erro ao contar dados de Unidade A4", MsgBoxStyle.Critical)
+            'MsgBox("Erro ao contar dados de Unidade A4", MsgBoxStyle.Critical)
             Return Nothing
         End Try
     End Function
