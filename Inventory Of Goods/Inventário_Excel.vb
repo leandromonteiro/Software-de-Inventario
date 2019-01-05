@@ -1228,15 +1228,46 @@ Public Class Inventário_Excel
             'Inserir linhas
             For i = 0 To Linhas - 1
                 For j = 0 To DS.Tables(0).Columns.Count - 1
+                    'Colocar '0 nos cod atributos
                     If InStr(1, DS.Tables(0).Rows(i).Item(j).ToString, "=") = 1 Then
                         DS.Tables(0).Rows(i).Item(j) = "'" & DS.Tables(0).Rows(i).Item(j)
                     End If
-                    If j = 52 Then
-                        Sh_T.Cells(i + 2, j + 1) = DS.Tables(0).Rows(i).Item(j).ToString.Replace(".bmp", "").Replace(".jpg", "").Replace(".png", "").Replace("|", ", ")
-                    Else
+                    'Colunas anteriores
+                    If j <= 32 Then
                         Sh_T.Cells(i + 2, j + 1) = DS.Tables(0).Rows(i).Item(j)
                     End If
-
+                    'TAG
+                    If j = 33 Then
+                        Sh_T.Cells(i + 2, j + 1) = DS.Tables(0).Rows(i).Item(50)
+                    End If
+                    'Meio
+                    If j >= 34 And j <= 46 Then
+                        Sh_T.Cells(i + 2, j + 1) = DS.Tables(0).Rows(i).Item(j - 1)
+                    End If
+                    'Esforço
+                    If j = 47 Then
+                        Sh_T.Cells(i + 2, j + 1) = DS.Tables(0).Rows(i).Item(51)
+                    End If
+                    'Obs. Civil
+                    If j = 48 Then
+                        Sh_T.Cells(i + 2, j + 1) = DS.Tables(0).Rows(i).Item(46)
+                    End If
+                    'fotos
+                    If j = 49 Then
+                        Sh_T.Cells(i + 2, j + 1) = DS.Tables(0).Rows(i).Item(52).ToString.Replace(".bmp", "").Replace(".jpg", "").Replace(".png", "").Replace("|", ", ")
+                    End If
+                    'Consultor, líder, data hora
+                    If j = 50 Then
+                        Sh_T.Cells(i + 2, j + 1) = DS.Tables(0).Rows(i).Item(47)
+                    End If
+                    If j = 51 Then
+                        Sh_T.Cells(i + 2, j + 1) = DS.Tables(0).Rows(i).Item(48)
+                    End If
+                    If j = 52 Then
+                        Sh_T.Cells(i + 2, j + 1) = Mid(DS.Tables(0).Rows(i).Item(49), 4, 2) & "/" &
+                            Mid(DS.Tables(0).Rows(i).Item(49), 1, 2) & "/" &
+                            Mid(DS.Tables(0).Rows(i).Item(49), 7, 4) & " " & Mid(DS.Tables(0).Rows(i).Item(49), 12, 10)
+                    End If
                 Next
                 Frm_Inventário.PB_Excel.Value = ((i + 1) / Linhas) * 100
             Next
