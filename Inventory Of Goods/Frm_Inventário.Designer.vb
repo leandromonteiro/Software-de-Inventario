@@ -169,7 +169,7 @@ Partial Class Frm_Inventário
         Me.TabControl1.Location = New System.Drawing.Point(6, 5)
         Me.TabControl1.Name = "TabControl1"
         Me.TabControl1.SelectedIndex = 0
-        Me.TabControl1.Size = New System.Drawing.Size(907, 543)
+        Me.TabControl1.Size = New System.Drawing.Size(907, 569)
         Me.TabControl1.TabIndex = 1
         '
         'TpLocal
@@ -288,7 +288,7 @@ Partial Class Frm_Inventário
         Me.TpDesc.Location = New System.Drawing.Point(4, 22)
         Me.TpDesc.Name = "TpDesc"
         Me.TpDesc.Padding = New System.Windows.Forms.Padding(3)
-        Me.TpDesc.Size = New System.Drawing.Size(899, 517)
+        Me.TpDesc.Size = New System.Drawing.Size(899, 543)
         Me.TpDesc.TabIndex = 1
         Me.TpDesc.Text = "Descrição"
         Me.TpDesc.UseVisualStyleBackColor = True
@@ -348,7 +348,7 @@ Partial Class Frm_Inventário
         Me.Panel_Desc.Location = New System.Drawing.Point(-5, 6)
         Me.Panel_Desc.Margin = New System.Windows.Forms.Padding(2)
         Me.Panel_Desc.Name = "Panel_Desc"
-        Me.Panel_Desc.Size = New System.Drawing.Size(899, 522)
+        Me.Panel_Desc.Size = New System.Drawing.Size(899, 548)
         Me.Panel_Desc.TabIndex = 48
         '
         'LblNomeCadastro
@@ -1243,7 +1243,7 @@ Partial Class Frm_Inventário
         '
         Me.BtnCopiar.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.BtnCopiar.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.BtnCopiar.Location = New System.Drawing.Point(773, 589)
+        Me.BtnCopiar.Location = New System.Drawing.Point(773, 615)
         Me.BtnCopiar.Name = "BtnCopiar"
         Me.BtnCopiar.Size = New System.Drawing.Size(136, 37)
         Me.BtnCopiar.TabIndex = 5
@@ -1254,7 +1254,7 @@ Partial Class Frm_Inventário
         '
         Me.BtnSalvar.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.BtnSalvar.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.BtnSalvar.Location = New System.Drawing.Point(684, 589)
+        Me.BtnSalvar.Location = New System.Drawing.Point(684, 615)
         Me.BtnSalvar.Name = "BtnSalvar"
         Me.BtnSalvar.Size = New System.Drawing.Size(83, 37)
         Me.BtnSalvar.TabIndex = 4
@@ -1266,7 +1266,7 @@ Partial Class Frm_Inventário
         Me.BtnConsultar.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.BtnConsultar.Cursor = System.Windows.Forms.Cursors.Hand
         Me.BtnConsultar.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnConsultar.Location = New System.Drawing.Point(3, 557)
+        Me.BtnConsultar.Location = New System.Drawing.Point(3, 583)
         Me.BtnConsultar.Name = "BtnConsultar"
         Me.BtnConsultar.Size = New System.Drawing.Size(907, 23)
         Me.BtnConsultar.TabIndex = 8
@@ -1278,7 +1278,7 @@ Partial Class Frm_Inventário
         Me.Label10.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.Label10.AutoSize = True
         Me.Label10.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label10.Location = New System.Drawing.Point(16, 586)
+        Me.Label10.Location = New System.Drawing.Point(16, 612)
         Me.Label10.Name = "Label10"
         Me.Label10.Size = New System.Drawing.Size(110, 13)
         Me.Label10.TabIndex = 10
@@ -1287,7 +1287,7 @@ Partial Class Frm_Inventário
         'TxtConsultor
         '
         Me.TxtConsultor.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.TxtConsultor.Location = New System.Drawing.Point(132, 585)
+        Me.TxtConsultor.Location = New System.Drawing.Point(132, 611)
         Me.TxtConsultor.MaxLength = 50
         Me.TxtConsultor.Name = "TxtConsultor"
         Me.TxtConsultor.Size = New System.Drawing.Size(436, 20)
@@ -1296,7 +1296,7 @@ Partial Class Frm_Inventário
         'TxtLider
         '
         Me.TxtLider.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.TxtLider.Location = New System.Drawing.Point(132, 611)
+        Me.TxtLider.Location = New System.Drawing.Point(132, 637)
         Me.TxtLider.MaxLength = 50
         Me.TxtLider.Name = "TxtLider"
         Me.TxtLider.Size = New System.Drawing.Size(436, 20)
@@ -1307,7 +1307,7 @@ Partial Class Frm_Inventário
         Me.Label11.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.Label11.AutoSize = True
         Me.Label11.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label11.Location = New System.Drawing.Point(16, 612)
+        Me.Label11.Location = New System.Drawing.Point(16, 638)
         Me.Label11.Name = "Label11"
         Me.Label11.Size = New System.Drawing.Size(87, 13)
         Me.Label11.TabIndex = 12
@@ -1331,14 +1331,14 @@ Partial Class Frm_Inventário
         Me.Panel_I.Controls.Add(Me.Label11)
         Me.Panel_I.Location = New System.Drawing.Point(12, 27)
         Me.Panel_I.Name = "Panel_I"
-        Me.Panel_I.Size = New System.Drawing.Size(1045, 660)
+        Me.Panel_I.Size = New System.Drawing.Size(1045, 686)
         Me.Panel_I.TabIndex = 13
         '
         'BtnS_Multi
         '
         Me.BtnS_Multi.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.BtnS_Multi.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.BtnS_Multi.Location = New System.Drawing.Point(595, 589)
+        Me.BtnS_Multi.Location = New System.Drawing.Point(595, 615)
         Me.BtnS_Multi.Name = "BtnS_Multi"
         Me.BtnS_Multi.Size = New System.Drawing.Size(83, 37)
         Me.BtnS_Multi.TabIndex = 13
