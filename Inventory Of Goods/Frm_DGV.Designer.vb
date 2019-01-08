@@ -27,8 +27,8 @@ Partial Class Frm_DGV
         Me.DGV_Consulta = New System.Windows.Forms.DataGridView()
         Me.CMS_DGV = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.ExcluirDadosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.LblLinhas = New System.Windows.Forms.Label()
         Me.CopiarDadosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.LblLinhas = New System.Windows.Forms.Label()
         CType(Me.DGV_Consulta, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.CMS_DGV.SuspendLayout()
         Me.SuspendLayout()
@@ -42,12 +42,11 @@ Partial Class Frm_DGV
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.DGV_Consulta.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
         Me.DGV_Consulta.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DGV_Consulta.Location = New System.Drawing.Point(16, 15)
-        Me.DGV_Consulta.Margin = New System.Windows.Forms.Padding(4)
+        Me.DGV_Consulta.Location = New System.Drawing.Point(12, 12)
         Me.DGV_Consulta.Name = "DGV_Consulta"
         Me.DGV_Consulta.ReadOnly = True
         Me.DGV_Consulta.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DGV_Consulta.Size = New System.Drawing.Size(1143, 520)
+        Me.DGV_Consulta.Size = New System.Drawing.Size(857, 422)
         Me.DGV_Consulta.TabIndex = 8
         '
         'CMS_DGV
@@ -55,39 +54,39 @@ Partial Class Frm_DGV
         Me.CMS_DGV.ImageScalingSize = New System.Drawing.Size(20, 20)
         Me.CMS_DGV.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ExcluirDadosToolStripMenuItem, Me.CopiarDadosToolStripMenuItem})
         Me.CMS_DGV.Name = "CMS_DGV"
-        Me.CMS_DGV.Size = New System.Drawing.Size(176, 80)
+        Me.CMS_DGV.Size = New System.Drawing.Size(146, 48)
         '
         'ExcluirDadosToolStripMenuItem
         '
         Me.ExcluirDadosToolStripMenuItem.Name = "ExcluirDadosToolStripMenuItem"
-        Me.ExcluirDadosToolStripMenuItem.Size = New System.Drawing.Size(175, 24)
+        Me.ExcluirDadosToolStripMenuItem.Size = New System.Drawing.Size(145, 22)
         Me.ExcluirDadosToolStripMenuItem.Text = "Excluir Dados"
-        '
-        'LblLinhas
-        '
-        Me.LblLinhas.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.LblLinhas.Location = New System.Drawing.Point(952, 545)
-        Me.LblLinhas.Name = "LblLinhas"
-        Me.LblLinhas.Size = New System.Drawing.Size(207, 23)
-        Me.LblLinhas.TabIndex = 9
-        Me.LblLinhas.Text = "Total de Registros: 0"
-        Me.LblLinhas.TextAlign = System.Drawing.ContentAlignment.TopRight
         '
         'CopiarDadosToolStripMenuItem
         '
         Me.CopiarDadosToolStripMenuItem.Name = "CopiarDadosToolStripMenuItem"
-        Me.CopiarDadosToolStripMenuItem.Size = New System.Drawing.Size(175, 24)
+        Me.CopiarDadosToolStripMenuItem.Size = New System.Drawing.Size(145, 22)
         Me.CopiarDadosToolStripMenuItem.Text = "Copiar Dados"
+        '
+        'LblLinhas
+        '
+        Me.LblLinhas.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.LblLinhas.Location = New System.Drawing.Point(714, 443)
+        Me.LblLinhas.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.LblLinhas.Name = "LblLinhas"
+        Me.LblLinhas.Size = New System.Drawing.Size(155, 19)
+        Me.LblLinhas.TabIndex = 9
+        Me.LblLinhas.Text = "Total de Registros: 0"
+        Me.LblLinhas.TextAlign = System.Drawing.ContentAlignment.TopRight
         '
         'Frm_DGV
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1175, 571)
+        Me.ClientSize = New System.Drawing.Size(881, 464)
         Me.Controls.Add(Me.LblLinhas)
         Me.Controls.Add(Me.DGV_Consulta)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
-        Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "Frm_DGV"
         Me.Text = "Consulta"
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized

@@ -227,6 +227,13 @@ Public Class Frm_Inventário
 
     Private Sub FrmInventario_Novo_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
+        I_E.Buscar_Data_Limite()
+
+        If I_E.DTExpira.Rows(0)(0) <= Today Then
+            MsgBox("Data Expirada para Uso do Software. Contate o administrador.", vbCritical)
+            Application.Exit()
+        End If
+
         Panel_Picture_Consulta.Controls.Add(PictureBox_Consulta)
         ID = I_E.Buscar_Ultimo_ID() + 1
         TxtSeq_Civil.Text = ID
@@ -804,4 +811,13 @@ Public Class Frm_Inventário
         V_Atual_TB = TB.Value
     End Sub
 
+    Private Sub LicensaToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles LicensaToolStripMenuItem.Click
+        Dim Senha As String
+        Senha = InputBox("Digita a Senha de Administrador:", "Senha")
+        If Senha <> "@t0M05I" Then
+            MsgBox("Senha Incorreta.", vbCritical)
+        Else
+            FrmData.Show()
+        End If
+    End Sub
 End Class

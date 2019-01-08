@@ -98,6 +98,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class_Inventario.vb" />
+    <Compile Include="FrmData.Designer.vb">
+      <DependentUpon>FrmData.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmData.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Frm_DGV.Designer.vb">
       <DependentUpon>Frm_DGV.vb</DependentUpon>
     </Compile>
@@ -134,6 +140,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="FrmData.resx">
+      <DependentUpon>FrmData.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Frm_DGV.resx">
       <DependentUpon>Frm_DGV.vb</DependentUpon>
     </EmbeddedResource>
@@ -175,6 +184,7 @@
   <ItemGroup>
     <Content Include="Imagens\icone_atomosconsultoria.ico" />
     <Content Include="Imagens\Inventory.ico" />
+    <Content Include="Imagens\logovertical_fundo_claro.png" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">

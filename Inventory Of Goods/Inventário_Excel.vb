@@ -4,6 +4,45 @@ Imports Microsoft.Office.Interop
 Public Class Inventário_Excel
     Dim connstr As String = "Data Source=C:\Users\Public\INVENTARIO.db;;Version=3;New=True;Compress=True;Pooling=True"
     Public DS As New DataSet
+    Public DTExpira As New DataTable
+
+    Public Sub Buscar_Data_Limite()
+        Try
+            Dim connection As New SQLite.SQLiteConnection(connstr)
+            connection.Open()
+            Dim DA As New SQLite.SQLiteDataAdapter("select Data from DataLimite;", connection)
+            DTExpira.Clear()
+            DA.Fill(DTExpira)
+            DA.Dispose()
+            connection.Close()
+            connection.Dispose()
+
+        Catch
+            MsgBox("Erro ao buscar data limite", MsgBoxStyle.Critical)
+        End Try
+    End Sub
+
+    Public Sub Update_Data_Limite(DTP As DateTimePicker)
+        Try
+            Using connection As New SQLite.SQLiteConnection(connstr)
+                SQLite.SQLiteConnection.ClearAllPools()
+                Dim cmd As New SQLite.SQLiteCommand
+                If connection.State = ConnectionState.Closed Then
+                    connection.Open()
+                End If
+                cmd.Connection = connection
+                cmd.CommandText = "update DataLimite set Data='" & DTP.Value.ToShortDateString & "' where ID=1;"
+
+                cmd.ExecuteNonQuery()
+                cmd.Dispose()
+                connection.Close()
+                connection.Dispose()
+            End Using
+            MsgBox("Dados Salvos com Sucesso", MsgBoxStyle.Information)
+        Catch
+            MsgBox("Erro ao atualizar dados", MsgBoxStyle.Critical)
+        End Try
+    End Sub
 
     Public Function Contar_Cadastro_TUC_TI_A3(TUC As String, TI As String, A3 As String) As Integer
         Try

@@ -17,7 +17,7 @@
         Version.Text = System.String.Format(Version.Text, My.Application.Info.Version.Major, My.Application.Info.Version.Minor)
 
         'Informação de Copyright
-        Copyright.Text = My.Application.Info.Copyright
+        'Copyright.Text = My.Application.Info.Copyright
 
         'Limite de tempo
         If Today.Day >= 1 And Today.Month >= 6 And Today.Year >= 2018 Then
