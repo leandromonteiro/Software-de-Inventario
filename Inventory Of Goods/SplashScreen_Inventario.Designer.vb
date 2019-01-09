@@ -13,7 +13,6 @@ Partial Class SplashScreen_Inventario
             MyBase.Dispose(disposing)
         End Try
     End Sub
-    Friend WithEvents ApplicationTitle As System.Windows.Forms.Label
     Friend WithEvents MainLayoutPanel As System.Windows.Forms.TableLayoutPanel
 
     'Exigido pelo Windows Form Designer
@@ -26,7 +25,6 @@ Partial Class SplashScreen_Inventario
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(SplashScreen_Inventario))
         Me.MainLayoutPanel = New System.Windows.Forms.TableLayoutPanel()
-        Me.ApplicationTitle = New System.Windows.Forms.Label()
         Me.Version = New System.Windows.Forms.Label()
         Me.MainLayoutPanel.SuspendLayout()
         Me.SuspendLayout()
@@ -39,10 +37,9 @@ Partial Class SplashScreen_Inventario
         Me.MainLayoutPanel.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 182.0!))
         Me.MainLayoutPanel.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 75.0!))
         Me.MainLayoutPanel.Controls.Add(Me.Version, 0, 2)
-        Me.MainLayoutPanel.Controls.Add(Me.ApplicationTitle, 0, 0)
         Me.MainLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill
         Me.MainLayoutPanel.Location = New System.Drawing.Point(0, 0)
-        Me.MainLayoutPanel.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.MainLayoutPanel.Margin = New System.Windows.Forms.Padding(2)
         Me.MainLayoutPanel.Name = "MainLayoutPanel"
         Me.MainLayoutPanel.RowCount = 3
         Me.MainLayoutPanel.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 177.0!))
@@ -51,20 +48,6 @@ Partial Class SplashScreen_Inventario
         Me.MainLayoutPanel.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
         Me.MainLayoutPanel.Size = New System.Drawing.Size(476, 315)
         Me.MainLayoutPanel.TabIndex = 0
-        '
-        'ApplicationTitle
-        '
-        Me.ApplicationTitle.BackColor = System.Drawing.Color.Transparent
-        Me.ApplicationTitle.Dock = System.Windows.Forms.DockStyle.Left
-        Me.ApplicationTitle.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ApplicationTitle.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.ApplicationTitle.Location = New System.Drawing.Point(2, 0)
-        Me.ApplicationTitle.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
-        Me.ApplicationTitle.Name = "ApplicationTitle"
-        Me.ApplicationTitle.Size = New System.Drawing.Size(178, 177)
-        Me.ApplicationTitle.TabIndex = 0
-        Me.ApplicationTitle.Text = "Inventário Aneel"
-        Me.ApplicationTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'Version
         '
@@ -87,7 +70,7 @@ Partial Class SplashScreen_Inventario
         Me.ControlBox = False
         Me.Controls.Add(Me.MainLayoutPanel)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
-        Me.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.Margin = New System.Windows.Forms.Padding(2)
         Me.MaximizeBox = False
         Me.MinimizeBox = False
         Me.Name = "SplashScreen_Inventario"

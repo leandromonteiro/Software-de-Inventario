@@ -6,13 +6,13 @@
 
     Private Sub SplashScreen_Inventario_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
 
-        'Título da Aplicação
-        If My.Application.Info.Title <> "" Then
-            ApplicationTitle.Text = My.Application.Info.Title
-        Else
-            'Se o título da aplicação estiver faltando, utiliza o nome da aplicação sem a extensão
-            ApplicationTitle.Text = System.IO.Path.GetFileNameWithoutExtension(My.Application.Info.AssemblyName)
-        End If
+        ''Título da Aplicação
+        'If My.Application.Info.Title <> "" Then
+        '    ApplicationTitle.Text = My.Application.Info.Title
+        'Else
+        '    'Se o título da aplicação estiver faltando, utiliza o nome da aplicação sem a extensão
+        '    ApplicationTitle.Text = System.IO.Path.GetFileNameWithoutExtension(My.Application.Info.AssemblyName)
+        'End If
 
         Version.Text = System.String.Format(Version.Text, My.Application.Info.Version.Major, My.Application.Info.Version.Minor)
 
