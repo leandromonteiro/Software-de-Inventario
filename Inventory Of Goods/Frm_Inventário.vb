@@ -524,6 +524,27 @@ Public Class Frm_Inventário
             Foto = ""
         End If
 
+        If A2 = "" Then
+            A2 = "00"
+        End If
+
+        If A3 = "" Then
+            A3 = "00"
+        End If
+
+        If A4 = "" Then
+            A4 = "00"
+        End If
+
+        If A5 = "" Then
+            A5 = "00"
+        End If
+
+        If A6 = "" Then
+            A6 = "00"
+        End If
+
+
         'Se o ID do cadastro já existir, faça o Update, senão Insert
         If ID <= I_E.Buscar_Ultimo_ID Then
             I_E.Update_Inventario(ID, Sequencial, TxtLocal.Text, TxtODI.Text, TI, CmbTI.Text, TxtBay.Text, TUC, CmbTUC.Text, A1, CmbA1.Text,
@@ -609,6 +630,26 @@ Public Class Frm_Inventário
         End If
         If TxtEsforco.Text = "" Then
             TxtEsforco.Text = 0
+        End If
+
+        If A2 = "" Then
+            A2 = "00"
+        End If
+
+        If A3 = "" Then
+            A3 = "00"
+        End If
+
+        If A4 = "" Then
+            A4 = "00"
+        End If
+
+        If A5 = "" Then
+            A5 = "00"
+        End If
+
+        If A6 = "" Then
+            A6 = "00"
         End If
 
         'Arrumar foto
