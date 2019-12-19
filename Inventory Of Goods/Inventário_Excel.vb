@@ -817,14 +817,37 @@ Public Class Inventário_Excel
         End Try
     End Sub
 
-    Public Function Buscar_A2_A6(cmb As ComboBox)
+    Public Function Buscar_Cod_Tabela(tabela As String)
         Try
             Dim leitor As SQLite.SQLiteDataReader
             Dim connection As New SQLite.SQLiteConnection(connstr)
             Dim cmd As New SQLite.SQLiteCommand
             connection.Open()
             cmd.Connection = connection
-            cmd.CommandText = "select Cod_Atributos from DESC_TABELA where Descricao='" & cmb.Text & "';"
+            cmd.CommandText = "select cod_tabela from Tabela where tabela='" & tabela & "';"
+            leitor = cmd.ExecuteReader
+            leitor.Read()
+            Dim a As String
+            a = leitor("cod_tabela")
+            cmd.Dispose()
+            connection.Close()
+            connection.Dispose()
+            Return a
+
+        Catch
+            MsgBox("Erro ao buscar dados ", MsgBoxStyle.Critical)
+            Return 0
+        End Try
+    End Function
+
+    Public Function Buscar_A2_A6(cmb As ComboBox, Cod_Tabela As String)
+        Try
+            Dim leitor As SQLite.SQLiteDataReader
+            Dim connection As New SQLite.SQLiteConnection(connstr)
+            Dim cmd As New SQLite.SQLiteCommand
+            connection.Open()
+            cmd.Connection = connection
+            cmd.CommandText = "select Cod_Atributos from DESC_TABELA where Descricao='" & cmb.Text & "' and cod_tabela_geral='" & Cod_Tabela & "';"
             leitor = cmd.ExecuteReader
             leitor.Read()
             Dim a As String

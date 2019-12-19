@@ -386,7 +386,7 @@ Public Class Frm_Inventário
     End Sub
 
     Private Sub CmbA2_SelectedIndexChanged(sender As Object, e As EventArgs) Handles CmbA2.SelectedIndexChanged
-        A2 = I_E.Buscar_A2_A6(CmbA2)
+        A2 = I_E.Buscar_A2_A6(CmbA2, I_E.Buscar_Cod_Tabela(LblA2.Text))
         Colocar_Desc()
         'CADASTRO
         If I_E.Contar_Cadastro_TUC_A1_A2(TUC, A1, A2) = 1 Then
@@ -409,7 +409,7 @@ Public Class Frm_Inventário
     End Sub
 
     Private Sub CmbA3_SelectedIndexChanged(sender As Object, e As EventArgs) Handles CmbA3.SelectedIndexChanged
-        A3 = I_E.Buscar_A2_A6(CmbA3)
+        A3 = I_E.Buscar_A2_A6(CmbA3, I_E.Buscar_Cod_Tabela(LblA3.Text))
         Colocar_Desc()
         If I_E.Contar_Unidade_A3(TUC, A1, A3) = 1 Then
             CmbUm.Text = I_E.Unidade_A3(TUC, A1, A3)
@@ -429,7 +429,7 @@ Public Class Frm_Inventário
     End Sub
 
     Private Sub CmbA4_SelectedIndexChanged(sender As Object, e As EventArgs) Handles CmbA4.SelectedIndexChanged
-        A4 = I_E.Buscar_A2_A6(CmbA4)
+        A4 = I_E.Buscar_A2_A6(CmbA4, I_E.Buscar_Cod_Tabela(LblA4.Text))
         Colocar_Desc()
         If I_E.Contar_Unidade_A4(TUC, A4) = 1 Then
             CmbUm.Text = I_E.Unidade_A4(TUC, A4)
@@ -437,12 +437,12 @@ Public Class Frm_Inventário
     End Sub
 
     Private Sub CmbA5_SelectedIndexChanged(sender As Object, e As EventArgs) Handles CmbA5.SelectedIndexChanged
-        A5 = I_E.Buscar_A2_A6(CmbA5)
+        A5 = I_E.Buscar_A2_A6(CmbA5, I_E.Buscar_Cod_Tabela(LblA5.Text))
         Colocar_Desc()
     End Sub
 
     Private Sub CmbA6_SelectedIndexChanged(sender As Object, e As EventArgs) Handles CmbA6.SelectedIndexChanged
-        A6 = I_E.Buscar_A2_A6(CmbA6)
+        A6 = I_E.Buscar_A2_A6(CmbA6, I_E.Buscar_Cod_Tabela(LblA6.Text))
         Colocar_Desc()
     End Sub
 
